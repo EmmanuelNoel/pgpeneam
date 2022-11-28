@@ -29,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix">
     <!--logo start-->
     <div class="brand">
-        <a href="index.html" class="logo">
+        <a href="index.php" class="logo">
             PERSONNEL ENEAM
         </a>
         <div class="sidebar-toggle-box">
@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <li>
                 <input type="text" class="form-control search" placeholder=" Rechercher">
             </li>
-            <!-- user login dropdown start-->
+           <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 
@@ -63,52 +63,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     </header>
     <!--header end-->
-    <!--sidebar start-->
+<!--sidebar start-->
 <aside>
-    <div id="sidebar" class="nav-collapse">
-        <!-- sidebar menu start-->
-        <div class="leftside-navigation">
-            <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                    <a href="index.php">
-                        <i class="fa fa-home"></i>
-                        <span>Accueil</span>
-                    </a>
-                </li>
+  <div id="sidebar" class="nav-collapse">
+      <!-- sidebar menu start-->
+      <div class="leftside-navigation">
+          <ul class="sidebar-menu" id="nav-accordion">
+              <li>
+                  <a href="index.php">
+                      <i class="fa fa-home"></i>
+                      <span>Accueil</span>
+                  </a>
+              </li>
 
-				<li class="sub-menu dcjq-parent-li">
-                    <a class="dcjq-parent active" href="javascript:;">
-                        <i class="fa fa-th"></i>
-                        <span>Liste du personnel</span>
-                    <span class="dcjq-icon"></span></a>
-                    <ul class="sub" style="display: block;">
-                        <li><a href="tableadmin.php">Administration</a></li>
-                        <li><a class="active" href="tablens.php">Enseignant</a></li>
-                    </ul>
-                </li>
+      <li class="sub-menu dcjq-parent-li">
+                  <a class="dcjq-parent active" href="javascript:;">
+                      <i class="fa fa-th"></i>
+                      <span>Liste du personnel</span>
+                  <span class="dcjq-icon"></span></a>
+                  <ul class="sub" style="display: block;">
+                      <li><a class="" href="tableadmin.php">Administration</a></li>
+                      <li><a class="active" href="tablens.php">Enseignant</a></li>
+                  </ul>
+              </li>
 
-				<li>
-                    <a href="eagent.php">
-                        <i class="fa  fa-check-square"></i>
-                        <span>Enregistrer agent</span>
+      <li>
+                  <a href="eagent.php">
+                      <i class="fa  fa-check-square"></i>
+                      <span>Enregistrer agent</span>
+                  </a>
+              </li>
+
+      <li>
+                    <a href="contrat.php">
+                        <i class="fa fa-file-text-o"></i>
+                        <span>Editer contrat</span>
                     </a>
                 </li>
-				<!-- <li>
-                    <a href="login.php">
-                        <i class="fa fa-user"></i>
-                        <span>Connexion</span>
-                    </a>
-                </li> -->
-				<!-- <li>
-                    <a  href="registration.php">
-                        <i class="fa  fa-pencil-square-o"></i>
-                        <span>Inscription</span>
-                    </a>
-                </li> -->
-            </ul>
-		</div>
-        <!-- sidebar menu end-->
-    </div>
+          </ul>
+  </div>
+      <!-- sidebar menu end-->
+  </div>
 </aside>
 <!--sidebar end-->
 <!--main content start-->

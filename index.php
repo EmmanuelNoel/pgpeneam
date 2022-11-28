@@ -104,6 +104,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Enregistrer agent</span>
                     </a>
                 </li>
+
+				<li>
+                    <a href="contrat.php">
+                        <i class="fa fa-file-text-o"></i>
+                        <span>Editer contrat</span>
+                    </a>
+                </li>
 				
             </ul>
 		</div>
@@ -192,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- footer -->
 	<div class="footer">
 		<div class="wthree-copyright">
-		  <p>© Copyright 2022</p>
+		  <p>© Copyright ENEAM 2022</p>
 		</div>
 	</div>
 	<!-- / footer -->
