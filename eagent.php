@@ -1,18 +1,4 @@
-<?php
-	$matricule=$_POST['matricule'];
-	$nom=$_POST['nom'];
-	$prenom=$_POST['prenom'];
-	$categorie=$_POST['categorie'];
-	$date=$_POST['date'];
-	$cote=$_POST['cote'];
-	$file=$_POST['file'];
-	$service=$_POST['service'];
-
-	include('db.php');
-	$query=self::$connection->query("INSERT INTO agent VALUES () ")
-?>
-
-<!DOCTYPE html>
+git<!DOCTYPE html>
 
 <head>
 	<title>Plateforme de gestion du personnel de l'ENEAM</title>

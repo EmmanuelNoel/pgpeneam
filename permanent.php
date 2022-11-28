@@ -93,18 +93,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Enregistrer agent</span>
                     </a>
                 </li>
-				<!-- <li>
-                    <a href="login.php">
-                        <i class="fa fa-user"></i>
-                        <span>Connexion</span>
+                
+        <li>
+                    <a class="active" href="contrat.php">
+                        <i class="fa fa-file-text-o"></i>
+                        <span>Editer contrat</span>
                     </a>
-                </li> -->
-				<!-- <li>
-                    <a  href="registration.php">
-                        <i class="fa  fa-pencil-square-o"></i>
-                        <span>Inscription</span>
-                    </a>
-                </li> -->
+                </li>
             </ul>
 		</div>
         <!-- sidebar menu end-->
