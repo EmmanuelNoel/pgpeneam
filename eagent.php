@@ -1,4 +1,4 @@
-git<!DOCTYPE html>
+<!DOCTYPE html>
 
 <head>
 	<title>Plateforme de gestion du personnel de l'ENEAM</title>
