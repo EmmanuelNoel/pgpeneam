@@ -3254,13 +3254,12 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 
 .third {
     color: white;
-    font-size: 1.2em;
+    font-size: 1em;
     background: transparent;
     border: 1px solid snow;
     border-left: none;
     border-right: none;
     border-bottom: none;
-    
     padding: 2em;
 }
 
@@ -3271,7 +3270,7 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 
 .col-6{
     text-align: left;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .col-lg-6{
@@ -3292,25 +3291,7 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     width: 15%;
 }
 
-/* confirm page */
-
-.confirm-main{
-    margin: auto;
-    margin-top: 20em;
-    background: rgba(4, 35, 55, 0.678);
-    width: 30%;
-}
-
-.confirm-main i .fa.fa-check-square-o{
-    font-size: 40px;
-    color: white;
+/*Page d'édition de contrat*/
+.col-md-6{
     text-align: left;
-}
-
-.confirm{
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-size: 1em;
-
 }
