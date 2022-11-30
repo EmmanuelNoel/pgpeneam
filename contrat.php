@@ -55,69 +55,84 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <section class="third">
 
 
-                <div class="row">
+                <div class="row" style="margin-bottom: 7px; text-align: left">
 
-                    <div class="col-md-6">
-                        <label for="">Enseignant</label>
-                        <input type="text" class="form-control" placeholder="" name="" value="">
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;" >
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">Enseignant</label>
+                    </div>
+                        <input type="text" class="form-control" placeholder="" name="" value="" style="width: 450px; ">
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="">Classe</label>
-                        <select class="form-control " name="">
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">Classe</label>
+                    </div>
+                        <select class="form-control " name="" style="width: 450px; ">
                             <option value="" disabled="" selected="" hidden=""> </option>
                         </select>
                     </div>
 
                 </div>
 
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <label for="">Semestre</label>
-                        <select class="form-control " name="">
+                <div class="row" style="margin-bottom: 20px; text-align: left">
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">Semestre</label>
+                    </div>
+                        <select class="form-control " name="" style="width: 450px; ">
                             <option value="" disabled="" selected="" hidden=""> </option>
                         </select>
                     </div>
 
 
-                    <div class="col-md-6">
-                        <label for="">UE</label>
-                        <select class="form-control " name="">
-                            <option value="" disabled="" selected="" hidden=""> </option>
-                        </select>
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">UE</label>
                     </div>
-
-                </div>
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <label for="">ECUE</label>
-                        <select class="form-control " name="">
-                            <option value="" disabled="" selected="" hidden=""> </option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="">Masse horaire</label>
-                        <select class="form-control " name="">
+                        <select class="form-control " name="" style="width: 450px; ">
                             <option value="" disabled="" selected="" hidden=""> </option>
                         </select>
                     </div>
 
                 </div>
 
-                <div class="row">
+                <div class="row" style="margin-bottom: 20px; text-align: left">
 
-                    <div class="col-md-6">
-                        <label for="">Date début</label>
-                        <input type="date" name="date" id="date" class="form-control">
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">ECUE</label>
+                    </div>
+                        <select class="form-control " name="" style="width: 450px; ">
+                            <option value="" disabled="" selected="" hidden=""> </option>
+                        </select>
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="">Date fin</label>
-                        <input type="date" name="date" id="date" class="form-control">
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;" >
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">Masse horaire</label>
+                    </div>
+                        <select class="form-control " name="" style="width: 450px; ">
+                            <option value="" disabled="" selected="" hidden=""> </option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-bottom: 20px; text-align: left">
+
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">Date début</label>
+                    </div>
+                        <input type="date" name="date" id="date" class="form-control" style="width: 450px; ">
+                    </div>
+
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                    <div style="width: 150px;">
+                        <label for="" style="text-align: left; ">Date fin</label>
+                    </div>
+                        <input type="date" name="date" id="date" class="form-control" style="width: 450px; ">
                     </div>
 
                 </div>
