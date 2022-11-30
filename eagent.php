@@ -40,211 +40,160 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p>ENREGISTREMENT AGENT </p>
 
 			<section class="third">
-				<div class="container">
-
-					<div class="row justify-content-center">
-
-						<div class="col-lg-7 col-md-7 col-sm-12">
-							<div class="modal-body">
-								<div class="social-login center-tr">
-								</div>
-								<div class="login-form">
-									<form method="POST" action="eagent.php">
-										<input type="hidden" name="_token" value="">
-
-										<div class="form-group">
-											<div class="input-with-gray">
-												<label for="matricule" >Matricule</label>
-												<input type="text" class="form-control" placeholder="" name="matricule" value="">
-												<!-- <i class="ti-user"></i> -->
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="nom">Nom</label>
-											<div class="input-with-gray">
-
-												<input type="nom" name="nom" id="nom" class="form-control " placeholder="">
-												<!-- <i class="ti-nom"></i> -->
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="prenom">Prénom(s)</label>
-											<div class="input-with-gray">
-
-												<input type="prenom" name="prenom" id="prenom" class="form-control " placeholder="">
-												<!-- <i class="ti-prenom"></i> -->
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="categorie">Catégorie</label>
-											<div class="input-with-gray">
-
-												<select id="categorie" class="form-control " name="categorie">
-													<option value="" disabled="" selected="" hidden="">  </option>
-													<option value="ad">Administration</option>
-													<option value="en">Enseignant</option>
-												</select>
-												<!-- <i class="ti-user"></i> -->
-											</div>
-
-											<div class="form-group" id="postad-d" style="display: none;">
-											<label for="postead">Poste</label>
-											<div class="input-with-gray">
-
-													<select id="poste-ad" class="form-control " name="postead">
-
-														<option value="" disabled="" selected="" hidden="">  </option>
-														<option value="9">Non affecté à un poste</option>
-														<option value="8">Directeur Adjoint</option>
-														<option value="7">Assistant Directeur</option>
-														<option value="6">Sécrétaire Gérénale</option>
-														<option value="5">Chef Service Comptable</option>
-														<option value="4">Sécrétaire Comptable</option>
-														<option value="3">Chef de Départements</option>
-														<option value="2">Chef Adjoint de Départements</option>
-														<option value="1">Secrétaire Administratif</option>
-														<option value="0">Coordonnateur du CREAM</option>
-
-													</select>
-												<!-- <i class="ti-nom"></i> -->
-											</div>
-										</div>
-
-										<div class="form-group" id="posten-d" style="display: none;">
-											<label for="posten">Poste</label>
-											<div class="input-with-gray">
-
-													<select id="poste-en" class="form-control " name="posten" >
-
-														<option value="" disabled="" selected="" hidden="">  </option>
-														<option value="9">Non affecté à un poste</option>
-														<option value="8">Professeur d'Initiation à l'Algorithme</option>
-														<option value="7">Professeur de Structure de données</option>
-														<option value="6">Professeur de Base de données</option>
-														<option value="5">Professeur de Comptabilité analytique</option>
-														<option value="4">Professeur de Statistique et probabilité</option>
-														<option value="3">Professeur de Bureautique</option>
-														<option value="2">Professeur de Mathématiques pour l'informatique</option>
-														<option value="1">Professeur d'Entrepreneuriat</option>
-														<option value="0">Professeur de Statistique inférentielle</option>
-
-													</select>
-												<!-- <i class="ti-nom"></i> -->
-											</div>
-										</div>
-
-											<div class="form-group" id="statutad-d" style="display: none;">
-												<label for="statutad">Statut</label>
-												<div class="input-with-gray">
-
-													<select id="statutad" class="form-control " name="statutad" title="Hey">
-
-														<option value="" disabled="" selected="" hidden="">  </option>
-														<option value="convent">Conventionné</option>
-														<option value="contract">Contractuel</option>
-														<option value="perma">Permanent</option>
 
 
-													</select>
-													<!-- <i class="ti-user"></i> -->
-												</div>
-											</div>
+				<div class="row">
 
-											<div class="form-group" id="statuten-d"  style="display: none;">
-												<label for="statuten">Statut</label>
-												<div class="input-with-gray">
+					<div class="col-md-6">
+						<label for="">Matricule</label>
+						<input type="text" class="form-control" placeholder="" name="" value="">
+					</div>
 
-													<select id="statuten" class="form-control " name="statuten">
+					<div class="col-md-6">
+						<label for="">Nom</label>
+						<input type="text" class="form-control" placeholder="" name="" value="">
+					</div>
 
-														<option value="" disabled="" selected="" hidden="">  </option>
-														<option value="perma">Permanent</option>
-														<option value="vact">Vacataire</option>
+				</div>
 
-													</select>
-													<!-- <i class="ti-user"></i> -->
-												</div>
-											</div>
+				<div class="row">
 
-											<div class="form-group">
-												<label for="date">Date de première prise de service</label>
-												<div class="input-with-gray">
-
-													<input type="date" name="date" id="date" class="form-control">
-													<!-- <i class="ti-prenom"></i> -->
-												</div>
-											</div>
-
-											<div class="form-group">
-											<label for="cote">Côte</label>
-											<div class="input-with-gray">
-
-													<select id="cote" class="form-control " name="cote">
-
-														<option value="" disabled="" selected="" hidden="">  </option>
-														<option value="0">E1</option>
-														<option value="1">E2</option>
-														<option value="2">E3</option>
-														<option value="3">E4</option>
-														<option value="4">M1</option>
-														<option value="5">M2</option>
-														<option value="6">M3</option>
-														<option value="7">M4</option>
-														<option value="8">C1</option>
-														<option value="9">C2</option>
-														<option value="10">C3</option>
-														<option value="11">C4</option>
-
-													</select>
-												<!-- <i class="ti-nom"></i> -->
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="file">Choisir les fichiers</label>
-											<div class="input-with-gray">
-
-											<input type="file" name="file" id="file" class="form-control " placeholder="" multiple>
-												<!-- <i class="ti-nom"></i> -->
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label for="service">En service</label>
-											<div class="input-with-gray">
-
-													<select id="service" class="form-control " name="service">
-
-														<option value="" disabled="" selected="" hidden="">  </option>
-														<option value="1">Oui</option>
-														<option value="">Non</option>
-
-													</select>
-												<!-- <i class="ti-nom"></i> -->
-											</div>
-										</div>
+					<div class="col-md-6">
+						<label for="">Prénom</label>
+						<input type="text" class="form-control" placeholder="" name="" value="">
+					</div>
 
 
-									</form>
+					<div class="col-md-6">
+						<label for="">Sexe</label>
+						<select class="form-control " name="">
+							<option value="" disabled="" selected="" hidden=""> </option>
+							<option value="1">Homme</option>
+							<option value="">Femme</option>
+						</select>
+					</div>
 
-								</div>
-							</div>
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<label for="">Nationalité</label>
+						<input type="text" class="form-control" placeholder="" name="" value="">
+					</div>
+
+					<div class="col-md-6">
+						<label for="">Adresse</label>
+						<input type="text" class="form-control" placeholder="" name="" value="">
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<label for="">Téléphone</label>
+						<input type="tel" class="form-control" placeholder="" name="" value="">
+					</div>
+
+					<div class="col-md-6">
+						<label for="">Email</label>
+						<input type="email" name="" id="email" class="form-control">
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<label for="">IFU</label>
+						<input type="tel" class="form-control" placeholder="" name="" value="">
+					</div>
+
+					<div class="col-md-6">
+						<label for="">RIB</label>
+						<input type="tel" name="" id="" class="form-control">
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<label for="">Profession</label>
+						<input type="texte" class="form-control" placeholder="" name="" value="">
+					</div>
+
+					<div class="col-md-6">
+						<label for="categorie">Catégorie</label>
+						<select id="categorie" class="form-control " name="categorie">
+							<option value="" disabled="" selected="" hidden=""> </option>
+							<option value="ad">Administration</option>
+							<option value="en">Enseignant</option>
+						</select>
+					</div>
+
+					<div class="row">
+
+						<div class="col-md-6">
+							<label for="postead">Poste</label>
+							<select id="poste-ad" class="form-control " name="postead">
+								<option value="" disabled="" selected="" hidden=""> </option>
+							</select>
+						</div>
+
+						<div class="col-md-6">
+							<label for="statutad">Statut</label>
+							<select id="statutad" class="form-control " name="statutad">
+								<option value="" disabled="" selected="" hidden=""> </option>
+							</select>
 						</div>
 
 					</div>
 
-				</div>
+					<div class="row">
+
+						<div class="col-md-6">
+							<label for="date">Date de première prise de service</label>
+							<div>
+								<input type="date" name="date" id="date" class="form-control">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<label for="cote">Côte</label>
+
+								<select id="cote" class="form-control " name="cote">
+									<option value="" disabled="" selected="" hidden=""> </option>
+									<option value="0">E1</option>
+									<option value="1">E2</option>
+									<option value="2">E3</option>
+									<option value="3">E4</option>
+									<option value="4">M1</option>
+									<option value="5">M2</option>
+									<option value="6">M3</option>
+									<option value="7">M4</option>
+									<option value="8">C1</option>
+									<option value="9">C2</option>
+									<option value="10">C3</option>
+									<option value="11">C4</option>
+								</select>
+						</div>
+
+					</div>
+
+
 			</section>
+
+
 
 			<div class="row">
 				<div class="col-12">
-				    <div class="form-group">
-					    <p>
-                             <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                  Enregistrer
-                            </a>
+					<div class="form-group">
+						<p>
+							<a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
+								Enregistrer
+							</a>
 						</p>
 					</div>
 				</div>
