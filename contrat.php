@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
 
                     <div class="col-md-6">
-                        <label for="">Classe</label>
+                        <label for="">Masse horaire</label>
                         <select class="form-control " name="">
                             <option value="" disabled="" selected="" hidden=""> </option>
                         </select>
