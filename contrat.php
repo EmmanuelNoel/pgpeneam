@@ -57,17 +57,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="row" style="margin-bottom: 7px; text-align: left">
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;" >
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">Enseignant</label>
-                    </div>
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">Enseignant</label>
+                        </div>
                         <input type="text" class="form-control" placeholder="" name="" value="" style="width: 450px; ">
                     </div>
 
                     <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">Classe</label>
-                    </div>
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">Classe</label>
+                        </div>
                         <select class="form-control " name="" style="width: 450px; ">
                             <option value="" disabled="" selected="" hidden=""> </option>
                         </select>
@@ -77,9 +77,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="row" style="margin-bottom: 20px; text-align: left">
                     <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">Semestre</label>
-                    </div>
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">Semestre</label>
+                        </div>
                         <select class="form-control " name="" style="width: 450px; ">
                             <option value="" disabled="" selected="" hidden=""> </option>
                         </select>
@@ -87,31 +87,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                     <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">UE</label>
-                    </div>
-                        <select class="form-control " name="" style="width: 450px; ">
-                            <option value="" disabled="" selected="" hidden=""> </option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="row" style="margin-bottom: 20px; text-align: left">
-
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">ECUE</label>
-                    </div>
-                        <select class="form-control " name="" style="width: 450px; ">
-                            <option value="" disabled="" selected="" hidden=""> </option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;" >
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">Masse horaire</label>
-                    </div>
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">UE</label>
+                        </div>
                         <select class="form-control " name="" style="width: 450px; ">
                             <option value="" disabled="" selected="" hidden=""> </option>
                         </select>
@@ -122,16 +100,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="row" style="margin-bottom: 20px; text-align: left">
 
                     <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">Date début</label>
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">ECUE</label>
+                        </div>
+                        <select class="form-control " name="" style="width: 450px; ">
+                            <option value="" disabled="" selected="" hidden=""> </option>
+                        </select>
                     </div>
+
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">Masse horaire</label>
+                        </div>
+                        <select class="form-control " name="" style="width: 450px; ">
+                            <option value="" disabled="" selected="" hidden=""> </option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row" style="margin-bottom: 20px; text-align: left">
+
+                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">Date début</label>
+                        </div>
                         <input type="date" name="date" id="date" class="form-control" style="width: 450px; ">
                     </div>
 
                     <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                    <div style="width: 150px;">
-                        <label for="" style="text-align: left; ">Date fin</label>
-                    </div>
+                        <div style="width: 150px;">
+                            <label for="" style="text-align: left; ">Date fin</label>
+                        </div>
                         <input type="date" name="date" id="date" class="form-control" style="width: 450px; ">
                     </div>
 
@@ -142,15 +142,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </section>
 
             <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <p>
-                            <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                Enregistrer
-                            </a>
-                        </p>
-                    </div>
+                <div class="col-lg-6">
+
+                    <p>
+                        <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="#" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Enregistrer
+                        </a>
+                    </p>
                 </div>
+
+                <div class="col-6">
+                    <p>
+                        <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Editer
+                        </a>
+                    </p>
+                </div>
+            </div>
             </div>
 
         </section>

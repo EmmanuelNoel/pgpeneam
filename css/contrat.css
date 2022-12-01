@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 10px 50px 10px 50px;
+    text-align: justify;
+}
+
+.container{
+    font-size: 11px;
+}
+
+.num
+{
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+.border{
+    margin: auto;
+    width: 450px;
+    height:40px;
+    border: solid 1.5px black;
+}
+
+.header{
+    text-align: center;
+    font-size: 15px;
+}
+
+.footer{
+    text-align: center;
+}
