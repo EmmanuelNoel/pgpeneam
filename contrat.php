@@ -144,12 +144,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="row" style="display: flex; justify-content: center; " >
                
 
-                    <button class="btn btn-primary btn-md full-width pop-login tex" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <a class="btn btn-primary btn-md full-width pop-login tex" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Enregistrer
-</button>
-           <button class="ms-3 btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+    </a>
+           <a class="ms-3 btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Editer
-    </button>
+    </a>
                   
                
             </div>
@@ -159,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </section>
 
         <div class="bout">
-            <a href="index.php"><i class="fa fa-arrow-left"></i> <span>Retour à la page d'accueil</span> </a>
+            <a href="accueil.php"><i class="fa fa-arrow-left"></i> <span>Retour à la page d'accueil</span> </a>
         </div>
 
     </section>

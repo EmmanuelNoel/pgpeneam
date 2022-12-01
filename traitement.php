@@ -21,3 +21,6 @@ htmlspecialchars($_POST['banque']),htmlspecialchars($_POST['categorie']),htmlspe
 ));
 
 header("location:eagent.php");
+
+
+?>
