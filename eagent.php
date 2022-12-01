@@ -1,3 +1,15 @@
+<?php
+include('connexionDB.php');
+$banque=$bdd->query('SELECT * FROM banque');
+$categorie=$bdd->query('SELECT * FROM categorie');
+$grade=$bdd->query('SELECT * FROM grade');
+$roles=$bdd->query('SELECT * FROM role');
+$statut=$bdd->query('SELECT * FROM statut');
+
+
+
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -36,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<section class="first">
 
 		<section class="second">
-
+        <form action="traitement.php" method="post" name="enregistrer"> 
 			<p>ENREGISTREMENT AGENT </p>
 
 			<section class="third">
@@ -46,12 +58,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="col-md-6">
 						<label for="">Matricule</label>
-						<input type="text" class="form-control" placeholder="" name="" value="">
+						<input type="text" class="form-control" placeholder="" name="matricule" value="">
 					</div>
 
 					<div class="col-md-6">
 						<label for="">Nom</label>
-						<input type="text" class="form-control" placeholder="" name="" value="">
+						<input type="text" class="form-control" placeholder="" name="nom" value="">
 					</div>
 
 				</div>
@@ -60,16 +72,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="col-md-6">
 						<label for="">Prénom</label>
-						<input type="text" class="form-control" placeholder="" name="" value="">
+						<input type="text" class="form-control" placeholder="" name="prenom" value="">
 					</div>
 
 
 					<div class="col-md-6">
 						<label for="">Sexe</label>
-						<select class="form-control " name="">
+						<select class="form-control " name="sexe">
 							<option value="" disabled="" selected="" hidden=""> </option>
-							<option value="1">Homme</option>
-							<option value="">Femme</option>
+							<option value="homme">Homme</option>
+							<option value="femme">Femme</option>
 						</select>
 					</div>
 
@@ -79,12 +91,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="col-md-6">
 						<label for="">Nationalité</label>
-						<input type="text" class="form-control" placeholder="" name="" value="">
+						<input type="text" class="form-control" placeholder="" name="nationalite" value="">
 					</div>
 
 					<div class="col-md-6">
 						<label for="">Adresse</label>
-						<input type="text" class="form-control" placeholder="" name="" value="">
+						<input type="text" class="form-control" placeholder="" name="adresse" value="">
 					</div>
 
 				</div>
@@ -93,12 +105,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="col-md-6">
 						<label for="">Téléphone</label>
-						<input type="tel" class="form-control" placeholder="" name="" value="">
+						<input type="tel" class="form-control" placeholder="" name="telephone" value="">
 					</div>
 
 					<div class="col-md-6">
 						<label for="">Email</label>
-						<input type="email" name="" id="email" class="form-control">
+						<input type="email" name="email" id="email" class="form-control">
 					</div>
 
 				</div>
@@ -107,99 +119,172 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 					<div class="col-md-6">
 						<label for="">IFU</label>
-						<input type="tel" class="form-control" placeholder="" name="" value="">
+						<input type="number" class="form-control" placeholder="" name="ifu" value="">
 					</div>
 
 					<div class="col-md-6">
 						<label for="">RIB</label>
-						<input type="tel" name="" id="" class="form-control">
+						<input type="number" name="rib" id="" class="form-control">
 					</div>
 
 				</div>
 
 				<div class="row">
 
+						<div class="col-md-6">
+							<label for="postead">Role</label>
+							<select id="poste-ad" class="form-control " name="role">
+							<option value="" disabled="" selected="" hidden=""> </option>
+							<?php
+									while($donneesrole=$roles->fetch())
+									{
+
+									
+									?>
+									<option value="<?php echo  $donneesrole['id']  ?>"><?php echo  $donneesrole['nom']  ?></option>
+									
+									<?php
+									}
+									?>
+
+                                 
+							</select>
+						</div>
+
+						<div class="col-md-6">
+							<label for="statutad">Statut</label>
+							<select id="statutad" class="form-control " name="statut">
+							<option value="" disabled="" selected="" hidden=""> </option>
+							<?php
+									while($donneesstatut=$statut->fetch())
+									{
+
+									
+									?>
+									<option value="<?php echo  $donneesstatut['id']  ?>"><?php echo  $donneesstatut['nom']  ?></option>
+									
+									<?php
+									}
+									?>
+							</select>
+						</div>
+
+					</div>
+
+
+				<div class="row">
+
 					<div class="col-md-6">
 						<label for="">Profession</label>
-						<input type="texte" class="form-control" placeholder="" name="" value="">
+						<input type="texte" class="form-control" placeholder="" name="profession" value="">
 					</div>
 
 					<div class="col-md-6">
 						<label for="categorie">Catégorie</label>
 						<select id="categorie" class="form-control " name="categorie">
 							<option value="" disabled="" selected="" hidden=""> </option>
-							<option value="ad">Administration</option>
-							<option value="en">Enseignant</option>
+							<?php
+									while($donneescategorie=$categorie->fetch())
+									{
+
+									
+									?>
+									<option value="<?php echo  $donneescategorie['id']  ?>"><?php echo  $donneescategorie['nom']  ?></option>
+									
+									<?php
+									}
+									?>
 						</select>
 					</div>
 
-					<div class="row">
+					
+					
+                 </div>
 
-						<div class="col-md-6">
-							<label for="postead">Poste</label>
-							<select id="poste-ad" class="form-control " name="postead">
-								<option value="" disabled="" selected="" hidden=""> </option>
-							</select>
-						</div>
-
-						<div class="col-md-6">
-							<label for="statutad">Statut</label>
-							<select id="statutad" class="form-control " name="statutad">
-								<option value="" disabled="" selected="" hidden=""> </option>
-							</select>
-						</div>
-
-					</div>
-
-					<div class="row">
+				 <div class="row">
 
 						<div class="col-md-6">
 							<label for="date">Date de première prise de service</label>
 							<div>
-								<input type="date" name="date" id="date" class="form-control">
+								<input type="date" name="date_premier_service" id="date" class="form-control">
 							</div>
 						</div>
 
 						<div class="col-md-6">
-							<label for="cote">Côte</label>
+							<label for="cote">Grade</label>
 
-								<select id="cote" class="form-control " name="cote">
+								<select id="cote" class="form-control " name="grade">
 									<option value="" disabled="" selected="" hidden=""> </option>
-									<option value="0">E1</option>
-									<option value="1">E2</option>
-									<option value="2">E3</option>
-									<option value="3">E4</option>
-									<option value="4">M1</option>
-									<option value="5">M2</option>
-									<option value="6">M3</option>
-									<option value="7">M4</option>
-									<option value="8">C1</option>
-									<option value="9">C2</option>
-									<option value="10">C3</option>
-									<option value="11">C4</option>
+									<?php
+									while($donneesgrade=$grade->fetch())
+									{
+
+									
+									?>
+									<option value="<?php echo  $donneesgrade['id']  ?>"><?php echo  $donneesgrade['nom']  ?></option>
+									
+									<?php
+									}
+									?>
 								</select>
-						</div>
+				        </div>
 
-					</div>
-
-
-			</section>
-
-
-
-			<div class="row">
-				<div class="col-12">
-					<div class="form-group">
-						<p>
-							<a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
-								Enregistrer
-							</a>
-						</p>
-					</div>
 				</div>
-			</div>
 
+				<div class="row">
+
+					<div class="col-md-6">
+						<label for="">En service</label>
+						<select id="categorie" class="form-control " name="en_service">
+							<option value="" disabled="" selected="" hidden=""> </option>
+							<option value="ad">Oui</option>
+							<option value="en">Non</option>
+						</select>
+					</div>
+
+					<div class="col-md-6">
+						<label for="categorie">Banque</label>
+						<select id="categorie" class="form-control " name="banque">
+							<option value="" disabled="" selected="" hidden=""> </option>
+							<?php
+									while($donneesbanque=$banque->fetch())
+									{
+
+									
+									?>
+									<option value="<?php echo  $donneesbanque['id']  ?>"><?php echo  $donneesbanque['nom']  ?></option>
+									
+									<?php
+									}
+									?>
+
+						</select>
+					</div>
+
+					
+					
+                </div>
+			
+			
+				</section>
+
+
+
+					<div class="row">
+						<div class="col-12">
+							<div class="form-group">
+								<p>
+									<button name="enregistrer" class="btn btn-primary btn-md full-width pop-login" type="submit"  data-bs-toggle="collapse"  aria-controls="collapseExample">
+										Enregistrer
+								    </button>
+								</p>
+							</div>
+						</div>
+					</div>
+		</form>
 		</section>
+		
+		
 		<div class="bout">
 			<a href="index.php"><i class="fa fa-arrow-left"></i> <span>Retour à la page d'accueil</span> </a>
 		</div>

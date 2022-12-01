@@ -31,9 +31,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/morris.css" type="text/css" />
-    <!-- calendar -->
-    <link rel="stylesheet" href="css/monthly.css">
-    <!-- //calendar -->
     <!-- //font-awesome icons -->
     <script src="js/jquery2.0.3.min.js"></script>
     <script src="js/raphael-min.js"></script>
@@ -48,26 +45,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <div class="container">
         <div>
-            <span class="border border-dark">CONTRAT DE PRESTATION D'ENSEIGNEMENT</span>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="header">CONTRAT DE PRESTATION D'ENSEIGNEMENT</td>
+                </tr>
+            </table>
         </div>
 
         <div>
-            N°...............2022/UAC/ENEAM/DA/SGE/SC/SPE/SerP du ...................
+            <b>N°</b>...............2022/UAC/ENEAM/DA/SGE/SC/SPE/SerP <b>du</b> ...................
         </div>
 
         <br><br>
 
         <div>
-            Entre :
+            <b>Entre :</b>
             <br> L’Ecole Nationale d’Economie Appliquée et de Management (ENEAM),
             sise au campus universitaire de Cotonou, représentée par le Directeur HONLONKOU N’lédji Albert tel : 21 30 41 68 ;
             03 BP 1079,
             E-mail professionnel : ....................................... ci-après dénommé « ETABLISSEMENT » d’une part,
-            <br> Et
+            <br> <b>Et</b>
             <br> Monsieur/Madame .........................................................................................................................................
-            <br> Nationalité :........................................................................................................................ Profession : ......
+            <br> Nationalité :........................................................................................................................ Profession : ................
             <br> Domicilié à
-            <br> IFU: ………………
+            <br> IFU: ...........
             <br> Compte bancaire N°................................................................/Banque :........................................ .
             <br> Email:........................................................................................... Tél. : ...........................................................
             ci-après dénommé « L’ENSEIGNANT PRESTATAIRE » d’autre part
@@ -96,12 +97,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     d’enseignement des cours de: [énumérer les cours, les masses horaires ainsi les niveaux/cycles concernés]
                     <br>
                     <ol>
-                        <li>.............</li>
-                        <li>.............</li>
-                        <li>.............</li>
-                        <li>.............</li>
-                        <li>.............</li>
-                        <li>.............</li>
+                        <li>..........................</li>
+                        <li>..........................</li>
+                        <li>..........................</li>
+                        <li>..........................</li>
+                        <li>..........................</li>
+                        <li>..........................</li>
                     </ol>
                     <br>
                     Conformément aux exigences énumérées dans le cahier de charges joint au présent contrat.
@@ -111,11 +112,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <li class="num">Date de démarrage et calendrier</li>
                 <div>
-                    <table class="table table-bordered border-dark" style="border: solid 2px;">
+                    La durée de la prestation est de ...................jours ouvrables à partir de :
+                </div>
+                <br>
+                <div>
+                    <table class="table table-bordered t1">
                         <tr>
                             <td>Département</td>
                             <td>Année d'étude</td>
-                            <td>ECUE</td>
+                            <td>ECUE<sup>1</sup> </td>
                             <td>Nombre d'heures</td>
                             <td>Date de démarrage</td>
                             <td>Date de fin</td>
@@ -128,12 +133,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <td>5</td>
                             <td>6</td>
                         </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
                     </table>
-
-
-
                 </div>
 
+                <br>
+
+                <hr style="width: 200px; height: 0.5px; color: black;">
+                 <div>
+                 <sup>1</sup>ECUE : Elément Constitutif de l’Unité d’Enseignement
+                 </div>
                 <br>
 
                 <li class="num">Temps de présence</li>
@@ -189,18 +213,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ol>
 
             <div class="footer">
-                <div>
-                    Fait en Trois (3) copies originales à .........................,le ................................
+
+                <div class="niveau1">
+                    Fait en trois (3) copies originales à .........................,le ................................
                 </div>
 
-                <div>L'enseignant prestataire,
-                    Monsieur/Madame. ................... ………………………..
-                    Pour l’ENEAM
-                    Le Directeur,
-                    Professeur HONLONKOU N’lédji Albert
+                <div class="niveau2">
+                    <span>
+                        L'enseignant prestataire,
+                    </span>
+
+                    <span>
+                        Pour l’ENEAM
+                        Le Directeur,
+                    </span>
                 </div>
 
-                <div> VISA DE L'AGENT COMPTABLE </div>
+                <div class="niveau3">
+                    <span>
+                        Monsieur/Madame.....................
+                    </span>
+
+                    <span>
+                        <u> Professeur <i>HONLONKOU N’lédji Albert</i> </u>
+                    </span>
+                </div>
+
+                <div class="niveau4">
+                    VISA DE L'AGENT COMPTABLE
+                </div>
+
             </div>
 
         </div>
