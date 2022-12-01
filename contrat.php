@@ -141,24 +141,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </section>
 
-            <div class="row">
-                <div class="col-lg-6">
+            <div class="row" style="display: flex; justify-content: center; " >
+               
 
-                    <p>
-                        <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="#" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            Enregistrer
-                        </a>
-                    </p>
-                </div>
-
-                <div class="col-6">
-                    <p>
-                        <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-primary btn-md full-width pop-login tex" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Enregistrer
+</button>
+           <button class="ms-3 btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
                             Editer
-                        </a>
-                    </p>
-                </div>
+    </button>
+                  
+               
             </div>
+            <br><br>
             </div>
 
         </section>
