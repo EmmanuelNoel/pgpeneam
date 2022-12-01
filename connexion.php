@@ -6,6 +6,7 @@
 if(!empty($_POST['login']))
 {
 
+    session_start();
     include ('connexionDB.php');
 
     $tab_passe = [];
@@ -52,6 +53,13 @@ if(!empty($_POST['login']))
         header('location:index.php');
     }
 
+    //session utilisateur
+
+    $info_utilisateur = $bdd->prepare('SELECT * FROM agent where matricule=?');
+    $info_utilisateur->execute(array($matricule));
+    $prenom=$info_utilisateur->fetch();
+    $_SESSION['nom']=$_POST['matricule'];
+    $_SESSION['prenom']=$prenom['prenom'];
 
 
 }
