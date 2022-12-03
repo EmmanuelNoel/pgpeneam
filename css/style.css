@@ -2507,16 +2507,16 @@ h4 input[type="checkbox"] {
 }
  /*--placeholder-color--*/
 ::-webkit-input-placeholder {
-	color:#fff !important;
+	color:#fff ;
 }
 :-moz-placeholder { /* Firefox 18- */
-	color:#fff !important; 
+	color:#fff ; 
 }
 ::-moz-placeholder {  /* Firefox 19+ */
-	color:#fff !important;
+	color:#fff ;
 }
 :-ms-input-placeholder {  
-	color:#fff !important;
+	color:#fff ;
 }
 /*--//placeholder-color--*/
 .alert {
@@ -3234,10 +3234,13 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     margin-top: 50px;
 }
 .second{
-    background: rgba(6, 32, 48, 0.68);
+    background: rgb(6 32 48 / 34%);
     text-align: center;
-    margin: 0 50px 20px 50px;
+    box-shadow: 0 5px 10px rgb(46 46 46 / 93%);
+    border-radius: 50px;
+    border: 1px solid transparent;
 }
+
 
 .second p {
     font-size: 1.75em;
@@ -3292,3 +3295,32 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 }
 
 /*Page d'édition de contrat*/
+/*formulaire*/
+input[type="text"]::placeholder{
+    color: #999;
+    font-size: 14px;
+}
+.formcontrol{
+    color: #fff !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid var(--bs-light) !important;
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-left: 0 !important;
+    border-radius: 0 !important;
+}
+.form-select{
+    color: #fff  !important;
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    border-bottom: 2px solid var(--bs-light) !important;
+    border-top: 0 !important;
+    border-right: 0 !important;
+    border-left: 0 !important;
+    border-radius: 0 !important;
+}
+.en_service{
+    font-size: 16px !important;
+    padding-right: 10px;
+}
