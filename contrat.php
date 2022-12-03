@@ -52,6 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <p>EDITION DE CONTRAT</p>
 
+            button
+
             <section class="third">
 
 
@@ -208,6 +210,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         //     } else
         //         document.getElementById("inpt").style.display = 'none';
         // }
+        function ajouterPrestation() {
+            $('.third').clone().appendTo('.third');
+        }
     </script>
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.dcjqaccordion.2.7.js"></script>
