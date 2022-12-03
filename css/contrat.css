@@ -5,7 +5,7 @@
 }
 
 .container{
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .num
@@ -16,21 +16,25 @@
 
 .table{
     margin: auto;
-    width: 450px;
-    height:40px;
-    border: solid 1.5px black;
+    width: 470px;
+    height:50px;
+    border: solid 2px black;
 }
 
-/* .t1{
+.t1, tr, th, td{
     margin: auto;
-    width: 700px;
+    width: 800px;
     height:auto;
-    border: solid 1.5px black; 
-} */
+    border: solid 2px black;
+    
+}
+td{
+    text-align: center !important;
+}
 
 .header{
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .footer div{
@@ -41,15 +45,32 @@
     margin-bottom: 15px;
 }
 
-.niveau2 span{
-    margin-bottom: 12px;
+.niv2-1, .niv2-2{
     margin-right: 110px;
     margin-left: 105px;
+    float: left;
 }
 
-.niveau3 span{
+.niv2-1{
+    float: left;
+}
+
+.niv2-2{
+    float: right;
+}
+
+.niv3-1, .niv3-2{
     margin-right: 80px;
     margin-left: 90px;
+    
+}
+
+.niv3-1{
+    float: left;
+}
+
+.niv3-2{
+    float: right;
 }
 
 .niveau2, .niveau3, .niveau4{
@@ -57,3 +78,11 @@
     margin-bottom: 100px;
 }
 
+.btn{
+    padding: 9px 11px;
+    float: right;
+}
+
+.telecharger span{
+    font-size: 10px;
+}

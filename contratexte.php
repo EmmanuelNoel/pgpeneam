@@ -44,10 +44,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
     <div class="container">
+
+        <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-save fs-4"></i> <span class="fs-4">Télécharger pdf</span> </button>
+        <br><br><br>
         <div>
-            <table class="table table-bordered">
+            <table class="table">
                 <tr>
-                    <td class="header">CONTRAT DE PRESTATION D'ENSEIGNEMENT</td>
+                    <td class="header fw-bold text-black">CONTRAT DE PRESTATION D'ENSEIGNEMENT</td>
                 </tr>
             </table>
         </div>
@@ -61,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div>
             <b>Entre :</b>
             <br> L’Ecole Nationale d’Economie Appliquée et de Management (ENEAM),
-            sise au campus universitaire de Cotonou, représentée par le Directeur HONLONKOU N’lédji Albert tel : 21 30 41 68 ;
+            sise au campus universitaire de Cotonou, représentée par le Directeur <strong><em>HONLONKOU N’lédji Albert</em></strong> tel : 21 30 41 68 ;
             03 BP 1079,
             E-mail professionnel : ....................................... ci-après dénommé « ETABLISSEMENT » d’une part,
             <br> <b>Et</b>
@@ -116,17 +119,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <br>
                 <div>
-                    <table class="table table-bordered t1">
-                        <tr>
-                            <td>Département</td>
-                            <td>Année d'étude</td>
-                            <td>ECUE<sup>1</sup> </td>
-                            <td>Nombre d'heures</td>
-                            <td>Date de démarrage</td>
-                            <td>Date de fin</td>
+                    <table class="w-50 px-5 text-break mx-auto">
+                        <tr class="text-center">
+                            <th>Département</th>
+                            <th>Année d'étude</th>
+                            <th>ECUE<sup>1</sup> </th>
+                            <th>Nombre d'heures</th>
+                            <th>Date de démarrage</th>
+                            <th>Date de fin</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
+                        <tr class="text-center">
+                            <td class="text-center">1</td>
                             <td>2</td>
                             <td>3</td>
                             <td>4</td>
@@ -154,10 +157,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br>
 
-                <hr style="width: 200px; height: 0.5px; color: black;">
-                 <div>
-                 <sup>1</sup>ECUE : Elément Constitutif de l’Unité d’Enseignement
-                 </div>
+
+                <div>
+                    <sup>1</sup>ECUE : Elément Constitutif de l’Unité d’Enseignement
+                </div>
                 <br>
 
                 <li class="num">Temps de présence</li>
@@ -172,8 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <li class="num">Termes de paiement et prélèvements</li>
                 <div>
-                    Les honoraires pour les prestations d’enseignement sont de ........................FCFA brut par heure exécutée
-                    conformément aux exigences de l’ENEAM.
+                    Les honoraires pour les prestations d’enseignement sont de ........................<b>FCFA brut par heure exécutée
+                    conformément aux exigences de</b> l’ENEAM.
                     Les paiements sont effectués en Francs CFA à la fin des prestations (dépôt de sujets, corrigés types et copies
                     corrigées) dûment constatées par une attestation de service fait, par virement bancaire après le prélèvement de
                     l’AIB.
@@ -219,24 +222,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
 
                 <div class="niveau2">
-                    <span>
-                        L'enseignant prestataire,
-                    </span>
+                    <div class="niv2-1">
+                        <span>
+                            L'enseignant prestataire,
+                        </span>
+                    </div>
 
-                    <span>
-                        Pour l’ENEAM
-                        Le Directeur,
-                    </span>
+                    <div class="niv2-2">
+                        <span>
+                            Pour l’ENEAM
+                            Le Directeur,
+                        </span>
+                    </div>
+
                 </div>
 
                 <div class="niveau3">
-                    <span>
-                        Monsieur/Madame.....................
-                    </span>
+                    <div class="niv3-1">
+                        <span>
+                            Monsieur/Madame.....................
+                        </span>
+                    </div>
 
-                    <span>
-                        <u> Professeur <i>HONLONKOU N’lédji Albert</i> </u>
-                    </span>
+                    <div class="niv3-2">
+                        <span>
+                            <u> Professeur <i>HONLONKOU N’lédji Albert</i> </u>
+                        </span>
+                    </div>
+
                 </div>
 
                 <div class="niveau4">
