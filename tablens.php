@@ -1,6 +1,6 @@
 <?php
 include('connexionDB.php');
-$enseignant=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id');
+$enseignant=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1');
 
 
 ?>
@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="leftside-navigation">
           <ul class="sidebar-menu" id="nav-accordion">
               <li>
-                  <a href="index.php">
+                  <a href="accueil.php">
                       <i class="fa fa-home"></i>
                       <span>Accueil</span>
                   </a>

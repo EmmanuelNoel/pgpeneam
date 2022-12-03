@@ -1,3 +1,10 @@
+<?php
+include('connexionDB.php');
+$enseignant=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
+
+
+?>
+
 <!DOCTYPE html>
 <head>
 <title>Plateforme de gestion du personnel de l'ENEAM</title>
@@ -70,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <div class="leftside-navigation">
           <ul class="sidebar-menu" id="nav-accordion">
               <li>
-                  <a href="index.php">
+                  <a href="accueil.php">
                       <i class="fa fa-home"></i>
                       <span>Accueil</span>
                   </a>
@@ -152,55 +159,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </tr>
             </thead>
             <tbody>
+        
+        
+          <?php
+
+while($donneesenseignant = $enseignant->fetch())
+{
+  ?>
+
           <tr data-expanded="true">
-            <td>123456</td>
-            <td>Dennise</td>
-            <td>Fuhrman</td>
-            <td>Chef service matériel</td>
+            <td> <?php echo $donneesenseignant['matricule'];  ?> </td>
+            <td><?php echo $donneesenseignant['nom'];  ?></td>
+            <td><?php echo $donneesenseignant['prenom'];  ?></td>
+            <td><?php echo $donneesenseignant['role'];  ?></td>
             
           </tr>
-          <tr>
-            <td>234567</td>
-            <td>Elodia</td>
-            <td>Weisz</td>
-            <td>Secrétaire général</td>
-          </tr>
-          <tr>
-            <td>345678</td>
-            <td>Raeann</td>
-            <td>Haner</td>
-            <td>Directeur adjoint</td>
-          </tr>
-          <tr>
-            <td>456789</td>
-            <td>Junie</td>
-            <td>Landa</td>
-            <td>Chef departement informatique</td>
-          </tr>
-          <tr>
-            <td>567891</td>
-            <td>Solomon</td>
-            <td>Brittney</td>
-            <td>Chef service du personnel</td>
-          </tr>
-          <tr>
-            <td>678912</td>
-            <td>Bar</td>
-            <td>Lewis</td>
-            <td>Chef service programmation</td>
-          </tr>
-          <tr>
-            <td>789123</td>
-            <td>Usha</td>
-            <td>Leak</td>
-            <td>Assistant comptable</td>
-          </tr>
-          <tr>
-            <td><a class="info" href="profilagent.php">891234</a> </td>
-            <td><a class="info" href="profilagent.php">Lorriane</a> </td>
-            <td><a class="info" href="profilagent.php">Cooke</a> </td>
-            <td><a class="info" href="profilagent.php">Secrétaire comptable</a> </td>
-          </tr>
+          <?php
+          }
+
+          ?>
         </tbody>
         </table>
       </div>

@@ -281,7 +281,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 		<div class="bout">
-			<a href="index.php"><i class="fa fa-arrow-left"></i> <span>Retour à la page d'accueil</span> </a>
+			<a href="accueil.php"><i class="fa fa-arrow-left"></i> <span>Retour à la page d'accueil</span> </a>
 		</div>
 	</section>
 	<script>
