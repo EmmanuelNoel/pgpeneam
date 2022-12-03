@@ -1,3 +1,10 @@
+<?php
+include('connexionDB.php');
+session_start();
+$enseignant_permanent=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and statut_id = 1');
+
+
+?>
 <!DOCTYPE html>
 <head>
 <title>Plateforme de gestion du personnel de l'ENEAM</title>
@@ -155,30 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <td>Professeur de statistique inférentielle</td>
             
           </tr>
-          <tr>
-            <td>234567</td>
-            <td>Elodia</td>
-            <td>Weisz</td>
-            <td>Non affecté à un poste</td>
-          </tr>
-          <tr>
-            <td>345678</td>
-            <td>Raeann</td>
-            <td>Haner</td>
-            <td>Professeur de comptabilité générale</td>
-          </tr>
-          <tr>
-            <td>456789</td>
-            <td>Junie</td>
-            <td>Landa</td>
-            <td>Professeur de Droit</td>
-          </tr>
-          <tr>
-            <td>567891</td>
-            <td>Solomon</td>
-            <td>Bittinger</td>
-            <td>Professeur d'entrepreneuriat</td>
-          </tr>
+        
         </tbody>
             </table>
       </div>

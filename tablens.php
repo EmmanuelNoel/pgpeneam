@@ -1,11 +1,10 @@
 <?php
 include('connexionDB.php');
+session_start();
 $enseignant=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1');
 
 
 ?>
-
-
 
 <!DOCTYPE html>
 <head>
@@ -56,7 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 
-                <span class="username">Lorriane Cooke</span>
+                <span class="username"><?php echo ''.$_SESSION['prenom'].' '. $_SESSION['nom'] ?></span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
