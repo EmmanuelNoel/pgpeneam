@@ -214,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				
 				
-				<div class="row mb-3">
+				<div class="row mb-5 ">
 					<div class="col-md-12 text-start">
 						<span class="en_service">En service</span>
 						<div class="form-check form-check-inline">
