@@ -19,6 +19,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 <script src="js/jquery2.0.3.min.js"></script>
+<!--//MDI Icons-->
+<link rel="stylesheet" href="mdi/css/materialdesignicons.min.css">
 
 <style>
 /* Format pc  */
@@ -103,8 +105,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-2"><img  src="images/eneamlogo1.png" id="logo_eneam"   alt=""></div> 
 </div>
 <!--formulaire-->
-<div class="log-w3">
-	<div class="w3layouts-main">
+<div class=" log-w3">
+	<div class="second w3layouts-main">
 		<h2>CONNEXION</h2>
 		<form action="#" method="post">
 			<input type="tel" class="ggg" name="matricule" placeholder="Matricule" required="">

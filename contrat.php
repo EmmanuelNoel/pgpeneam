@@ -38,6 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/jquery2.0.3.min.js"></script>
     <script src="js/raphael-min.js"></script>
     <script src="js/morris.js"></script>
+    <!--//MDI Icons-->
+	<link rel="stylesheet" href="mdi/css/materialdesignicons.min.css">
 
     <!-- icones bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
@@ -48,74 +50,78 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <section class="first">
 
-        <section class="second">
+        <section class="second container-sm col-10">
 
-            <p>EDITION DE CONTRAT</p>
-
-            button
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 text-end">
+                    <p>EDITION DE CONTRAT</p>
+                    </div>
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
+                    <button class="ajout_prestation ajout_prestation1 btn" onclick="ajouterPrestation()" type="button">
+                        <span class="mdi mdi-plus"></span>
+                        <span class="">Prestation</span>
+                    </button>
+                </div>
+            </div>
 
             <section class="third">
 
 
-                <div class="row" style="margin-bottom: 7px; text-align: left">
+                <div class="row" style="margin-bottom: 7px;margin-top:35px; text-align: left">
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">Enseignant</label>
-                        </div>
-                        <input type="text" class="form-control" placeholder="" name="" value="" style="width: 450px; ">
+                    <div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        
+                        <input type="text" class="form-control formcontrol" placeholder="Enseignant" name="" value="" style="width: 450px; ">
                     </div>
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">Classe</label>
-                        </div>
-                        <select class="form-control " name="" style="width: 450px; ">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                       
+                        <select class="form-select formselect " name="" style="width: 450px;height:40px ">
                             <option value="" disabled="" selected="" hidden=""> </option>
+                            <option value="" selected>Classe</option>
                         </select>
                     </div>
 
                 </div>
 
                 <div class="row" style="margin-bottom: 20px; text-align: left">
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">Semestre</label>
-                        </div>
-                        <select class="form-control " name="" style="width: 450px; ">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        
+                        <select class="form-select formselect formselect" name="" style="width: 450px;">
+                            
                             <option value="" disabled="" selected="" hidden=""> </option>
+                            <option value="" selected>Semestre</option>
                         </select>
                     </div>
 
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">UE</label>
-                        </div>
-                        <select class="form-control " name="" style="width: 450px; ">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                       
+                        <select class="form-select formselect" name="" style="width: 450px; ">
+                            
                             <option value="" disabled="" selected="" hidden=""> </option>
+                            <option value="" selected>UE</option>
                         </select>
                     </div>
-
                 </div>
 
                 <div class="row" style="margin-bottom: 20px; text-align: left">
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">ECUE</label>
-                        </div>
-                        <select class="form-control " name="" style="width: 450px; ">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                       
+                        <select class="form-select formselect " name="" style="width: 450px; ">
+                           
                             <option value="" disabled="" selected="" hidden=""> </option>
+                            <option value="" selected>ECUE</option>
                         </select>
                     </div>
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">Masse horaire</label>
-                        </div>
-                        <select class="form-control " name="" style="width: 450px; ">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        
+                        <select class="form-select formselect " name="" style="width: 450px; ">
+                           
                             <option value="" disabled="" selected="" hidden=""> </option>
+                            <option value="" selected>Masse horaire</option>
                         </select>
                     </div>
 
@@ -123,18 +129,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="row" style="margin-bottom: 20px; text-align: left">
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">Date début</label>
-                        </div>
-                        <input type="date" name="date" id="date" class="form-control" style="width: 450px; ">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                       
+                        <input type="date" name="date" id="date" placeholder="Date début" class="form-control formcontrol" style="width: 450px; ">
                     </div>
 
-                    <div class="col-md-6" style="display:flex ; justify-content: space-around;">
-                        <div style="width: 150px;">
-                            <label for="" style="text-align: left; ">Date fin</label>
-                        </div>
-                        <input type="date" name="date" id="date" class="form-control" style="width: 450px; ">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        
+                        <input type="date" name="date" id="date" placeholder="Date fin" class="form-control formcontrol" style="width: 450px; ">
                     </div>
 
                 </div>
@@ -161,8 +163,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </section>
 
         <div class="bout">
-            <a href="accueil.php"><i class="fa fa-arrow-left"></i> <span>Retour à la page d'accueil</span> </a>
-        </div>
+			<a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page d'accueil</span> </a>
+		</div>
 
     </section>
 
