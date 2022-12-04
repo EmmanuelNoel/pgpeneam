@@ -1,3 +1,10 @@
+<?php
+include('connexionDB.php');
+session_start();
+$enseignant_vacataire=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and statut_id = 2');
+
+
+?>
 <!DOCTYPE html>
 <head>
 <title>Plateforme de gestion du personnel de l'ENEAM</title>
@@ -147,24 +154,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </tr>
               </thead>
               <tbody>
-          <tr>
-            <td>678912</td>
-            <td>Bar</td>
-            <td>Lewis</td>
-            <td>Professeur de base de données</td>
-          </tr>
-          <tr>
-            <td>789123</td>
-            <td>Usha</td>
-            <td>Leak</td>
-            <td>Professeur de management de qualité</td>
-          </tr>
-          <tr>
-            <td>891234</td>
-            <td>Lorriane</td>
-            <td>Cooke</td>
-            <td>Non affecté à un poste</td>
-          </tr>
+          <?php
+           while($donneesenseignant = $enseignant_vacataire->fetch())
+           {
+             ?>
+           
+                     <tr data-expanded="true">
+                       <td> <?php echo $donneesenseignant['matricule'];  ?> </td>
+                       <td><?php echo $donneesenseignant['nom'];  ?></td>
+                       <td><?php echo $donneesenseignant['prenom'];  ?></td>
+                       <td><?php echo $donneesenseignant['role'];  ?></td>
+                       
+                     </tr>
+                     <?php
+                     }
+           
+                     ?>
         </tbody>
             </table>
       </div>

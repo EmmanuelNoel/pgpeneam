@@ -1,6 +1,16 @@
 <?php
 
 session_start();
+include ('connexionDB.php');
+
+$enseignant_permanent = $bdd->query('SELECT count(*) as permanent FROM agent where statut_id = 1 AND categorie_id = 1');
+
+$enseignant_vacataire = $bdd->query('SELECT count(*) as vacataire FROM agent where statut_id = 2 AND categorie_id = 1');
+
+$personnel_enseignant = $bdd->query('SELECT count(*) as personnel FROM agent where categorie_id = 1');
+
+$personnel_administratif = $bdd->query('SELECT count(*) as administratif FROM agent where categorie_id = 2');
+
 
 
 ?>
@@ -164,7 +174,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="col-md-8 market-update-left">
 								<h4>Personnel administratif</h4>
-								<h3>8</h3>
+								<?php       
+                                    $donnees_administration = $personnel_administratif->fetch();
+
+?>
+								<h3><?php echo $donnees_administration['administratif'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
@@ -177,7 +191,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="col-md-8 market-update-left">
 								<h4>Personnel enseignant</h4>
-								<h3>8</h3>
+								<?php       
+                                    $donnees_enseignant = $personnel_enseignant->fetch();
+
+?>
+								<h3><?php echo $donnees_enseignant['personnel'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
@@ -190,7 +208,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="col-md-8 market-update-left">
 								<h4>Enseignants permanents</h4>
-								<h3>5</h3>
+								<?php
+                                 
+                                    $donnees_permanent = $enseignant_permanent->fetch();
+                                 ?>
+								<h3><?php echo $donnees_permanent['permanent'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
@@ -203,7 +225,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="col-md-8 market-update-left">
 								<h4>Enseignants vacataires</h4>
-								<h3>3</h3>
+								<?php
+                                 
+                                    $donnees_vacataire = $enseignant_vacataire->fetch();
+                                 ?>
+								<h3><?php echo $donnees_vacataire['vacataire'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>

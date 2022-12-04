@@ -6,8 +6,8 @@ unset($_POST['nom']);
 
 unset($_POST['prenom']);
 
-header('location:index.php');
 
+header('location:index.php');
 
 
 ?>
