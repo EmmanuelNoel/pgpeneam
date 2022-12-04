@@ -169,10 +169,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="market-updates">
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-2">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa  fa-info"> </i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Personnel administratif</h4>
 								<?php       
                                     $donnees_administration = $personnel_administratif->fetch();
@@ -186,10 +186,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-1">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info"></i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Personnel enseignant</h4>
 								<?php       
                                     $donnees_enseignant = $personnel_enseignant->fetch();
@@ -203,10 +203,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-3">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info"></i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Enseignants permanents</h4>
 								<?php
                                  
@@ -220,10 +220,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-4">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info" aria-hidden="true"></i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Enseignants vacataires</h4>
 								<?php
                                  

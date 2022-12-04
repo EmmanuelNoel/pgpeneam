@@ -4,22 +4,38 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+/*FONT FACE*/
+@font-face {font-family: Poppins;src: url("./polices/Poppins/Poppins-Bold.ttf");font-weight: bold;}
+@font-face {font-family: PoppinsLight;src: url("./polices/Poppins/Poppins-Light.ttf");}
+@font-face {font-family: PoppinsRegular;src: url("./polices/Poppins/Poppins-Regular.ttf");}
+@font-face {font-family: Raleway;src: url("./polices/Raleway/static/Raleway-Light.ttf");font-weight: lighter;}
+@font-face {font-family: Lora;src: url("./polices/Lora/static/Lora-Bold.ttf");}
+@font-face {font-family: Nunito;src: url("./polices/Nunito/static/Nunito-Bold.ttf");}
+@font-face {font-family: Roboto;src: url("./polices/Roboto/Roboto-Light.ttf");}
+@font-face {font-family: Prata;src: url("./polices/Prata/Prata-Regular.ttf");}
+@font-face {font-family: Playfair;src: url("./polices/Playfair-Display/static/PlayfairDisplay-Bold.ttf");}
+@font-face { font-family: PoppinsMedium;src: url("./polices/Poppins/Poppins-Medium.ttf");}
+@font-face {font-family: CairoRegularBold;src: url("./polices/Cairo/Cairo/static/Cairo-Regular.ttf");}
+@font-face {font-family: GreatVibes;src: url("./polices/Great-Vibes/GreatVibes-Regular.ttf");}
+
+
+
 h4, h5, h6,
 h1, h2, h3 {margin: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 
 .body{
-	font-family: 'Poppins', sans-serif;
+	font-family: 'PoppinsMedium', sans-serif;
     font-size: 100%;
-    background: linear-gradient(to top,rgba(0, 0, 0, 0.6)50%,rgba(0, 0, 0, 0.6)50%), url("../images/bgphoto.png");
-	background-size:cover;
-    height: 100vh;
-      
+    background: linear-gradient(to top,rgba(0, 0, 0, 0.6)50%,rgba(0, 0, 0, 0.6)50%), url(../images/bgphoto.png);
+    background-size: cover;      
+    background-attachment: fixed;
 }
+
 html, body{
-    font-family: 'Poppins', sans-serif;
-    font-size: 100%;
+    font-family: 'PoppinsMedium', sans-serif;
+    font-size: 16px;
 }
 
 body a{
@@ -692,7 +708,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     margin-bottom: 20px;
 }
 .market-update-block h4 {
-	font-size: 1.2em;
+	font-size: 1.15em;
     color: rgb(5, 41, 65);
     margin: 0.3em 0em;
 }
@@ -3234,9 +3250,9 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     margin-top: 50px;
 }
 .second{
-    background: rgb(6 32 48 / 34%);
+    background: rgb(6 32 48 / 70%);
     text-align: center;
-    box-shadow: 0 5px 10px rgb(46 46 46 / 93%);
+    box-shadow: 0 5px 10px rgb(20 20 20 / 93%);    
     border-radius: 50px;
     border: 1px solid transparent;
 }
@@ -3245,7 +3261,6 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 .second p {
     font-size: 1.75em;
     font-weight: lighter;
-    font-family:Arial, Helvetica, sans-serif ;
     color: white;
     padding: 20px;
 
@@ -3309,7 +3324,7 @@ input[type="text"]::placeholder{
     border-left: 0 !important;
     border-radius: 0 !important;
 }
-.form-select{
+.formselect{
     color: #fff  !important;
     background-color: transparent !important;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e") !important;
@@ -3324,3 +3339,18 @@ input[type="text"]::placeholder{
     font-size: 16px !important;
     padding-right: 10px;
 }
+
+.retour{
+    font-size: 14px;
+}
+
+.arrowleft{
+    font-size:17px;
+    position: relative;
+    top:3px;
+    padding-right: 5px;
+}
+select.formselect option {
+    color: #111;
+}
+
