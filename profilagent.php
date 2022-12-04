@@ -17,15 +17,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- font-awesome icons -->
 <link rel="stylesheet" href="css/font.css" type="text/css"/>
 <link href="css/font-awesome.css" rel="stylesheet"> 
+<!--//MDI Icons-->
+<link rel="stylesheet" href="mdi/css/materialdesignicons.min.css">
 <!-- //font-awesome icons -->
 <script src="js/jquery2.0.3.min.js"></script>
+
 
 </head>
 <body class="body">
 
 <section class="first">
 
-    <section class="second">
+    <section class="second container-sm col-10">
     
     <p>INFORMATIONS AGENT</p>
     
@@ -141,12 +144,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="row">
     <div class="col-lg-6">
     <p>
-    <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="eagent.php" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="btn btn-primary btnprimary btn-md btn-sm btn-lg btn-xl btn-xxl full-width pop-login" data-bs-toggle="collapse" href="eagent.php" role="button" aria-expanded="false" aria-controls="collapseExample">
     Modifier
     </a></p>
     </div>
     <div class="col-6"><p>
-    <a class="btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="btn btn-primary btnprimary btn-md btn-sm btn-lg btn-xl btn-xxl full-width pop-login" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
     Désactiver
     </a>
     </p>
@@ -156,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </section>
     <div class="bout">
-	    <a href="tableadmin.php"><i class="fa fa-arrow-left"></i> <span>Page précédente</span> </a>
+	    <a href="tableadmin.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Page précédente</span> </a>
     </div>
 </section>
 

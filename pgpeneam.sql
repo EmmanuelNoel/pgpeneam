@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 30 nov. 2022 à 23:35
+-- Généré le : dim. 04 déc. 2022 à 21:06
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -56,7 +56,8 @@ CREATE TABLE `agent` (
 
 INSERT INTO `agent` (`id`, `nom`, `prenom`, `matricule`, `passwd`, `nationalite`, `profession`, `ifu`, `rib`, `email`, `telephone`, `adresse`, `sexe`, `en_service`, `date_premier_service`, `grade_id`, `statut_id`, `banque_id`, `categorie_id`, `role_id`) VALUES
 (1, 'pifofuju@mailinator.com', 'syrukaf@mailinator.com', 17, '17pifofuju@mailinator.com', 'gupyz@mailinator.com', 'kizy@mailinator.com', 98, 65, 'juho@mailinator.com', 1, 'jareminy@mailinator.com', 'homme', 0, '1975-06-24', '9', 1, 2, 1, 1),
-(2, 'nuqy@mailinator.com', 'kyxipy@mailinator.com', 0, 'viqis@mailinator.comnuqy@mailinator.com', 'myhalezyvy@mailinator.com', 'xukifycij@mailinator.com', 25, 50, 'tapowux@mailinator.com', 1, 'bufux@mailinator.com', 'femme', 0, '2001-01-28', '1', 1, 1, 1, 1);
+(2, 'nuqy@mailinator.com', 'kyxipy@mailinator.com', 0, 'viqis@mailinator.comnuqy@mailinator.com', 'myhalezyvy@mailinator.com', 'xukifycij@mailinator.com', 25, 50, 'tapowux@mailinator.com', 1, 'bufux@mailinator.com', 'femme', 0, '2001-01-28', '1', 1, 1, 1, 1),
+(3, 'jire@mailinator.com', 'koxit@mailinator.com', 0, 'dafyjoqo@mailinator.comjire@mailinator.com', 'newikas@mailinator.com', 'vunafowy@mailinator.com', 66, 24, 'figa@mailinator.com', 1, 'sawyfu@mailinator.com', 'femme', 0, '1995-10-27', '12', 3, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -309,7 +310,9 @@ CREATE TABLE `statut` (
 
 INSERT INTO `statut` (`id`, `nom`) VALUES
 (1, 'Permanent'),
-(2, 'Vacataire');
+(2, 'Vacataire'),
+(3, 'conventionne'),
+(4, 'contractuel');
 
 -- --------------------------------------------------------
 
@@ -492,7 +495,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `agent`
 --
 ALTER TABLE `agent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `banque`
@@ -570,7 +573,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT pour la table `statut`
 --
 ALTER TABLE `statut`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `ue`

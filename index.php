@@ -18,6 +18,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/font.css" type="text/css"/>
 <link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
+<!--//MDI Icons-->
+<link rel="stylesheet" href="mdi/css/materialdesignicons.min.css">
 <script src="js/jquery2.0.3.min.js"></script>
 
 <style>
@@ -104,10 +106,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--formulaire-->
 <div class="log-w3">
-	<div class="w3layouts-main">
+	<div class=" second w3layouts-main">
 		<h2>CONNEXION</h2>
 		<form action="connexion.php" method="post">
-			<input type="number" class="ggg" name="matricule" placeholder="Matricule" required>
+			<input type="tel" class="ggg" name="matricule" placeholder="Matricule" required>
 			<input type="password" class="ggg" name="password" placeholder="Mot de passe" required>
 		
 			<!-- <h6><a href="#">Mot de passe oublié?</a></h6>
