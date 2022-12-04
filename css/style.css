@@ -3305,6 +3305,10 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
     padding: 30px;
 }
 
+.bout{
+    padding-top: 20px;
+}
+
 .btn-primary{
     width: 15%;
 }
@@ -3353,4 +3357,22 @@ input[type="text"]::placeholder{
 select.formselect option {
     color: #111;
 }
-
+.ajout_prestation{
+    background-color: #00a7a7b5;
+    color: #fafafa;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    position: relative;
+    top: 97px;
+    left: 62px;
+    box-shadow: 0 5px 10px #202020b5;
+}
+@media (max-width: 991px){
+    .ajout_prestation1{
+        left:15px
+    }
+}
+.btnprimary{
+    width:20% !important
+}
