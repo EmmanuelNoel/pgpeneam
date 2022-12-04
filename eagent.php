@@ -219,11 +219,11 @@ $statut = $bdd->query('SELECT * FROM statut');
 						<div class="col-md-12 text-start">
 							<span class="en_service">En service</span>
 							<div class="form-check form-check-inline">
-								<input type="radio" name="oui" id="oui" value="1" class="form-check-input"checked autocomplete="off">
+								<input type="radio" name="service" id="service" value="1" class="form-check-input"checked autocomplete="off">
 								<label class="form-check-label" for="oui" >Oui</label> &nbsp;&nbsp;&nbsp;
 							</div>
 							<div class="form-check form-check-inline">
-								<input type="radio" name="non" id="non" value="2"  autocomplete="off" class="form-check-input">
+								<input type="radio" name="service" id="service" value="2"  autocomplete="off" class="form-check-input">
 								<label class="form-check-label" for="non">Non</label>
 							</div>						
 						</div>

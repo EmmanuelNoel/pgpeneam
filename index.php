@@ -107,7 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="w3layouts-main">
 		<h2>CONNEXION</h2>
 		<form action="connexion.php" method="post">
-			<input type="number" class="ggg" name="matricule" placeholder="Matricule" required>
+			<input type="tel" class="ggg" name="matricule" placeholder="Matricule" required>
 			<input type="password" class="ggg" name="password" placeholder="Mot de passe" required>
 		
 			<!-- <h6><a href="#">Mot de passe oublié?</a></h6>

@@ -52,9 +52,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <p>EDITION DE CONTRAT</p>
 
-            button
 
             <section class="third">
+                <div class="row pe-3 pb-4">
+                    <div class="col-12 text-end">
+                        <button class="bg-gradient btn btn-secondary text-white" onclick="ajouterPrestation()"><i class="bi-plus"></i> Ajouter une prestation</button>
+                    </div>
+                </div>
 
 
                 <div class="row" style="margin-bottom: 7px; text-align: left">
@@ -143,17 +147,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </section>
 
-            <div class="row" style="display: flex; justify-content: center; " >
-               
-
-                    <a class="btn btn-primary btn-md full-width pop-login tex" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Enregistrer
-    </a>
-           <a class="ms-3 btn btn-primary btn-md full-width pop-login" data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            Editer
-    </a>
-                  
-               
+            <div class="text-center">
+                <a class="btn
+                     btn-primary
+                      btn-md
+                       full-width
+                        pop-login
+                         tex
+                         " data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Enregistrer
+                </a>
+                <a class="ms-3
+            btn
+             btn-primary
+              btn-md
+               full-width
+                pop-login
+                " data-bs-toggle="collapse" href="contratexte.php" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Editer
+                </a>
             </div>
             <br><br>
             </div>

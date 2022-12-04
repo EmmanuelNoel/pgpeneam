@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -35,6 +35,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/jquery2.0.3.min.js"></script>
     <script src="js/raphael-min.js"></script>
     <script src="js/morris.js"></script>
+    <script src="pdf.js"></script>
+    <script src="html2pdf.bundle.js"></script>
 
     <!-- icones bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
@@ -43,9 +45,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 
-    <div class="container">
+    <div class="fs-5">
+        <button type="button" class="btn btn-primary telecharger pt-2 mx-4 "><i class="bi-download fs-3"></i> &nbsp;<span class="fs-4">Télécharger pdf</span> </button>
+    </div>
 
-        <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-save fs-4"></i> <span class="fs-4">Télécharger pdf</span> </button>
+    <div class="container fs-5">
+
         <br><br><br>
         <div>
             <table class="table">
@@ -86,7 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         <div>
             <ol>
-                <li class="num">Objet du contrat</li>
+                <li class="fw-bolder">Objet du contrat</li>
                 <div>
                     Le présent contrat a pour objet la fourniture de prestations d’enseignement à l’ENEAM dans les conditions de délai,
                     normes académiques et de qualité conformément aux clauses et conditions ci-après énoncées.
@@ -94,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br>
 
-                <li class="num">Nature des prestations</li>
+                <li class="fw-bolder">Nature des prestations</li>
                 <div>
                     L’Entité retient par la présente les prestations de l’enseignant pour l’exécution de ................................... (......) heures
                     d’enseignement des cours de: [énumérer les cours, les masses horaires ainsi les niveaux/cycles concernés]
@@ -113,57 +118,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br>
 
-                <li class="num">Date de démarrage et calendrier</li>
+                <li class="fw-bolder">Date de démarrage et calendrier</li>
                 <div>
                     La durée de la prestation est de ...................jours ouvrables à partir de :
                 </div>
                 <br>
                 <div>
-                    <table class="w-50 px-5 text-break mx-auto">
+                    <table class="w-50 px-5 text-break mx-auto w-auto">
                         <tr class="text-center">
                             <th>Département</th>
                             <th>Année d'étude</th>
                             <th>ECUE<sup>1</sup> </th>
                             <th>Nombre d'heures</th>
-                            <th>Date de démarrage</th>
+                            <th>Date de <br> démarrage</th>
                             <th>Date de fin</th>
                         </tr>
                         <tr class="text-center">
-                            <td class="text-center">1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
+                            <td class="text-center">............</td>
+                            <td>............</td>
+                            <td>............</td>
+                            <td>............</td>
+                            <td>............</td>
+                            <td>............</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                        </tr>
+
                     </table>
                 </div>
 
                 <br>
-
 
                 <div>
                     <sup>1</sup>ECUE : Elément Constitutif de l’Unité d’Enseignement
                 </div>
                 <br>
 
-                <li class="num">Temps de présence</li>
+                <li class="fw-bolder">Temps de présence</li>
                 <div>
                     Dans l’exécution du présent contrat, « L’ENSEIGNANT PRESTATAIRE » .................................………………….......assurera
                     également un volume horaire hebdomadaire de .................……………de travaux dirigés et de travaux pratiques s’il y en a
@@ -173,10 +162,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br>
 
-                <li class="num">Termes de paiement et prélèvements</li>
+                <li class="fw-bolder">Termes de paiement et prélèvements</li>
                 <div>
                     Les honoraires pour les prestations d’enseignement sont de ........................<b>FCFA brut par heure exécutée
-                    conformément aux exigences de</b> l’ENEAM.
+                        conformément aux exigences de</b> l’ENEAM.
                     Les paiements sont effectués en Francs CFA à la fin des prestations (dépôt de sujets, corrigés types et copies
                     corrigées) dûment constatées par une attestation de service fait, par virement bancaire après le prélèvement de
                     l’AIB.
@@ -184,7 +173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br>
 
-                <li class="num"> Normes de Performance</li>
+                <li class="fw-bolder"> Normes de Performance</li>
                 <div>
                     L’enseignant prestataire s’engage à fournir les prestations conformément aux normes professionnelles, d’éthique
                     et déontologiques, de compétence et d’intégrité les plus exigeantes. Il est systématiquement mis fin au présent
@@ -193,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br>
 
-                <li class="num">Droit de propriété, de devoir de réserve et de non-concurrence</li>
+                <li class="fw-bolder">Droit de propriété, de devoir de réserve et de non-concurrence</li>
                 <div>
                     Pendant la durée d’exécution du présent contrat et les cinq années suivant son expiration, l’enseignant prestataire
                     ne divulguera aucune information exclusive ou confidentielle concernant la prestation, le présent contrat, les
@@ -207,7 +196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <br>
 
-                <li class="num">Règlement des litiges</li>
+                <li class="fw-bolder">Règlement des litiges</li>
                 <div>
                     Pour tout ce qui n’est pas prévu au présent contrat, les parties se référeront aux lois béninoises en la matière. Tout
                     litige survenu lors de l’exécution du présent contrat sera soumis aux juridictions compétentes, s’il n’est pas réglé à
@@ -217,42 +206,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="footer">
 
-                <div class="niveau1">
-                    Fait en trois (3) copies originales à .........................,le ................................
+                <div class="text-center mb-5">
+                    Fait en trois (3) copies originales à ........................., le ................................
                 </div>
 
-                <div class="niveau2">
-                    <div class="niv2-1">
-                        <span>
+                <div class="row mb-5">
+
+                    <div class="col-6 text-center">
+                        <span class="fw-bolder">
                             L'enseignant prestataire,
                         </span>
                     </div>
 
-                    <div class="niv2-2">
-                        <span>
+                    <div class="col-6 text-center mb-5">
+                        <span class="fw-bolder">
                             Pour l’ENEAM
-                            Le Directeur,
+                            le Directeur,
                         </span>
                     </div>
 
                 </div>
+                <div class="row">
 
-                <div class="niveau3">
-                    <div class="niv3-1">
-                        <span>
+                    <div class="col-6 text-center">
+                        <span class="fw-bolder">
                             Monsieur/Madame.....................
                         </span>
                     </div>
 
-                    <div class="niv3-2">
-                        <span>
+                    <div class="col-6 text-center mb-5">
+                        <span class="fw-bolder">
                             <u> Professeur <i>HONLONKOU N’lédji Albert</i> </u>
                         </span>
                     </div>
 
                 </div>
 
-                <div class="niveau4">
+                <div class="text-center fw-bolder mb-5">
                     VISA DE L'AGENT COMPTABLE
                 </div>
 
