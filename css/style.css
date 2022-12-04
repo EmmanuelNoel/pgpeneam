@@ -26,7 +26,7 @@ ul, ol {margin: 0;}
 p {margin: 0;}
 
 .body{
-	font-family: 'PoppinsMedium', sans-serif;
+	font-family: 'PoppinsRegular', sans-serif;
     font-size: 100%;
     background: linear-gradient(to top,rgba(0, 0, 0, 0.6)50%,rgba(0, 0, 0, 0.6)50%), url(../images/bgphoto.png);
     background-size: cover;      
@@ -34,7 +34,7 @@ p {margin: 0;}
 }
 
 html, body{
-    font-family: 'PoppinsMedium', sans-serif;
+    font-family: 'PoppinsRegular', sans-serif;
     font-size: 16px;
 }
 
