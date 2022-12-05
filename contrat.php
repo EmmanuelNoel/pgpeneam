@@ -65,11 +65,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
 
             <section class="third">
-            <div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-                           
-                           <input type="text" class="form-control formcontrol" placeholder="Enseignant" name="" value="" style="width: 450px; ">
-           
-               </div>
+                <div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+
+                    <input type="text" class="form-control formcontrol" placeholder="Enseignant" name="" value="" style="width: 450px; ">
+
+                </div>
                 <section id="third">
 
                     <div class="row pe-3 pb-4">
@@ -77,81 +77,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <button class="bg-gradient btn btn-secondary text-white" onclick="ajouterPrestation()"><i class="bi-plus"></i> Ajouter une prestation</button>
                         </div>
                     </div>
-    
-    
-                    <div class="row" style="margin-bottom: 20px;margin-top:35px; text-align: left">
-    
-                        
-    
+
+                    <div class="row text-start" style="margin-bottom: 20px;">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-    
-                            <select class="form-select formselect" name="" style="width: 450px;height:33px">
+
+                            <select class="form-select formselect" name="" style="width: 450px;">
                                 <option value="" selected>Sélectionner une classe</option>
                                 <option value="">Classe</option>
                             </select>
                         </div>
-    
-                    </div>
-    
-                    <div class="row" style="margin-bottom: 20px; text-align: left">
+
+
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-    
-                            <select class="form-select formselect formselect" name="" style="width: 450px;">
-    
-                                <option value="" disabled="" selected="" hidden=""> </option>
-                                <option value="" selected>Semestre</option>
-                            </select>
-                        </div>
-    
-    
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-    
+
                             <select class="form-select formselect" name="" style="width: 450px; ">
-    
+
                                 <option value="" disabled="" selected="" hidden=""> </option>
                                 <option value="" selected>UE</option>
                             </select>
                         </div>
                     </div>
-    
+
                     <div class="row" style="margin-bottom: 20px; text-align: left">
-    
+
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-    
+
                             <select class="form-select formselect " name="" style="width: 450px; ">
-    
+
                                 <option value="" disabled="" selected="" hidden=""> </option>
                                 <option value="" selected>ECUE</option>
                             </select>
                         </div>
-    
+
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-    
+
                             <select class="form-select formselect " name="" style="width: 450px; ">
-    
+
                                 <option value="" disabled="" selected="" hidden=""> </option>
                                 <option value="" selected>Masse horaire</option>
                             </select>
                         </div>
-    
+
                     </div>
-    
+
                     <div class="row" style="margin-bottom: 20px; text-align: left">
-    
+
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-    
+
                             <input type="text" name="date" id="date" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Date début" class="form-control formcontrol" style="width: 450px; ">
                         </div>
-    
+
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-    
+
                             <input type="text" name="date" id="date" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Date fin" class="form-control formcontrol" style="width: 450px; ">
                         </div>
-    
-                    </div>
-    
 
-                </section>    
+                    </div>
+
+
+                </section>
 
             </section>
 
