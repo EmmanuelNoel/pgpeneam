@@ -245,7 +245,7 @@ $statut = $bdd->query('SELECT * FROM statut');
 
 
 		<div class="bout">
-			<a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page d'accueil</span> </a>
+			<a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour fst-italic">Retour à la page d'accueil</span> </a>
 		</div>
 	</section>
 	<script>
