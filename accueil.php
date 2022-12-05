@@ -191,63 +191,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 					
-					<div class="col-md-3 market-update-gd">
-						<div class="market-update-block clr-block-2">
-							<div class="col-md-3 market-update-right">
-								<i class="fa  fa-info"> </i>
-							</div>
-							<div class="col-md-9 market-update-left">
-								<span class="text-center fs-6">Administrateurs conventionnes</span>
-								<?php       
-         $donnees_ad_conventionne = $administrateurs_conventionnes->fetch();                               
+					
 
-?>
-								<h3><?php echo $donnees_ad_conventionne['administrateurs_conventionnes'];  ?></h3>
-								<p>Membres enregistrés</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
+					
 
-					<div class="col-md-3 market-update-gd">
-						<div class="market-update-block clr-block-2">
-							<div class="col-md-3 market-update-right">
-								<i class="fa  fa-info"> </i>
-							</div>
-							<div class="col-md-9 market-update-left">
-							<span class="text-center fs-6">Administrateurs contractuels</span>
-							
-								<?php       
-                                $donnees_ad_contractuels = $administrateurs_contractuels->fetch();       
-                                
-
-?>
-								<h3><?php echo $donnees_ad_contractuels['administrateurs_contractuels'];  ?></h3>
-								<p>Membres enregistrés</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
-
-					<div class="col-md-3 market-update-gd">
-						<div class="market-update-block clr-block-2">
-							<div class="col-md-3 market-update-right">
-								<i class="fa  fa-info"> </i>
-							</div>
-							<div class="col-md-9 market-update-left">
-
-							<span class="text-center fs-6">Administrateurs contractuels</span>
-
-								<?php       
-                             $donnees_ad_permanents = $administrateurs_permanents->fetch();       
-
-?>
-								<h3><?php echo $donnees_ad_permanents['administrateurs_permanents'];  ?></h3>
-								<p>Membres enregistrés</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-					</div>
+					
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-1">
 							<div class="col-md-3 market-update-right">
