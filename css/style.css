@@ -3315,9 +3315,9 @@ div#graph1, div#graph4, div#graph5, div#graph6, div#graph7, div#graph8, div#grap
 
 /*Page d'édition de contrat*/
 /*formulaire*/
-input[type="text"]::placeholder{
-    color: #999;
-    font-size: 14px;
+input[type="text"]::placeholder,input[type="tel"]::placeholder,input[type="email"]::placeholder{
+    color: #fff;
+    font-size: 16px;
 }
 .formcontrol{
     color: #fff !important;
@@ -3327,6 +3327,12 @@ input[type="text"]::placeholder{
     border-right: 0 !important;
     border-left: 0 !important;
     border-radius: 0 !important;
+}
+.formcontrole{
+    color: #fff !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid var(--bs-light) !important;
+    border-radius: 2px !important;
 }
 .formselect{
     color: #fff  !important;

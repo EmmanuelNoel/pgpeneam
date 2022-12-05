@@ -46,7 +46,7 @@
 <body>
 
     <div class="fs-5">
-        <button type="button" class="btn btn-primary telecharger pt-2 mx-4 "><i class="bi-download fs-3"></i> &nbsp;<span class="fs-4">Télécharger pdf</span> </button>
+        <button type="button" class="btn btn-primary telecharger mx-4 "><i class="bi-download fs-3"></i> &nbsp;<span class="fs-4">Télécharger pdf</span> </button>
     </div>
 
     <div class="container fs-5">
