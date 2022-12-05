@@ -251,9 +251,9 @@
         </div>
 
     </div>
-
-
-
+    <!-- Télecargement du contrat -->
+    <script src="html2pdf.bundle.js"></script>
+    <script src="pdf.js"></script>
 </body>
 
 </html>
