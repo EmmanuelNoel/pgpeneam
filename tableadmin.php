@@ -1,7 +1,31 @@
+<script>
+    function run() {
+        var info = document.getElementById("admin").value;
+
+        window.location.href = "tableadmin.php?val=" +info;
+ 
+    }
+</script>
+
 <?php
 include('connexionDB.php');
 session_start();
-$enseignant=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
+
+
+if(isset($_GET['val']))
+{
+  $admin=$bdd->prepare('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2 and statut_id = ?');
+  $admin->execute(array($_GET['val']));
+
+}
+
+
+else
+
+{
+  $admin=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
+
+}
 
 
 ?>
@@ -125,11 +149,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
-        <select class="input-sm form-control w-sm inline v-middle">
+        <select class="input-sm form-control w-sm inline v-middle" id="admin" onchange="run()">
+       
           <option value="0">Toute la liste</option>
-          <option value="1">Agents conventionnés</option>
-          <option value="2">Agents contractuels</option>
-          <option value="3">Agents permanents</option>
+           <option value="3" >
+            Agents conventionnés
+          </option> 
+          <option value="4">Agents contractuels</option>
+          <option value="1">Agents permanents</option>
         </select>
                    
       </div>
@@ -164,7 +191,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         
           <?php
 
-while($donneesenseignant = $enseignant->fetch())
+while($donneesenseignant = $admin->fetch())
 {
   ?>
 

@@ -3,16 +3,19 @@
 session_start();
 include ('connexionDB.php');
 
-$enseignant_permanent = $bdd->query('SELECT count(*) as permanent FROM agent where statut_id = 1 AND categorie_id = 1');
+$enseignant_permanent = $bdd->query('SELECT count(*) as enseignant_permanent FROM agent where statut_id = 1 AND categorie_id = 1');
 
-$enseignant_vacataire = $bdd->query('SELECT count(*) as vacataire FROM agent where statut_id = 2 AND categorie_id = 1');
+$enseignant_vacataire = $bdd->query('SELECT count(*) as enseignant_vacataire FROM agent where statut_id = 2 AND categorie_id = 1');
 
-$personnel_enseignant = $bdd->query('SELECT count(*) as personnel FROM agent where categorie_id = 1');
+$personnel_enseignant = $bdd->query('SELECT count(*) as personnel_enseignant FROM agent where categorie_id = 1');
 
-$personnel_administratif = $bdd->query('SELECT count(*) as administratif FROM agent where categorie_id = 2');
+$personnel_administratif = $bdd->query('SELECT count(*) as personnel_administratif FROM agent where categorie_id = 2');
 
+$administrateurs_conventionnes = $bdd->query('SELECT count(*) as administrateurs_conventionnes FROM agent where statut_id = 3 AND categorie_id = 2');
 
+$administrateurs_contractuels =  $bdd->query('SELECT count(*) as administrateurs_contractuels FROM agent where statut_id = 4 AND categorie_id = 2');
 
+$administrateurs_permanents = $bdd->query('SELECT count(*) as administrateurs_permanents FROM agent where statut_id = 1 AND categorie_id = 2');
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +58,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/jquery2.0.3.min.js"></script>
 	<script src="js/raphael-min.js"></script>
 	<script src="js/morris.js"></script>
+
+	<!--//MDI Icons-->
+	<link rel="stylesheet" href="mdi/css/materialdesignicons.min.css">
 
 	<!-- icones bootstrap -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
@@ -169,16 +175,74 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="market-updates">
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-2">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa  fa-info"> </i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Personnel administratif</h4>
 								<?php       
                                     $donnees_administration = $personnel_administratif->fetch();
 
 ?>
-								<h3><?php echo $donnees_administration['administratif'];  ?></h3>
+								<h3><?php echo $donnees_administration['personnel_administratif'];  ?></h3>
+								<p>Membres enregistrés</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-2">
+							<div class="col-md-3 market-update-right">
+								<i class="fa  fa-info"> </i>
+							</div>
+							<div class="col-md-9 market-update-left">
+								<span class="text-center fs-6">Administrateurs conventionnes</span>
+								<?php       
+         $donnees_ad_conventionne = $administrateurs_conventionnes->fetch();                               
+
+?>
+								<h3><?php echo $donnees_ad_conventionne['administrateurs_conventionnes'];  ?></h3>
+								<p>Membres enregistrés</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-2">
+							<div class="col-md-3 market-update-right">
+								<i class="fa  fa-info"> </i>
+							</div>
+							<div class="col-md-9 market-update-left">
+							<span class="text-center fs-6">Administrateurs contractuels</span>
+							
+								<?php       
+                                $donnees_ad_contractuels = $administrateurs_contractuels->fetch();       
+                                
+
+?>
+								<h3><?php echo $donnees_ad_contractuels['administrateurs_contractuels'];  ?></h3>
+								<p>Membres enregistrés</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-2">
+							<div class="col-md-3 market-update-right">
+								<i class="fa  fa-info"> </i>
+							</div>
+							<div class="col-md-9 market-update-left">
+
+							<span class="text-center fs-6">Administrateurs contractuels</span>
+
+								<?php       
+                             $donnees_ad_permanents = $administrateurs_permanents->fetch();       
+
+?>
+								<h3><?php echo $donnees_ad_permanents['administrateurs_permanents'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
@@ -186,16 +250,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-1">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info"></i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Personnel enseignant</h4>
 								<?php       
                                     $donnees_enseignant = $personnel_enseignant->fetch();
 
 ?>
-								<h3><?php echo $donnees_enseignant['personnel'];  ?></h3>
+								<h3><?php echo $donnees_enseignant['personnel_enseignant'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
@@ -203,16 +267,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-3">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info"></i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Enseignants permanents</h4>
 								<?php
                                  
-                                    $donnees_permanent = $enseignant_permanent->fetch();
+                                    $donnees_ens_permanent = $enseignant_permanent->fetch();
                                  ?>
-								<h3><?php echo $donnees_permanent['permanent'];  ?></h3>
+								<h3><?php echo $donnees_ens_permanent['enseignant_permanent'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
@@ -220,16 +284,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-4">
-							<div class="col-md-4 market-update-right">
+							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info" aria-hidden="true"></i>
 							</div>
-							<div class="col-md-8 market-update-left">
+							<div class="col-md-9 market-update-left">
 								<h4>Enseignants vacataires</h4>
 								<?php
                                  
-                                    $donnees_vacataire = $enseignant_vacataire->fetch();
+                                    $donnees_ens_vacataire = $enseignant_vacataire->fetch();
                                  ?>
-								<h3><?php echo $donnees_vacataire['vacataire'];  ?></h3>
+								<h3><?php echo $donnees_ens_vacataire['enseignant_vacataire'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>

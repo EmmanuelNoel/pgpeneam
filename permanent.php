@@ -29,6 +29,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- icones bootstrap -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"/>
 <link rel="stylesheet" href="bootstrap-icons-1.9.1/bootstrap-icons.css">
+<!--//MDI Icons-->
+<link rel="stylesheet" href="mdi/css/materialdesignicons.min.css">
 </head>
 <body class="body">
 <section id="container">
