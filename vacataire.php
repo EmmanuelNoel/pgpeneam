@@ -1,6 +1,17 @@
 <?php
-include('connexionDB.php');
 session_start();
+include('connexionDB.php');
+if (empty($_SESSION)){
+	# code...
+	header('location:index.php');
+}
+
+
+
+
+
+
+
 $enseignant_vacataire=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and statut_id = 2');
 
 

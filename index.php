@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!empty($_SESSION)){
+	# code...
+	header('location:accueil.php');
+}
+?>
+
 <!DOCTYPE html>
 <head>
 <title>Plateforme de gestion du personnel de l'ENEAM</title>
@@ -5,7 +13,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script type="application/x-javascript">
+ addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
 <link rel="stylesheet" href="css/b1ootstrap.min.css" >
 <!-- //bootstrap-css -->
@@ -20,6 +29,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //font-awesome icons -->
 <!--//MDI Icons-->
 <link rel="stylesheet" href="mdi/css/materialdesignicons.min.css">
+
+<link rel="stylesheet" href="css/login.css">
 <script src="js/jquery2.0.3.min.js"></script>
 
 <style>
@@ -108,22 +119,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="log-w3">
 	<div class=" second w3layouts-main">
 		<h2>CONNEXION</h2>
-		<form action="connexion.php" method="post">
+		<form action="connexion.php" class="php-email-form" method="post">
 			<input type="tel" class="ggg" name="matricule" placeholder="Matricule" required>
 			<input type="password" class="ggg" name="password" placeholder="Mot de passe" required>
 		
-			<!-- <h6><a href="#">Mot de passe oublié?</a></h6>
+		<div class="my-3">
+            	<div class="loading">Loading</div>
+             	<div class="error-message"></div>
+                <div class="sent-message">Identifiant correct</div>
+         </div>
+	<!-- <h6><a href="#">Mot de passe oublié?</a></h6>
 				<div class="clearfix"></div> -->
 				<input type="submit" value="Se connecter" name="login">
 				<!-- <p>Vous n'avez pas un compte ?<a href="registration.php">Créer un compte</a></p> -->
 		</form>
 	</div>	
 </div>
+<!-- by john -->
+<script src="js/validate.js"></script>
+
+<!-- by john -->
+
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="js/scripts.js"></script>
 <script src="js/jquery.slimscroll.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
+
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="js/jquery.scrollTo.js"></script>
 </body>

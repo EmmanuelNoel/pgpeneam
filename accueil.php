@@ -1,6 +1,10 @@
 <?php
 
 session_start();
+if (empty($_SESSION)){
+	# code...
+	header('location:index.php');
+}
 include ('connexionDB.php');
 
 $enseignant_permanent = $bdd->query('SELECT count(*) as enseignant_permanent FROM agent where statut_id = 1 AND categorie_id = 1');

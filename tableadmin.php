@@ -12,6 +12,17 @@ include('connexionDB.php');
 session_start();
 
 
+if (empty($_SESSION)){
+	# code...
+	header('location:index.php');
+}
+
+
+
+
+
+
+
 if(isset($_GET['val']))
 {
   $admin=$bdd->prepare('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2 and statut_id = ?');

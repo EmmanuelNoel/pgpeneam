@@ -1,8 +1,14 @@
 <?php
 include('connexionDB.php');
-session_start();
-$enseignant=$bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1');
 
+session_start();
+
+if (empty($_SESSION)){
+	# code...
+	header('location:index.php');
+}
+
+$enseignant=$bdd->query('SELECT agent.id,agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1');
 
 ?>
 
@@ -162,10 +168,10 @@ while($donneesenseignant = $enseignant->fetch())
   ?>
 
           <tr data-expanded="true">
-            <td> <?php echo $donneesenseignant['matricule'];  ?> </td>
-            <td><?php echo $donneesenseignant['nom'];  ?></td>
-            <td><?php echo $donneesenseignant['prenom'];  ?></td>
-            <td><?php echo $donneesenseignant['role'];  ?></td>
+            <td> <a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['matricule'];  ?></a> </td>
+            <td><a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['nom'];  ?></a></td>
+            <td><a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['prenom'];  ?></a></td>
+            <td><a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['role'];  ?></a></td>
             
           </tr>
           <?php

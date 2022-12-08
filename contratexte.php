@@ -1,3 +1,69 @@
+<?php
+session_start();
+if (empty($_SESSION)){
+	# code...
+	header('location:index.php');
+}
+
+?>
+
+<!--insertion des données dans la table contrat et prestation -->
+<?php
+
+include('connexionDB.php'); //connexion DB
+
+//date actuel
+
+date_default_timezone_set('Africa/Abidjan');
+$currenttime = date('d-m-Y');
+$dateActuel = strtotime($currenttime);
+   
+
+//insertion dans la table contrat
+
+$num_contrat = $_POST['num_contrat'];
+
+
+$insertion_contrat = $bdd->prepare('INSERT INTO contrat(numcontrat,dates,agent_id,entite_id) VALUES (?,?,?,?)');
+$insertion_contrat->execute(array($num_contrat,$dateActuel,$_POST['enseignant'],1));
+
+
+//insertion dans la table prestation
+
+$donnees_contrat = $bdd->query('SELECT * FROM contrat ORDER BY id DESC LIMIT 1');
+$id = $donnees_contrat->fetch();
+$contrat_id = $id['id']; // recuperer l'id du dernier numcontrat
+
+if(is_array($_POST['classe']))
+  {
+   
+     foreach($_POST['classe'] as $cle=>$val)
+     {
+
+        $classe_id = $_POST['classe'][$cle];
+      
+        $ecue_id = $_POST['ecue'][$cle];
+        $date_debut =  $_POST['date_debut'][$cle];
+        $date_fin =   $_POST['date_fin'][$cle];
+        $massehoraire =  $_POST['massehoraire'][$cle];
+      
+$insertion_prestation = $bdd->prepare('INSERT INTO prestation(contrat_id,classe_id,ecue_id,massehoraire,date_debut,date_fin)
+VALUES (?,?,?,?,?,?)
+');
+$insertion_prestation->execute(array($contrat_id,$classe_id,$ecue_id,$massehoraire,$date_debut,$date_fin));
+
+     }
+    
+  }
+  //informations de l'agent
+
+  $infos_agent = $bdd->prepare('SELECT * FROM agent where id=?');
+  $infos_agent->execute(array($_POST['enseignant']));
+  $info = $infos_agent->fetch();
+
+
+?>
+
 <!DOCTYPE html>
 
 <head>
@@ -71,14 +137,14 @@
             <br> L’Ecole Nationale d’Economie Appliquée et de Management (ENEAM),
             sise au campus universitaire de Cotonou, représentée par le Directeur <strong><em>HONLONKOU N’lédji Albert</em></strong> tel : 21 30 41 68 ;
             03 BP 1079,
-            E-mail professionnel : ....................................... ci-après dénommé « ETABLISSEMENT » d’une part,
+            E-mail professionnel : <?php echo $info['email'];?> ci-après dénommé « ETABLISSEMENT » d’une part,
             <br> <b>Et</b>
-            <br> Monsieur/Madame .........................................................................................................................................
-            <br> Nationalité :........................................................................................................................ Profession : ................
+            <br> Monsieur/Madame <?php echo $info['nom'];?> &nbsp;&nbsp;<?php echo $info['prenom'];?>
+            <br> Nationalité :<?php echo $info['nationalite'];?> Profession : <?php echo $info['profession'];?>
             <br> Domicilié à
-            <br> IFU: ...........
+            <br> IFU: <?php echo $info['ifu'];?>
             <br> Compte bancaire N°................................................................/Banque :........................................ .
-            <br> Email:........................................................................................... Tél. : ...........................................................
+            <br> Email:<?php echo $info['email'];?>   Tél. : <?php echo $info['telephone'];?>
             ci-après dénommé « L’ENSEIGNANT PRESTATAIRE » d’autre part
             qui déclare être disponible pour fournir les prestations objet du présent contrat, ci-après dénommé
             « PRESTATIONS D’ENSEIGNEMENT»,

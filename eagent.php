@@ -1,4 +1,14 @@
 <?php
+
+session_start();
+if (empty($_SESSION)){
+	# code...
+	header('location:index.php');
+}
+
+
+
+
 include('connexionDB.php');
 $banque = $bdd->query('SELECT * FROM banque');
 $categorie = $bdd->query('SELECT * FROM categorie');

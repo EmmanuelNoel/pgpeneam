@@ -1,3 +1,42 @@
+<?php
+session_start();
+if (empty($_SESSION)){
+	# code...
+	header('location:index.php');
+}
+include('connexionDB.php');
+
+
+
+$req =$bdd->prepare('
+select agent.nom,
+agent.prenom
+,agent.prenom
+,agent.matricule
+,agent.nationalite
+,agent.profession
+,agent.ifu
+,agent.rib
+,agent.email
+,agent.telephone
+,agent.adresse,
+agent.sexe,
+agent.en_service,
+agent.date_premier_service,
+grade.nom as grade,
+statut.nom as statut,
+categorie.nom as categorie,
+banque.nom as banque,
+role.nom as role
+from agent,grade,statut,categorie,banque,role WHERE agent.grade_id=grade.id AND agent.statut_id=statut.id AND agent.banque_id=banque.id AND agent.categorie_id=categorie.id AND agent.role_id=role.id ORDER BY `agent`.`nom` AND agent.id=:id');
+$req->execute(array(
+'id' =>$_SESSION['id'],
+    )
+);
+
+$resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <head>
 <title>Plateforme de gestion du personnel de l'ENEAM</title>
@@ -41,7 +80,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>N° matricule :</span>
     </div>
     <div class="col-6" >
-    <span>891234</span>
+
+
+    
+    <span><?php echo $resultat[0]['matricule'];?></span>
     </div>
 </div>   
 
@@ -50,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>Nom :</span>
     </div>
     <div class="col-6">
-    <span>Lorriane</span>
+    <span><?php echo $resultat[0]['nom'];?></span>
     </div>
 </div>   
 
@@ -59,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>Prénom(s) :</span>
     </div>
     <div class="col-6" >
-    <span>Cooke</span>
+    <span><?php echo $resultat[0]['prenom'];?></span>
     </div>
 </div>  
 
@@ -68,7 +110,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>Catégorie :</span>
     </div>
     <div class="col-6" >
-    <span>Administration</span>
+    <span>
+    <?php echo $resultat[0]['categorie'];?>    </span>
     </div>
 </div>   
 
@@ -77,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>Statut :</span>
     </div>
     <div class="col-6" >
-    <span>Contractuel</span>
+    <span><?php echo $resultat[0]['statut'];?></span>
     </div>
 </div>        
 
@@ -86,7 +129,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>Poste :</span>
     </div>
     <div class="col-6" >
-    <span>Secrétaire comptable</span>
+    <span><?php echo $resultat[0]['profession'];?></span>
     </div>
 </div> 
 
@@ -95,7 +138,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>Date de première prise de service :</span>
     </div>
     <div class="col-6" >
-    <span>13/02/2012</span>
+    <span>
+<?php 
+echo 
+$resultat[0]['date_premier_service'];
+
+
+?>
+
+
+    </span>
+
     </div>
 </div>        
 
@@ -129,10 +182,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        
 <div class="row">
     <div class="col-lg-6" >
-    <span>En service :</span>
+    <span>En service :
+
+    </span>
     </div>
     <div class="col-6" >
-    <span>Oui</span>
+    <span>
+    <?php echo $resultat[0]['en_service'];
+?>
+    </span>
     </div>
 </div> 
 
