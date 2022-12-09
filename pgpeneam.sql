@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 04 déc. 2022 à 21:06
+-- Généré le : ven. 09 déc. 2022 à 15:21
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -110,6 +110,18 @@ CREATE TABLE `classe` (
   `niveau` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `classe`
+--
+
+INSERT INTO `classe` (`id`, `nom`, `filiere_id`, `niveau`) VALUES
+(1, 'IG1', 1, 1),
+(2, 'IG2', 1, 1),
+(3, 'IG3', 1, 1),
+(4, 'PLAN1', 4, 1),
+(5, 'PLAN2', 4, 1),
+(6, 'PLAN3', 4, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -119,10 +131,19 @@ CREATE TABLE `classe` (
 CREATE TABLE `contrat` (
   `id` int(11) NOT NULL,
   `numcontrat` int(11) NOT NULL,
-  `date` date NOT NULL,
+  `dates` varchar(255) NOT NULL,
   `agent_id` int(11) NOT NULL,
   `entite_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `contrat`
+--
+
+INSERT INTO `contrat` (`id`, `numcontrat`, `dates`, `agent_id`, `entite_id`) VALUES
+(1, 1000, '1670457600', 1, 1),
+(2, 1001, '1670544000', 2, 1),
+(3, 1002, '1670544000', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -154,9 +175,18 @@ INSERT INTO `departement` (`id`, `nom`, `entite_id`) VALUES
 
 CREATE TABLE `ecue` (
   `id` int(11) NOT NULL,
-  `nom` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
   `ue_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `ecue`
+--
+
+INSERT INTO `ecue` (`id`, `nom`, `ue_id`) VALUES
+(1, 'Calcul matriciel', 2),
+(2, 'Espace vectoriel', 2),
+(3, 'Programmation orientee objet en C++', 6);
 
 -- --------------------------------------------------------
 
@@ -191,6 +221,7 @@ INSERT INTO `entite` (`id`, `nom`, `code`, `directeur`, `adresse`, `email`, `tel
 CREATE TABLE `filiere` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
   `departement_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -198,15 +229,15 @@ CREATE TABLE `filiere` (
 -- Déchargement des données de la table `filiere`
 --
 
-INSERT INTO `filiere` (`id`, `nom`, `departement_id`) VALUES
-(1, 'Informatique de gestion', 4),
-(2, 'Statistique', 1),
-(4, 'Planification', 2),
-(5, 'Gestion des transports et logistiques', 3),
-(6, 'Gestion commerciale', 3),
-(7, 'Gestion des Banques et Assurance', 3),
-(8, 'Gestion Financiere et comptable', 3),
-(9, 'Gestion des ressources humaines', 3);
+INSERT INTO `filiere` (`id`, `nom`, `code`, `departement_id`) VALUES
+(1, 'Informatique de gestion', 'IG', 4),
+(2, 'Statistique', 'STAT', 1),
+(4, 'Planification', 'PLAN', 2),
+(5, 'Gestion des transports et logistiques', 'GTL', 3),
+(6, 'Gestion commerciale', 'GC', 3),
+(7, 'Gestion des Banques et Assurance', 'GBA', 3),
+(8, 'Gestion Financiere et comptable', 'GFC', 3),
+(9, 'Gestion des ressources humaines', 'GRH', 3);
 
 -- --------------------------------------------------------
 
@@ -269,11 +300,20 @@ CREATE TABLE `prestation` (
   `classe_id` int(11) NOT NULL,
   `ecue_id` int(11) NOT NULL,
   `massehoraire` int(11) NOT NULL,
-  `date_debut` date NOT NULL,
-  `date_fin` date NOT NULL,
-  `voulme_td` int(11) NOT NULL,
-  `volume_jour` int(11) NOT NULL
+  `date_debut` int(11) NOT NULL,
+  `date_fin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `prestation`
+--
+
+INSERT INTO `prestation` (`id`, `contrat_id`, `classe_id`, `ecue_id`, `massehoraire`, `date_debut`, `date_fin`) VALUES
+(1, 1, 1, 1, 8, 2022, 2022),
+(2, 1, 2, 1, 8, 2022, 2022),
+(3, 2, 2, 3, 8, 2022, 2022),
+(4, 3, 1, 1, 7, 2022, 2022),
+(5, 3, 2, 2, 7, 2022, 2022);
 
 -- --------------------------------------------------------
 
@@ -323,8 +363,22 @@ INSERT INTO `statut` (`id`, `nom`) VALUES
 CREATE TABLE `ue` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `entite_id` int(11) NOT NULL
+  `entite_id` int(11) NOT NULL,
+  `classe_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `ue`
+--
+
+INSERT INTO `ue` (`id`, `nom`, `entite_id`, `classe_id`) VALUES
+(2, 'Algebre', 1, 1),
+(3, 'Mathsinfo', 1, 1),
+(4, 'Initiation a l\'Algorithme', 1, 1),
+(5, 'Algorithme et structure de donnees avancees', 1, 2),
+(6, 'Programmation orientee objet en C++', 1, 2),
+(7, 'SYsteme d\'exploitation', 1, 3),
+(8, 'Administration des bases de donnees', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -403,8 +457,8 @@ ALTER TABLE `classe`
 --
 ALTER TABLE `contrat`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_contrat_agent_id` (`agent_id`),
-  ADD KEY `fk_contrat_entite_id` (`entite_id`);
+  ADD KEY `fk_c_en_id` (`agent_id`),
+  ADD KEY `fk_e_en_id` (`entite_id`);
 
 --
 -- Index pour la table `departement`
@@ -451,9 +505,9 @@ ALTER TABLE `niveau`
 --
 ALTER TABLE `prestation`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_prestation_contrat_id` (`contrat_id`),
-  ADD KEY `fk_prestation_classe_id` (`classe_id`),
-  ADD KEY `fk_prestation_ecue_id` (`ecue_id`);
+  ADD KEY `fk_pre_clsse_id` (`classe_id`),
+  ADD KEY `fk_pre_ecue_id` (`ecue_id`),
+  ADD KEY `fk_pre_c_id` (`contrat_id`);
 
 --
 -- Index pour la table `role`
@@ -472,7 +526,8 @@ ALTER TABLE `statut`
 --
 ALTER TABLE `ue`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_ue_entite_id` (`entite_id`);
+  ADD KEY `fk_ue_entite_id` (`entite_id`),
+  ADD KEY `fk_ue_classe_id` (`classe_id`);
 
 --
 -- Index pour la table `universite`
@@ -513,13 +568,13 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `classe`
 --
 ALTER TABLE `classe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `contrat`
 --
 ALTER TABLE `contrat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `departement`
@@ -531,7 +586,7 @@ ALTER TABLE `departement`
 -- AUTO_INCREMENT pour la table `ecue`
 --
 ALTER TABLE `ecue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `entite`
@@ -561,7 +616,7 @@ ALTER TABLE `niveau`
 -- AUTO_INCREMENT pour la table `prestation`
 --
 ALTER TABLE `prestation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `role`
@@ -579,7 +634,7 @@ ALTER TABLE `statut`
 -- AUTO_INCREMENT pour la table `ue`
 --
 ALTER TABLE `ue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `universite`
@@ -617,8 +672,8 @@ ALTER TABLE `classe`
 -- Contraintes pour la table `contrat`
 --
 ALTER TABLE `contrat`
-  ADD CONSTRAINT `fk_contrat_agent_id` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`id`),
-  ADD CONSTRAINT `fk_contrat_entite_id` FOREIGN KEY (`entite_id`) REFERENCES `entite` (`id`);
+  ADD CONSTRAINT `fk_c_en_id` FOREIGN KEY (`agent_id`) REFERENCES `agent` (`id`),
+  ADD CONSTRAINT `fk_e_en_id` FOREIGN KEY (`entite_id`) REFERENCES `agent` (`id`);
 
 --
 -- Contraintes pour la table `departement`
@@ -648,14 +703,15 @@ ALTER TABLE `filiere`
 -- Contraintes pour la table `prestation`
 --
 ALTER TABLE `prestation`
-  ADD CONSTRAINT `fk_prestation_classe_id` FOREIGN KEY (`classe_id`) REFERENCES `classe` (`id`),
-  ADD CONSTRAINT `fk_prestation_contrat_id` FOREIGN KEY (`contrat_id`) REFERENCES `contrat` (`id`),
-  ADD CONSTRAINT `fk_prestation_ecue_id` FOREIGN KEY (`ecue_id`) REFERENCES `ecue` (`id`);
+  ADD CONSTRAINT `fk_pre_c_id` FOREIGN KEY (`contrat_id`) REFERENCES `contrat` (`id`),
+  ADD CONSTRAINT `fk_pre_clsse_id` FOREIGN KEY (`classe_id`) REFERENCES `classe` (`id`),
+  ADD CONSTRAINT `fk_pre_ecue_id` FOREIGN KEY (`ecue_id`) REFERENCES `ecue` (`id`);
 
 --
 -- Contraintes pour la table `ue`
 --
 ALTER TABLE `ue`
+  ADD CONSTRAINT `fk_ue_classe_id` FOREIGN KEY (`classe_id`) REFERENCES `classe` (`id`),
   ADD CONSTRAINT `fk_ue_entite_id` FOREIGN KEY (`entite_id`) REFERENCES `entite` (`id`);
 
 --

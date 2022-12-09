@@ -120,8 +120,7 @@ $dateActuel = strtotime($currenttime);
 
 <body>
 
-<main >
-<div class="fs-5">
+    <div class="fs-5">
         <button type="button" class="btn btn-primary telecharger mx-4 "><i class="bi-download fs-3"></i> &nbsp;<span class="fs-4">Télécharger pdf</span> </button>
     </div>
 
@@ -372,8 +371,6 @@ $dateActuel = strtotime($currenttime);
     <!-- Télecargement du contrat -->
     <script src="html2pdf.bundle.js"></script>
     <script src="pdf.js"></script>
-</main>
-   
 </body>
 
 </html>
