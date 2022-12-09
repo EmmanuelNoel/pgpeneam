@@ -5,7 +5,7 @@ function run() {
     // info.forEach(element => {
     //     infos.append(element.value)
     // });
-        var info = document.getElementById("2").value;
+        var info = document.getElementById("classe").value;
         var xhr1=new XMLHttpRequest();
         var valeur="contrat_post.php?val="+info;
             xhr1.onreadystatechange = function(){

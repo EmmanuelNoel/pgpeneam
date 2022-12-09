@@ -96,11 +96,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </button>
                 </div> -->
             </div>
-            <div class="row pe-3 pb-4">
-                        <div class="col-12 text-end">
-                            <button class="bg-gradient btn btn-secondary text-white" onclick="ajouterPrestation()"><i class="bi-plus"></i> Ajouter une prestation</button>
-                        </div>
-                    </div>
+
+            
+            
             <form action="contratexte.php" method="post">
                 <input type="hidden" name="num_contrat" value="<?php echo $dernier_num_contrat;?>">
             <section class="third">
@@ -119,6 +117,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 ?>
                             </select>
                 </div>
+
+                <div class="row pe-3 pb-4">
+                        <div class="col-12 text-end">
+                            <button type="button" class="bg-gradient btn btn-secondary text-white" onclick="ajouterPrestation()"><i class="bi-plus"></i> Ajouter une prestation</button>
+                        </div>
+                    </div>
+             
                 <section id="third">
 
                     <div class="row pe-3 pb-4">
@@ -145,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <select class="form-select formselect  ueFormSelect" oninput="run2()" name="ue[]" style="width: 450px; ">
 
-                                <option value="ue" disabled="" selected="" hidden=""> </option>
+                                <option value="ue" disabled="" selected="" hidden="">UE </option>
                                
                             </select>
                         </div>
