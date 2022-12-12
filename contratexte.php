@@ -21,39 +21,39 @@ $dateActuel = strtotime($currenttime);
 
 //insertion dans la table contrat
 
-// $num_contrat = $_POST['num_contrat'];
+$num_contrat = $_POST['num_contrat'];
 
-// $insertion_contrat = $bdd->prepare('INSERT INTO contrat(numcontrat,dates,agent_id,entite_id) VALUES (?,?,?,?)');
-// $insertion_contrat->execute(array($num_contrat,$dateActuel,$_POST['enseignant'],1));
+$insertion_contrat = $bdd->prepare('INSERT INTO contrat(numcontrat,dates,agent_id,entite_id) VALUES (?,?,?,?)');
+$insertion_contrat->execute(array($num_contrat,$dateActuel,$_POST['enseignant'],1));
 
 
 //insertion dans la table prestation
 
-// $donnees_contrat = $bdd->query('SELECT * FROM contrat ORDER BY id DESC LIMIT 1');
-// $id = $donnees_contrat->fetch();
-// $contrat_id = $id['id']; // recuperer l'id du dernier numcontrat
+$donnees_contrat = $bdd->query('SELECT * FROM contrat ORDER BY id DESC LIMIT 1');
+$id = $donnees_contrat->fetch();
+$contrat_id = $id['id']; // recuperer l'id du dernier numcontrat
 
-// if(is_array($_POST['classe']))
-//   {
+if(is_array($_POST['classe']))
+  {
    
-//      foreach($_POST['classe'] as $cle=>$val)
-//      {
+     foreach($_POST['classe'] as $cle=>$val)
+     {
 
-//         $classe_id = $_POST['classe'][$cle];
+        $classe_id = $_POST['classe'][$cle];
       
-//         $ecue_id = $_POST['ecue'][$cle];
-//         $date_debut =  $_POST['date_debut'][$cle];
-//         $date_fin =   $_POST['date_fin'][$cle];
-//         $massehoraire =  $_POST['massehoraire'][$cle];
+        $ecue_id = $_POST['ecue'][$cle];
+        $date_debut =  $_POST['date_debut'][$cle];
+        $date_fin =   $_POST['date_fin'][$cle];
+        $massehoraire =  $_POST['massehoraire'][$cle];
       
-// $insertion_prestation = $bdd->prepare('INSERT INTO prestation(contrat_id,classe_id,ecue_id,massehoraire,date_debut,date_fin)
-// VALUES (?,?,?,?,?,?)
-// ');
-// $insertion_prestation->execute(array($contrat_id,$classe_id,$ecue_id,$massehoraire,$date_debut,$date_fin));
+$insertion_prestation = $bdd->prepare('INSERT INTO prestation(contrat_id,classe_id,ecue_id,massehoraire,date_debut,date_fin)
+VALUES (?,?,?,?,?,?)
+');
+$insertion_prestation->execute(array($contrat_id,$classe_id,$ecue_id,$massehoraire,$date_debut,$date_fin));
 
-//      }
+     }
     
-//   }
+  }
   //informations de l'agent
 
   $infos_agent = $bdd->prepare('SELECT * FROM agent where id=?');
