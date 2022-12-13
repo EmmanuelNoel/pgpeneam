@@ -215,7 +215,7 @@ $dateActuel = strtotime($currenttime);
                 </div>
                 <br>
                 <div>
-                    <table class="w-50 px-5 text-break mx-auto w-auto">
+                    <table class="h-auto table table-responsive px-2 text-wrap mx-auto mt-5 w-auto">
                         <tr class="text-center">
                             <th>Département</th>
                             <th>Année d'étude</th>
