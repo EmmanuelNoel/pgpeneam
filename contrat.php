@@ -120,11 +120,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="row pe-3 pb-4">
                         <div class="col-12 text-end">
-                            <button type="button" class="bg-gradient btn btn-secondary text-white" onclick="ajouterPrestation()"><i class="bi-plus"></i> Ajouter une prestation</button>
+                            <button type="button" class="bg-gradient btn btn-secondary text-white" id="button" onclick="duplicate()"><i class="bi-plus"></i> Ajouter une prestation</button>
                         </div>
                     </div>
              
-                <section id="third">
+                <section id="duplicater">
 
                     <div class="row pe-3 pb-4">
                         <div class="col-12 text-end">
@@ -167,9 +167,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </select>
                         </div>
 
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 " style="display:flex ; justify-content: space-around;">
 
-                        <input type="tel" class="form-control formcontrol" placeholder="Massehoraire" name="massehoraire[]" value="" style="width: 450px;">
+                        <input type="tel" class="form-control formcontrol "  placeholder="Massehoraire" name="massehoraire[]" value="" style="width: 450px;">
 
                         </div>
 
@@ -260,13 +260,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         //     } else
         //         document.getElementById("inpt").style.display = 'none';
         // }
-        function ajouterPrestation() {
-            var text = document.getElementById('third').innerHTML;
-            $('.third').append(text);
-        }
+        // function ajouterPrestation() {
+        //     var text = document.getElementById('third').innerHTML;
+        //     $('.third').append(text);
+        // }
     </script>
 
+<script>
+    var i = 0;
+var original = document.getElementById('duplicater');
 
+function duplicate() {
+    var clone = original.cloneNode(true); //"deep" clone
+    clone.id = "duplicater" + ++i;
+    //or clone.id = ""; if the divs don't need an ID
+    original.parentNode.appendChild(clone);
+}
+</script>
 
 
     <script src="js/bootstrap.js"></script>
