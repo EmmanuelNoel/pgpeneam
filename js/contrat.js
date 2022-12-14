@@ -1,18 +1,12 @@
-function run() {
-
-    // var info = document.getElementsByClassName("form-select formselect classe");
-    // var infos =[] 
-    // info.forEach(element => {
-    //     infos.append(element.value)
-    // });
-        var info = document.getElementById("classe").value;
+function run(information) {
+        var info =information.value;
         var xhr1=new XMLHttpRequest();
         var valeur="contrat_post.php?val="+info;
             xhr1.onreadystatechange = function(){
                     if(this.readyState == 4 && this.status == 200){
                         // resultats
                         var  reponse=JSON.parse(this.responseText);
-                        var ueFormSelect=document.querySelector(".ueFormSelect");
+                        var ueFormSelect=information.parentNode.nextElementSibling.childNodes[1];
                         var valeurFinal;
                         reponse.forEach(element => {
                             var contenant=document.createElement('option');
@@ -22,7 +16,7 @@ function run() {
                         });
                         
                         ueFormSelect.innerHTML=valeurFinal; 
-                        run2();
+                        run2(ueFormSelect);
                         }
             }
         xhr1.open("GET",valeur, true);
@@ -30,11 +24,10 @@ function run() {
 
     }
 
-function run2() {
-    
+function run2(information) {
      // je selectionne la partie du selecte pour la matiere   
-     var ueFormSelect=document.querySelector(".ueFormSelect");
-     var ecueFormSelect=document.querySelector(".ecueFormSelect");
+       var ueFormSelect=information;
+        var ecueFormSelect=information.parentNode.parentNode.nextElementSibling.children[0].children[0];
          var info=ueFormSelect.value;
          var xhr2=new XMLHttpRequest();
          var valeur="contrat_post.php?val2="+info;

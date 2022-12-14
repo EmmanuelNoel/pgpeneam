@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="row text-start" style="margin-bottom: 20px;">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
 
-                            <select class="form-select formselect" name="classe[]" style="width: 450px;" id="classe" onchange="run()">
+                            <select class="form-select formselect" name="classe[]" style="width: 450px;" id="classe" onchange="run(this)">
                                 <option value="" selected>Sélectionner une classe</option>
                                 <?php
                                     foreach($classe as $cls)
@@ -144,14 +144,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <?php };?>
                             </select>
                         </div>
-
-
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
 
-                            <select class="form-select formselect  ueFormSelect" oninput="run2()" name="ue[]" style="width: 450px; ">
-
+                            <select class="form-select formselect  ueFormSelect" oninput="run2(this)" name="ue[]" style="width: 450px; ">
                                 <option value="ue" disabled="" selected="" hidden="">UE </option>
-                               
                             </select>
                         </div>
                     </div>
