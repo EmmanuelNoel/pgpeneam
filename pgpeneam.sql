@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : lun. 12 déc. 2022 à 14:17
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 8.1.6
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 14 fév. 2023 à 18:23
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,8 +27,9 @@ SET time_zone = "+00:00";
 -- Structure de la table `agent`
 --
 
-CREATE TABLE `agent` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `agent`;
+CREATE TABLE IF NOT EXISTS `agent` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `matricule` int(11) NOT NULL,
@@ -47,18 +48,43 @@ CREATE TABLE `agent` (
   `statut_id` int(11) NOT NULL,
   `banque_id` int(11) NOT NULL,
   `categorie_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_agent_banque_id` (`banque_id`),
+  KEY `fk_agent_statut_id` (`statut_id`),
+  KEY `fk_agent_categorie_id` (`categorie_id`),
+  KEY `fk_agent_role_id` (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `agent`
 --
 
 INSERT INTO `agent` (`id`, `nom`, `prenom`, `matricule`, `passwd`, `nationalite`, `profession`, `ifu`, `rib`, `email`, `telephone`, `adresse`, `sexe`, `en_service`, `date_premier_service`, `grade_id`, `statut_id`, `banque_id`, `categorie_id`, `role_id`) VALUES
-(1, 'pifofuju@mailinator.com', 'syrukaf@mailinator.com', 17, '17pifofuju@mailinator.com', 'gupyz@mailinator.com', 'kizy@mailinator.com', 98, 65, 'juho@mailinator.com', 1, 'jareminy@mailinator.com', 'homme', 0, '1975-06-24', '9', 1, 2, 1, 1),
-(2, 'nuqy@mailinator.com', 'kyxipy@mailinator.com', 0, 'viqis@mailinator.comnuqy@mailinator.com', 'myhalezyvy@mailinator.com', 'xukifycij@mailinator.com', 25, 50, 'tapowux@mailinator.com', 1, 'bufux@mailinator.com', 'femme', 0, '2001-01-28', '1', 1, 1, 1, 1),
-(3, 'jire@mailinator.com', 'koxit@mailinator.com', 0, 'dafyjoqo@mailinator.comjire@mailinator.com', 'newikas@mailinator.com', 'vunafowy@mailinator.com', 66, 24, 'figa@mailinator.com', 1, 'sawyfu@mailinator.com', 'femme', 0, '1995-10-27', '12', 3, 1, 2, 1),
-(4, 'Temporibus nulla pra', 'Sed veniam consequa', 0, 'Accusantium cupiditaTemporibus nulla pra', 'Sunt amet aperiam q', '+1 (193) 577-1974', 1, 1, 'judisojody@mailinator.com', 1, 'Obcaecati laborum qu', 'femme', 0, '2007-05-28', '10', 3, 2, 1, 1);
+(1, 'SOSSA', 'Anne-Michèle', 1, 'admin', 'Beninoise', 'Experte comptable', 98, 65, 'admin@mail.com', 1, 'BP 2684', 'Femme', 0, '1975-06-24', '9', 1, 2, 2, 1),
+(2, 'nuqy@mailinator.com', 'kyxipy@mailinator.com', 0, 'viqis@mailinator.comnuqy@mailinator.com', 'myhalezyvy@mailinator.com', 'xukifycij@mailinator.com', 25, 50, 'tapowux@mailinator.com', 1, 'bufux@mailinator.com', 'femme', 0, '2001-01-28', '1', 1, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `annee`
+--
+
+DROP TABLE IF EXISTS `annee`;
+CREATE TABLE IF NOT EXISTS `annee` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `annee` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `annee`
+--
+
+INSERT INTO `annee` (`id`, `annee`) VALUES
+(1, '2020-2021'),
+(2, '2021-2022'),
+(3, '2022-2023');
 
 -- --------------------------------------------------------
 
@@ -66,10 +92,12 @@ INSERT INTO `agent` (`id`, `nom`, `prenom`, `matricule`, `passwd`, `nationalite`
 -- Structure de la table `banque`
 --
 
-CREATE TABLE `banque` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `banque`;
+CREATE TABLE IF NOT EXISTS `banque` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `banque`
@@ -85,10 +113,12 @@ INSERT INTO `banque` (`id`, `nom`) VALUES
 -- Structure de la table `categorie`
 --
 
-CREATE TABLE `categorie` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `categorie`;
+CREATE TABLE IF NOT EXISTS `categorie` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `categorie`
@@ -104,12 +134,16 @@ INSERT INTO `categorie` (`id`, `nom`) VALUES
 -- Structure de la table `classe`
 --
 
-CREATE TABLE `classe` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `classe`;
+CREATE TABLE IF NOT EXISTS `classe` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `filiere_id` int(11) NOT NULL,
-  `niveau` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `niveau` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_classe_filiere_id` (`filiere_id`),
+  KEY `fk_classe_niveau` (`niveau`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `classe`
@@ -129,13 +163,17 @@ INSERT INTO `classe` (`id`, `nom`, `filiere_id`, `niveau`) VALUES
 -- Structure de la table `contrat`
 --
 
-CREATE TABLE `contrat` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `contrat`;
+CREATE TABLE IF NOT EXISTS `contrat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `numcontrat` int(11) NOT NULL,
   `dates` varchar(255) NOT NULL,
   `agent_id` int(11) NOT NULL,
-  `entite_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `entite_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_c_en_id` (`agent_id`),
+  KEY `fk_e_en_id` (`entite_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `contrat`
@@ -144,7 +182,11 @@ CREATE TABLE `contrat` (
 INSERT INTO `contrat` (`id`, `numcontrat`, `dates`, `agent_id`, `entite_id`) VALUES
 (1, 1000, '1670457600', 1, 1),
 (2, 1001, '1670544000', 2, 1),
-(3, 1002, '1670544000', 2, 1);
+(3, 1002, '1670544000', 2, 1),
+(4, 1003, '1676332800', 2, 1),
+(5, 1003, '1676332800', 2, 1),
+(6, 1003, '1676332800', 2, 1),
+(7, 1003, '1676332800', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -152,11 +194,14 @@ INSERT INTO `contrat` (`id`, `numcontrat`, `dates`, `agent_id`, `entite_id`) VAL
 -- Structure de la table `departement`
 --
 
-CREATE TABLE `departement` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `departement`;
+CREATE TABLE IF NOT EXISTS `departement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
-  `entite_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `entite_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_departement_entite_id` (`entite_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `departement`
@@ -174,20 +219,26 @@ INSERT INTO `departement` (`id`, `nom`, `entite_id`) VALUES
 -- Structure de la table `ecue`
 --
 
-CREATE TABLE `ecue` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `ecue`;
+CREATE TABLE IF NOT EXISTS `ecue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
-  `ue_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `code` varchar(255) NOT NULL,
+  `ue_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_ecue_ue_id` (`ue_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `ecue`
 --
 
-INSERT INTO `ecue` (`id`, `nom`, `ue_id`) VALUES
-(1, 'Calcul matriciel', 2),
-(2, 'Espace vectoriel', 2),
-(3, 'Programmation orientee objet en C++', 6);
+INSERT INTO `ecue` (`id`, `nom`, `code`, `ue_id`) VALUES
+(1, 'Analyse vectorielle', '1AL', 1),
+(2, 'Cacul matriciel', '2AL', 1),
+(3, '', '', 1),
+(4, 'Analyse vectorielle', '1AL', 2),
+(5, 'Analyse vectorielle', '2AL', 2);
 
 -- --------------------------------------------------------
 
@@ -195,16 +246,19 @@ INSERT INTO `ecue` (`id`, `nom`, `ue_id`) VALUES
 -- Structure de la table `entite`
 --
 
-CREATE TABLE `entite` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `entite`;
+CREATE TABLE IF NOT EXISTS `entite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
   `directeur` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `telephone` int(11) NOT NULL,
-  `universite_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `universite_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_entite_universite_id` (`universite_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `entite`
@@ -219,12 +273,15 @@ INSERT INTO `entite` (`id`, `nom`, `code`, `directeur`, `adresse`, `email`, `tel
 -- Structure de la table `filiere`
 --
 
-CREATE TABLE `filiere` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `filiere`;
+CREATE TABLE IF NOT EXISTS `filiere` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
-  `departement_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `departement_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_filiere_departement_id` (`departement_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `filiere`
@@ -246,10 +303,12 @@ INSERT INTO `filiere` (`id`, `nom`, `code`, `departement_id`) VALUES
 -- Structure de la table `grade`
 --
 
-CREATE TABLE `grade` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `grade`;
+CREATE TABLE IF NOT EXISTS `grade` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `grade`
@@ -275,11 +334,13 @@ INSERT INTO `grade` (`id`, `nom`) VALUES
 -- Structure de la table `niveau`
 --
 
-CREATE TABLE `niveau` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `niveau`;
+CREATE TABLE IF NOT EXISTS `niveau` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(255) NOT NULL,
-  `prix` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `prix` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `niveau`
@@ -295,26 +356,20 @@ INSERT INTO `niveau` (`id`, `libelle`, `prix`) VALUES
 -- Structure de la table `prestation`
 --
 
-CREATE TABLE `prestation` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `prestation`;
+CREATE TABLE IF NOT EXISTS `prestation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `contrat_id` int(11) NOT NULL,
   `classe_id` int(11) NOT NULL,
   `ecue_id` int(11) NOT NULL,
   `massehoraire` int(11) NOT NULL,
   `date_debut` int(11) NOT NULL,
-  `date_fin` int(11) NOT NULL
+  `date_fin` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_pre_clsse_id` (`classe_id`),
+  KEY `fk_pre_ecue_id` (`ecue_id`),
+  KEY `fk_pre_c_id` (`contrat_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `prestation`
---
-
-INSERT INTO `prestation` (`id`, `contrat_id`, `classe_id`, `ecue_id`, `massehoraire`, `date_debut`, `date_fin`) VALUES
-(1, 1, 1, 1, 8, 2022, 2022),
-(2, 1, 2, 1, 8, 2022, 2022),
-(3, 2, 2, 3, 8, 2022, 2022),
-(4, 3, 1, 1, 7, 2022, 2022),
-(5, 3, 2, 2, 7, 2022, 2022);
 
 -- --------------------------------------------------------
 
@@ -322,10 +377,12 @@ INSERT INTO `prestation` (`id`, `contrat_id`, `classe_id`, `ecue_id`, `massehora
 -- Structure de la table `role`
 --
 
-CREATE TABLE `role` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE IF NOT EXISTS `role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `role`
@@ -340,10 +397,12 @@ INSERT INTO `role` (`id`, `nom`) VALUES
 -- Structure de la table `statut`
 --
 
-CREATE TABLE `statut` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `statut`;
+CREATE TABLE IF NOT EXISTS `statut` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `statut`
@@ -361,25 +420,26 @@ INSERT INTO `statut` (`id`, `nom`) VALUES
 -- Structure de la table `ue`
 --
 
-CREATE TABLE `ue` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `ue`;
+CREATE TABLE IF NOT EXISTS `ue` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
   `entite_id` int(11) NOT NULL,
-  `classe_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `classe_id` int(11) NOT NULL,
+  `annee_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_ue_entite_id` (`entite_id`),
+  KEY `fk_ue_classe_id` (`classe_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `ue`
 --
 
-INSERT INTO `ue` (`id`, `nom`, `entite_id`, `classe_id`) VALUES
-(2, 'Algebre', 1, 1),
-(3, 'Mathsinfo', 1, 1),
-(4, 'Initiation a l\'Algorithme', 1, 1),
-(5, 'Algorithme et structure de donnees avancees', 1, 2),
-(6, 'Programmation orientee objet en C++', 1, 2),
-(7, 'SYsteme d\'exploitation', 1, 3),
-(8, 'Administration des bases de donnees', 1, 3);
+INSERT INTO `ue` (`id`, `nom`, `code`, `entite_id`, `classe_id`, `annee_id`) VALUES
+(1, 'Algebre', 'AL', 1, 2, 2),
+(2, 'Algebre', 'AL', 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -387,13 +447,15 @@ INSERT INTO `ue` (`id`, `nom`, `entite_id`, `classe_id`) VALUES
 -- Structure de la table `universite`
 --
 
-CREATE TABLE `universite` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `universite`;
+CREATE TABLE IF NOT EXISTS `universite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `code` varchar(255) NOT NULL,
   `adresse` varchar(255) NOT NULL,
-  `logo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `logo` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `universite`
@@ -408,246 +470,19 @@ INSERT INTO `universite` (`id`, `nom`, `code`, `adresse`, `logo`) VALUES
 -- Structure de la table `user`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
   `sexe` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `fonction` varchar(255) NOT NULL,
   `passwd` varchar(255) NOT NULL,
-  `role_id` int(11) NOT NULL
+  `role_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_user_role_id` (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `agent`
---
-ALTER TABLE `agent`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_agent_banque_id` (`banque_id`),
-  ADD KEY `fk_agent_statut_id` (`statut_id`),
-  ADD KEY `fk_agent_categorie_id` (`categorie_id`),
-  ADD KEY `fk_agent_role_id` (`role_id`);
-
---
--- Index pour la table `banque`
---
-ALTER TABLE `banque`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `categorie`
---
-ALTER TABLE `categorie`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `classe`
---
-ALTER TABLE `classe`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_classe_filiere_id` (`filiere_id`),
-  ADD KEY `fk_classe_niveau` (`niveau`);
-
---
--- Index pour la table `contrat`
---
-ALTER TABLE `contrat`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_c_en_id` (`agent_id`),
-  ADD KEY `fk_e_en_id` (`entite_id`);
-
---
--- Index pour la table `departement`
---
-ALTER TABLE `departement`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_departement_entite_id` (`entite_id`);
-
---
--- Index pour la table `ecue`
---
-ALTER TABLE `ecue`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_ecue_ue_id` (`ue_id`);
-
---
--- Index pour la table `entite`
---
-ALTER TABLE `entite`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_entite_universite_id` (`universite_id`);
-
---
--- Index pour la table `filiere`
---
-ALTER TABLE `filiere`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_filiere_departement_id` (`departement_id`);
-
---
--- Index pour la table `grade`
---
-ALTER TABLE `grade`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `niveau`
---
-ALTER TABLE `niveau`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `prestation`
---
-ALTER TABLE `prestation`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_pre_clsse_id` (`classe_id`),
-  ADD KEY `fk_pre_ecue_id` (`ecue_id`),
-  ADD KEY `fk_pre_c_id` (`contrat_id`);
-
---
--- Index pour la table `role`
---
-ALTER TABLE `role`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `statut`
---
-ALTER TABLE `statut`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `ue`
---
-ALTER TABLE `ue`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_ue_entite_id` (`entite_id`),
-  ADD KEY `fk_ue_classe_id` (`classe_id`);
-
---
--- Index pour la table `universite`
---
-ALTER TABLE `universite`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_user_role_id` (`role_id`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `agent`
---
-ALTER TABLE `agent`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `banque`
---
-ALTER TABLE `banque`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `categorie`
---
-ALTER TABLE `categorie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `classe`
---
-ALTER TABLE `classe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT pour la table `contrat`
---
-ALTER TABLE `contrat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `departement`
---
-ALTER TABLE `departement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT pour la table `ecue`
---
-ALTER TABLE `ecue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT pour la table `entite`
---
-ALTER TABLE `entite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `filiere`
---
-ALTER TABLE `filiere`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT pour la table `grade`
---
-ALTER TABLE `grade`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT pour la table `niveau`
---
-ALTER TABLE `niveau`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT pour la table `prestation`
---
-ALTER TABLE `prestation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `role`
---
-ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `statut`
---
-ALTER TABLE `statut`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT pour la table `ue`
---
-ALTER TABLE `ue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT pour la table `universite`
---
-ALTER TABLE `universite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées

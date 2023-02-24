@@ -142,10 +142,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</li>
 
 						<li>
-							<a href="contrat.php">
-								<i class="fa fa-file-text-o"></i>
-								<span>Editer contrat</span>
+							<a href="matiere.php">
+								<i class="fa fa-plus"></i>
+								<span>Ajouter UE/ECUE</span>
 							</a>
+						</li>
+
+						
+						<li class="sub-menu dcjq-parent-li">
+							<a href="javascript:;">
+								<i class="fa fa-file-text-o"></i>
+								<span>Editer Contrat</span>
+								<span class="dcjq-icon"></span></a>
+							<ul class="sub" style="display: block;">
+								<li><a href="contratl.php">Contrat License</a></li>
+								<li><a href="contratm.php">Contrat Master</a></li>
+							</ul>
 						</li>
 
 					</ul>

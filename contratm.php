@@ -9,6 +9,8 @@ if (empty($_SESSION)){
 include('connexionDB.php'); //connexion DB
 
 $enseignant = $bdd->query('SELECT * FROM agent where categorie_id =  1');
+
+//récupération des classe dans la bd
 $classe = $bdd->query('SELECT * FROM classe');
 
 
@@ -99,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             
             
-            <form action="contratexte.php" method="post">
+            <form action="contratmaster.php" method="post">
                 <input type="hidden" name="num_contrat" value="<?php echo $dernier_num_contrat;?>">
             <section class="third">
                 <div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
@@ -186,21 +188,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
 
 
+
+
                 </section>
+
+                <div class="row" style="margin-bottom: 20px; text-align: left">
+
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 " style="display:flex ; justify-content: space-around;">
+
+                            <input type="tel" class="form-control formcontrol "  placeholder="Jours ouvrables" name="jourouvrable" value="" style="width: 450px;">
+
+                        </div>
+
+                    </div>
 
             </section>
 
             <div class="text-center">
                
-                <button class="ms-3
-            btn
-             btn-primary
-              btn-md
-               full-width
-                pop-login
-                " data-bs-toggle="collapse" type="submit" name="editer" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <button class="ms-3 btn btn-primary btn-md full-width pop-login " data-bs-toggle="collapse" type="submit" name="editer" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Editer
-                                    </button>
+                </button>
+
             </div>
 
             

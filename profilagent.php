@@ -138,17 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>Date de première prise de service :</span>
     </div>
     <div class="col-6" >
-    <span>
-<?php 
-echo 
-$resultat[0]['date_premier_service'];
-
-
-?>
-
-
-    </span>
-
+    <span><?php echo $resultat[0]['date_premier_service'];?></span>
     </div>
 </div>        
 
@@ -157,7 +147,7 @@ $resultat[0]['date_premier_service'];
     <span>Côte</span>
     </div>
     <div class="col-6">
-    <span>M3</span>
+    <span><?php echo $resultat[0]['grade'];?></span>
     </div>
 </div>
 
