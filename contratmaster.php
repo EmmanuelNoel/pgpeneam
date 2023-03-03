@@ -358,7 +358,7 @@ $infos_agent = $infos_sup->fetch();
 
             <div class="fw-bolder ms-5">5- Termes de paiement et prélèvements</div>
             <div>
-                Les honoraires pour les prestations d’enseignement sont de <b> 10.000 FCFA brut pour le cycle de Master/LMD
+                Les honoraires pour les prestations d’enseignement sont de <b> 10.000 FCFA brut pour le cycle de Master
                     par heure exécutée conformément aux exigences de l'ENEAM.</b>
                 Les paiements sont effectués en Francs CFA à la fin des prestations (dépôt de sujets, corrigés types et copies
                 corrigées) dûment constatées par une attestation de service fait, par virement bancaire après le prélèvement de
