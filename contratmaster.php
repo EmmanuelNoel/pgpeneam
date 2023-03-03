@@ -132,7 +132,7 @@ $infos_agent = $infos_sup->fetch();
         </div>
         <br><br>
         <div>
-        <div class="fw-bolder ms-5">N°....................................../UAC/ENEAM/DA/SGE/SC/SPE/SerP du .................................</div>
+            <div class="fw-bolder ms-5">N°....................................../UAC/ENEAM/DA/SGE/SC/SPE/SerP du .................................</div>
         </div>
         <br>
         <div class="">
@@ -146,7 +146,7 @@ $infos_agent = $infos_sup->fetch();
             <br> Profession: <b><?php echo $info['profession']; ?></b>
             <br> Domicilié à: <b><?php echo $info['adresse']; ?></b>
             <br> IFU: N° <b><?php echo $info['ifu']; ?></b>
-            <br> Compte bancaire N° <b><?php echo $info['rib']; ?></b> &nbsp;&nbsp;/Banque :&nbsp; <b><?php echo $infos_agent['banque'];?></b>
+            <br> Compte bancaire N° <b><?php echo $info['rib']; ?></b> &nbsp;&nbsp;/Banque :&nbsp; <b><?php echo $infos_agent['banque']; ?></b>
             <br> Email: <b><?php echo $info['email']; ?></b>
             <br> Tél.: <b><?php echo $info['telephone']; ?></b>
             <br> Ci-après dénommé « L’ENSEIGNANT PRESTATAIRE » d’autre part qui déclare être disponible pour fournir les prestations objet du présent contrat, ci-après dénommé
@@ -179,158 +179,224 @@ $infos_agent = $infos_sup->fetch();
 
         ?>
 
+        <?php
+        function convertNumberToWords(int $number): string
+        {
+            // Tableau pour stocker tous les mots à remplacer.
+            $words = array(
+                0 => '',
+                1 => 'un',
+                2 => 'deux',
+                3 => 'trois',
+                4 => 'quatre',
+                5 => 'cinq',
+                6 => 'six',
+                7 => 'sept',
+                8 => 'huit',
+                9 => 'neuf',
+                10 => 'dix',
+                11 => 'onze',
+                12 => 'douze',
+                13 => 'treize',
+                14 => 'quatorze',
+                15 => 'quinze',
+                16 => 'seize',
+                20 => 'vingt',
+                30 => 'trente',
+                40 => 'quarante',
+                50 => 'cinquante',
+                60 => 'soixante',
+                70 => 'soixante-dix',
+                80 => 'quatre-vingt',
+                90 => 'quatre-vingt-dix'
+            );
 
-        <div >
+            // Gestion des nombres compris entre 0 et 19.
+            if ($number < 20) {
+                return $words[$number];
+            }
 
-        <div class="fw-bolder ms-5">1- Objet du contrat</div>
-                <div>
-                    Le présent contrat a pour objet la fourniture de prestations d’enseignement à <strong><em>l’ENEAM</em></strong> dans les conditions de délai,
-                    normes académiques et de qualité conformément aux clauses et conditions ci-après énoncées.
-                </div>
+            // Gestion des nombres strictement compris entre 20 et 69.
+            if ($number >= 20 && $number < 70) {
+                return $words[($number - $number % 10) / 10 * 10] . (($number % 10 != 0) ? '-' . $words[$number % 10] : '');
+            }
 
+            // Gestion des nombres strictement compris entre 70 et 99.
+            if ($number >= 70 && $number < 100) {
+                return $words[60] . ((($number - 60) != 10 && ($number - 60) != 20) ? '-' . convertNumberToWords($number - 60) : '-' . $words[($number - 60) / 10 * 10 + 10]);
+            }
+
+            // Gestion des nombres compris entre 100 et 999.
+            if ($number >= 100 && $number < 1000) {
+
+                // C'est cent si le nombre est égal à 100, 200, 300, 400, 500, 600, 700, 800, 900.
+                if ($number % 100 == 0) {
+                    return $words[$number / 100] . ' cent';
+                }
+
+                // Si il n'y a pas de modulos, c'est donc tout simplement X cent.
+                if ($number % 100 != 0) {
+                    return $words[(int)($number / 100)] . ' cent ' . convertNumberToWords($number % 100);
+                }
+            }
+
+            // Erreur dans le cas où le nombre est >= 1000.
+            return "Erreur: le nombre doit être inférieur ou égal à 999";
+        }
+        ?>
+
+
+        <div>
+
+            <div class="fw-bolder ms-5">1- Objet du contrat</div>
+            <div>
+                Le présent contrat a pour objet la fourniture de prestations d’enseignement à <strong><em>l’ENEAM</em></strong> dans les conditions de délai,
+                normes académiques et de qualité conformément aux clauses et conditions ci-après énoncées.
+            </div>
+
+            <br>
+
+            <div class="fw-bolder ms-5">2- Nature des prestations</div>
+            <div>
+                L’Entité retient par la présente les prestations de l’enseignant pour l’exécution de <?php echo convertNumberToWords($masseHoraireTotal) ?> (<?php echo $masseHoraireTotal; ?>) heures
+                d’enseignement des cours de:
                 <br>
+                <ol>
+                    <?php
+                    foreach ($_POST['ecue'] as $cle => $val) {
+                        //recupérer les noms des ecue 
+                        $ecue_id = $_POST['ecue'][$cle];
+                        $infos_ecue = $bdd->prepare('SELECT * from ecue where id=?');
+                        $infos_ecue->execute(array($ecue_id));
+                        $nom_ecue = $infos_ecue->fetch();
+                        //récupérer les classes associées au ecue
+                        $classe_id = $_POST['classe'][$cle];
+                        $infos_classe = $bdd->prepare('SELECT classe.nom as nom, filiere.nom as filiere, niveau.libelle as niveau from classe,filiere,niveau where classe.id=? and classe.filiere_id = filiere.id and classe.niveau = niveau.id');
+                        $infos_classe->execute(array($classe_id));
+                        $nom_classe = $infos_classe->fetch();
 
-                <div class="fw-bolder ms-5">2- Nature des prestations</div>
-                <div>
-                    L’Entité retient par la présente les prestations de l’enseignant pour l’exécution de ............................................... (<?php echo $masseHoraireTotal; ?>) heures
-                    d’enseignement des cours de:
-                    <br>
-                    <ol>
-                        <?php
-                        foreach ($_POST['ecue'] as $cle => $val) {
-                            //recupérer les noms des ecue 
-                            $ecue_id = $_POST['ecue'][$cle];
-                            $infos_ecue = $bdd->prepare('SELECT * from ecue where id=?');
-                            $infos_ecue->execute(array($ecue_id));
-                            $nom_ecue = $infos_ecue->fetch();
-                            //récupérer les classes associées au ecue
-                            $classe_id = $_POST['classe'][$cle];
-                            $infos_classe = $bdd->prepare('SELECT classe.nom as nom, filiere.nom as filiere, niveau.libelle as niveau from classe,filiere,niveau where classe.id=? and classe.filiere_id = filiere.id and classe.niveau = niveau.id');
-                            $infos_classe->execute(array($classe_id));
-                            $nom_classe = $infos_classe->fetch();
+                        //masse horaire de chaque ecue
+                        $masse_horaire = $_POST['massehoraire'][$cle];
+                        $masseHoraireTotal += $masse_horaire;
 
-                            //masse horaire de chaque ecue
-                            $masse_horaire = $_POST['massehoraire'][$cle];
-                            $masseHoraireTotal += $masse_horaire;
+                    ?>
+                        <li> <?php echo $nom_ecue['nom'];   ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $nom_classe['nom'];   ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $masse_horaire . 'H'   ?> </li>
+                    <?php
+                    }
+                    ?>
+                </ol>
+                <em>conformément aux exigences énumérées dans le cahier de charges joint au présent contrat.</em>
+            </div>
 
-                        ?>
-                            <li> <?php echo $nom_ecue['nom'];   ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $nom_classe['nom'];   ?>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $masse_horaire . 'H'   ?> </li>
-                        <?php
-                        }
-                        ?>
-                    </ol>
-                    <em>conformément aux exigences énumérées dans le cahier de charges joint au présent contrat.</em> 
-                </div>
+            <br>
 
-                <br>
+            <div class="fw-bolder ms-5">3- Date de démarrage et calendrier</div>
+            <div>
+                La durée de la prestation est de <?php echo $_POST['jourouvrable']; ?> jours ouvrables à partir de :
+            </div>
 
-                <div class="fw-bolder ms-5">3- Date de démarrage et calendrier</div>
-                <div>
-                    La durée de la prestation est de <?php echo $_POST['jourouvrable']; ?> jours ouvrables à partir de :
-                </div>
-
-                <div>
-                    <table class="h-auto w-auto table table-responsive px-2 text-wrap mt-3 ">
-                        <tr class="text-center">
-                            <th class="col-2">Département</th>
-                            <th class="col-2">Année <br> d'étude</th>
-                            <th class="col-3">ECUE<sup>1</sup> </th>
-                            <th class="col-1">Nombre <br> d'heures</th>
-                            <th class="col-2">Date de <br> démarrage</th>
-                            <th class="col-2">Date de fin</th>
-                        </tr>
-                        <?php
-                        foreach ($_POST['ecue'] as $cle => $val) {
-                            //recupérer les noms des ecue 
-                            $ecue_id = $_POST['ecue'][$cle];
-                            $infos_ecue = $bdd->prepare('SELECT * from ecue where id=?');
-                            $infos_ecue->execute(array($ecue_id));
-                            $nom_ecue = $infos_ecue->fetch();
-                            $massehoraire = $_POST['massehoraire'][$cle];
-                            $date_demarrage = $_POST['date_debut'][$cle];
-                            $datefin = $_POST['date_fin'][$cle];
-                            //récupérer les classes associées au ecue
-                            $classe_id = $_POST['classe'][$cle];
-                            $infos_classe = $bdd->prepare('SELECT classe.nom as nom, filiere.nom as filiere, niveau.libelle as niveau, 
+            <div>
+                <table class="h-auto w-auto table table-responsive px-2 text-wrap mt-3 ">
+                    <tr class="text-center">
+                        <th class="col-2">Département</th>
+                        <th class="col-2">Année <br> d'étude</th>
+                        <th class="col-3">ECUE<sup>1</sup> </th>
+                        <th class="col-1">Nombre <br> d'heures</th>
+                        <th class="col-2">Date de <br> démarrage</th>
+                        <th class="col-2">Date de fin</th>
+                    </tr>
+                    <?php
+                    foreach ($_POST['ecue'] as $cle => $val) {
+                        //recupérer les noms des ecue 
+                        $ecue_id = $_POST['ecue'][$cle];
+                        $infos_ecue = $bdd->prepare('SELECT * from ecue where id=?');
+                        $infos_ecue->execute(array($ecue_id));
+                        $nom_ecue = $infos_ecue->fetch();
+                        $massehoraire = $_POST['massehoraire'][$cle];
+                        $date_demarrage = $_POST['date_debut'][$cle];
+                        $datefin = $_POST['date_fin'][$cle];
+                        //récupérer les classes associées au ecue
+                        $classe_id = $_POST['classe'][$cle];
+                        $infos_classe = $bdd->prepare('SELECT classe.nom as nom, filiere.nom as filiere, niveau.libelle as niveau, 
                            departement.nom as departement from classe,filiere,niveau,departement where classe.id=? and 
                            classe.filiere_id = filiere.id and classe.niveau = niveau.id and filiere.departement_id = departement.id');
-                            $infos_classe->execute(array($classe_id));
-                            $nom_classe = $infos_classe->fetch();
+                        $infos_classe->execute(array($classe_id));
+                        $nom_classe = $infos_classe->fetch();
 
-                        ?>
-                            <tr class="text-center">
+                    ?>
+                        <tr class="text-center">
 
-                                <td><?php echo $nom_classe['departement']; ?></td>
-                                <td><?php echo $nom_classe['nom']; ?></td>
-                                <td><?php echo $nom_ecue['nom']; ?> </td>
-                                <td><?php echo $massehoraire. 'H' ; ?></td>
-                                <td><?php echo $date_demarrage; ?></td>
-                                <td><?php echo $datefin; ?></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </table>
-                </div>
+                            <td><?php echo $nom_classe['departement']; ?></td>
+                            <td><?php echo $nom_classe['nom']; ?></td>
+                            <td><?php echo $nom_ecue['nom']; ?> </td>
+                            <td><?php echo $massehoraire . 'H'; ?></td>
+                            <td><?php echo $date_demarrage; ?></td>
+                            <td><?php echo $datefin; ?></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </table>
+            </div>
 
-                <br>
+            <br>
 
-                <div>
-                    <sup>1</sup>ECUE : Elément Constitutif de l’Unité d’Enseignement
-                </div>
-                <br>
+            <div>
+                <sup>1</sup>ECUE : Elément Constitutif de l’Unité d’Enseignement
+            </div>
+            <br>
 
-                <div class="fw-bolder ms-5">4- Temps de présence</div>
-                <div>
-                    Dans l’exécution du présent contrat, « L’ENSEIGNANT PRESTATAIRE » <?php echo $info['nom']; ?> assurera
-                    également un volume horaire hebdomadaire de… de travaux dirigés et de travaux pratiques s’il y en a
-                    lieu. En outre, il surveillera les travaux de recherche des apprenants dans les conditions prévues par les textes de
-                    <strong><em>l’ENEAM</em></strong>.
-                </div>
+            <div class="fw-bolder ms-5">4- Temps de présence</div>
+            <div>
+                Dans l’exécution du présent contrat, « L’ENSEIGNANT PRESTATAIRE » <?php echo $info['nom']; ?> assurera
+                également un volume horaire hebdomadaire de… de travaux dirigés et de travaux pratiques s’il y en a
+                lieu. En outre, il surveillera les travaux de recherche des apprenants dans les conditions prévues par les textes de
+                <strong><em>l’ENEAM</em></strong>.
+            </div>
 
-                <br>
+            <br>
 
-                <div class="fw-bolder ms-5">5- Termes de paiement et prélèvements</div>
-                <div>
-                    Les honoraires pour les prestations d’enseignement sont de <b> 10.000 FCFA brut pour le cycle de Master
+            <div class="fw-bolder ms-5">5- Termes de paiement et prélèvements</div>
+            <div>
+                Les honoraires pour les prestations d’enseignement sont de <b> 10.000 FCFA brut pour le cycle de Master/LMD
                     par heure exécutée conformément aux exigences de l'ENEAM.</b>
-                    Les paiements sont effectués en Francs CFA à la fin des prestations (dépôt de sujets, corrigés types et copies
-                    corrigées) dûment constatées par une attestation de service fait, par virement bancaire après le prélèvement de
-                    l’AIB.
-                </div>
+                Les paiements sont effectués en Francs CFA à la fin des prestations (dépôt de sujets, corrigés types et copies
+                corrigées) dûment constatées par une attestation de service fait, par virement bancaire après le prélèvement de
+                l’AIB.
+            </div>
 
-                <br>
+            <br>
 
-                <div class="fw-bolder ms-5">6- Normes de Performance</div>
-                <div>
-                    L’enseignant prestataire s’engage à fournir les prestations conformément aux normes professionnelles, d’éthique
-                    et déontologiques, de compétence et d’intégrité les plus exigeantes. Il est systématiquement mis fin au présent
-                    contrat en cas de défaillance du prestataire constatée et motivée par écrit de <strong><em>l’ENEAM</em></strong>.
-                </div>
+            <div class="fw-bolder ms-5">6- Normes de Performance</div>
+            <div>
+                L’enseignant prestataire s’engage à fournir les prestations conformément aux normes professionnelles, d’éthique
+                et déontologiques, de compétence et d’intégrité les plus exigeantes. Il est systématiquement mis fin au présent
+                contrat en cas de défaillance du prestataire constatée et motivée par écrit de <strong><em>l’ENEAM</em></strong>.
+            </div>
 
-                <br>
+            <br>
 
-                <div class="fw-bolder ms-5">7- Droit de propriété, de devoir de réserve et de non-concurrence</div>
-                <div>
-                    Pendant la durée d’exécution du présent contrat et les cinq années suivant son expiration, l’enseignant prestataire
-                    ne divulguera aucune information exclusive ou confidentielle concernant la prestation, le présent contrat, les
-                    affaires ou les documents de <strong><em>l’ENEAM</em></strong> sans avoir obtenu au préalable l’autorisation écrite de l’Unité de formation
-                    et de recherche concernée.
-                    <br> Tous les rapports ou autres documents, que l’enseignant prestataire préparera pour le compte <strong><em>l’ENEAM</em></strong> dans le
-                    cadre du présent contrat deviendront et demeureront la propriété de <strong><em>l’ENEAM</em></strong>.
-                    <br> Ne sont pas pris en compte les cours et autres documents préparés par l’enseignant pour l’exécution de ses
-                    prestations.
-                </div>
+            <div class="fw-bolder ms-5">7- Droit de propriété, de devoir de réserve et de non-concurrence</div>
+            <div>
+                Pendant la durée d’exécution du présent contrat et les cinq années suivant son expiration, l’enseignant prestataire
+                ne divulguera aucune information exclusive ou confidentielle concernant la prestation, le présent contrat, les
+                affaires ou les documents de <strong><em>l’ENEAM</em></strong> sans avoir obtenu au préalable l’autorisation écrite de l’Unité de formation
+                et de recherche concernée.
+                <br> Tous les rapports ou autres documents, que l’enseignant prestataire préparera pour le compte <strong><em>l’ENEAM</em></strong> dans le
+                cadre du présent contrat deviendront et demeureront la propriété de <strong><em>l’ENEAM</em></strong>.
+                <br> Ne sont pas pris en compte les cours et autres documents préparés par l’enseignant pour l’exécution de ses
+                prestations.
+            </div>
 
-                <br>
+            <br>
 
-                <div class="fw-bolder ms-5">8- Règlement des litiges</div>
-                <div>
-                    Pour tout ce qui n’est pas prévu au présent contrat, les parties se référeront aux lois béninoises en la matière. Tout
-                    litige survenu lors de l’exécution du présent contrat sera soumis aux juridictions compétentes, s’il n’est pas réglé à
-                    l’amiable ou par tout autre mode de règlement agréé par les deux parties.
-                </div>
-            
+            <div class="fw-bolder ms-5">8- Règlement des litiges</div>
+            <div>
+                Pour tout ce qui n’est pas prévu au présent contrat, les parties se référeront aux lois béninoises en la matière. Tout
+                litige survenu lors de l’exécution du présent contrat sera soumis aux juridictions compétentes, s’il n’est pas réglé à
+                l’amiable ou par tout autre mode de règlement agréé par les deux parties.
+            </div>
+
 
             <div class="footer">
 
