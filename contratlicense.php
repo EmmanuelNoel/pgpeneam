@@ -3,7 +3,6 @@ session_start();
 if (empty($_SESSION)) {
     # code...
     header('location:index.php');
-
 }
 
 ?>
@@ -115,15 +114,14 @@ $infos_agent = $infos_sup->fetch();
     <link rel="stylesheet" href="bootstrap-icons-1.9.1/bootstrap-icons.css">
 </head>
 
-<body >
+<body>
 
     <div class="fs-5">
-        <button type="button" class="btn btn-primary telecharger mx-4 "><i class="bi-download fs-3"></i> &nbsp;<span class="fs-4">Télécharger pdf</span> </button>
+        <button type="button" class="btn btn-primary telecharger mx-4 "><i class="bi-download fs-3"></i> &nbsp;Télécharger pdf</button>
     </div>
+    <br><br>
 
-    <div class="container ">
-
-        <br><br><br>
+    <div class="container fs-5">
         <div>
             <table class="table">
                 <tr>
@@ -162,26 +160,90 @@ $infos_agent = $infos_sup->fetch();
         </div>
 
         <?php
-        $masseHoraireTotal=0;
-                        foreach ($_POST['ecue'] as $cle => $val) {
-                            //recupérer les noms des ecue 
-                            $ecue_id = $_POST['ecue'][$cle];
-                            $infos_ecue = $bdd->prepare('SELECT * from ecue where id=?');
-                            $infos_ecue->execute(array($ecue_id));
-                            $nom_ecue = $infos_ecue->fetch();
-                            //récupérer les classes associées au ecue
-                            $classe_id = $_POST['classe'][$cle];
-                            $infos_classe = $bdd->prepare('SELECT classe.nom as nom, filiere.nom as filiere, niveau.libelle as niveau from classe,filiere,niveau where classe.id=? and classe.filiere_id = filiere.id and classe.niveau = niveau.id');
-                            $infos_classe->execute(array($classe_id));
-                            $nom_classe = $infos_classe->fetch();
+        $masseHoraireTotal = 0;
+        foreach ($_POST['ecue'] as $cle => $val) {
+            //recupérer les noms des ecue 
+            $ecue_id = $_POST['ecue'][$cle];
+            $infos_ecue = $bdd->prepare('SELECT * from ecue where id=?');
+            $infos_ecue->execute(array($ecue_id));
+            $nom_ecue = $infos_ecue->fetch();
+            //récupérer les classes associées au ecue
+            $classe_id = $_POST['classe'][$cle];
+            $infos_classe = $bdd->prepare('SELECT classe.nom as nom, filiere.nom as filiere, niveau.libelle as niveau from classe,filiere,niveau where classe.id=? and classe.filiere_id = filiere.id and classe.niveau = niveau.id');
+            $infos_classe->execute(array($classe_id));
+            $nom_classe = $infos_classe->fetch();
 
-                            //masse horaire de chaque ecue
-                            $masse_horaire = $_POST['massehoraire'][$cle];
-                            $masseHoraireTotal += $masse_horaire;
-                        }
+            //masse horaire de chaque ecue
+            $masse_horaire = $_POST['massehoraire'][$cle];
+            $masseHoraireTotal += $masse_horaire;
+        }
 
-                        ?>
+        ?>
+        <?php
+        function convertNumberToWords(int $number): string
+        {
+            // Tableau pour stocker tous les mots à remplacer.
+            $words = array(
+                0 => '',
+                1 => 'un',
+                2 => 'deux',
+                3 => 'trois',
+                4 => 'quatre',
+                5 => 'cinq',
+                6 => 'six',
+                7 => 'sept',
+                8 => 'huit',
+                9 => 'neuf',
+                10 => 'dix',
+                11 => 'onze',
+                12 => 'douze',
+                13 => 'treize',
+                14 => 'quatorze',
+                15 => 'quinze',
+                16 => 'seize',
+                20 => 'vingt',
+                30 => 'trente',
+                40 => 'quarante',
+                50 => 'cinquante',
+                60 => 'soixante',
+                70 => 'soixante-dix',
+                80 => 'quatre-vingt',
+                90 => 'quatre-vingt-dix'
+            );
 
+            // Gestion des nombres compris entre 0 et 19.
+            if ($number < 20) {
+                return $words[$number];
+            }
+
+            // Gestion des nombres strictement compris entre 20 et 69.
+            if ($number >= 20 && $number < 70) {
+                return $words[($number - $number % 10) / 10 * 10] . (($number % 10 != 0) ? '-' . $words[$number % 10] : '');
+            }
+
+            // Gestion des nombres strictement compris entre 70 et 99.
+            if ($number >= 70 && $number < 100) {
+                return $words[60] . ((($number - 60) != 10 && ($number - 60) != 20) ? '-' . convertNumberToWords($number - 60) : '-' . $words[($number - 60) / 10 * 10 + 10]);
+            }
+
+            // Gestion des nombres compris entre 100 et 999.
+            if ($number >= 100 && $number < 1000) {
+
+                // C'est cent si le nombre est égal à 100, 200, 300, 400, 500, 600, 700, 800, 900.
+                if ($number % 100 == 0) {
+                    return $words[$number / 100] . ' cent';
+                }
+
+                // Si il n'y a pas de modulos, c'est donc tout simplement X cent.
+                if ($number % 100 != 0) {
+                    return $words[(int)($number / 100)] . ' cent ' . convertNumberToWords($number % 100);
+                }
+            }
+
+            // Erreur dans le cas où le nombre est >= 1000.
+            return "Erreur: le nombre doit être inférieur ou égal à 999";
+        }
+        ?>
 
         <div>
             <ol>
@@ -195,7 +257,7 @@ $infos_agent = $infos_sup->fetch();
 
                 <li class="fw-bolder">Nature des prestations</li>
                 <div>
-                    L’Entité retient par la présente les prestations de l’enseignant pour l’exécution de ................................... (..<?php echo $masseHoraireTotal; ?>..) heures
+                    L’Entité retient par la présente les prestations de l’enseignant pour l’exécution de .......<?php echo convertNumberToWords($masseHoraireTotal) ?>............................ (..<?php echo $masseHoraireTotal; ?>..) heures
                     d’enseignement des cours de: [énumérer les cours, les masses horaires ainsi les niveaux/cycles concernés]
                     <br>
                     <ol>
@@ -214,7 +276,7 @@ $infos_agent = $infos_sup->fetch();
 
                             //masse horaire de chaque ecue
                             $masse_horaire = $_POST['massehoraire'][$cle];
-                            $masseHoraireTotal+=$masse_horaire;
+                            $masseHoraireTotal += $masse_horaire;
 
                         ?>
                             <li> <?php echo $nom_ecue['nom'];   ?>..... &nbsp;&nbsp;&nbsp; <?php echo $nom_classe['nom'];   ?> / <?php echo $nom_classe['niveau'];   ?>......... &nbsp;&nbsp; <?php echo $masse_horaire . 'heures'   ?> </li>
@@ -296,8 +358,8 @@ $infos_agent = $infos_sup->fetch();
 
                 <li class="fw-bolder">Termes de paiement et prélèvements</li>
                 <div>
-                    Les honoraires pour les prestations d’enseignement sont de <b> 5.000 FCFA brut pour le cycle de licence/LMD 
-                    par heure exécutée conformément aux exigences de l'ENEAM.</b>
+                    Les honoraires pour les prestations d’enseignement sont de <b> 5.000 FCFA brut pour le cycle de licence/LMD
+                        par heure exécutée conformément aux exigences de l'ENEAM.</b>
                     Les paiements sont effectués en Francs CFA à la fin des prestations (dépôt de sujets, corrigés types et copies
                     corrigées) dûment constatées par une attestation de service fait, par virement bancaire après le prélèvement de
                     l’AIB.

@@ -56,84 +56,49 @@ $annee = $bdd->query('SELECT * FROM annee');
     <section class="first ">
 
         <section class="second container-sm col-8 mb-5">
-            <form action="traitementmat.php" method="post" name="enregistrer" class="" onsubmit="submitForm(event);">
-                <p>AJOUTER UE/ECUE</p>
+            <form action="traitementfil.php" method="post" name="enregistrer" class="" onsubmit="submitForm(event);">
+                <p>AJOUTER Departement/Filiere</p>
 
                 <section class="third">
-
-
-                <div class="row text-start" style="margin-bottom: 20px;">
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-
-                            <select class="form-select formselect" name="classe" style="width: 450px;" id="classe" onchange="run(this)">
-                                <option value="" selected>Sélectionner une classe</option>
-                                <?php
-                                    foreach($classe as $cls)
-                                    {
-                                ?>
-                                <option value="<?= $cls['id']?>"><?= $cls['nom'];?></option>
-                                <?php };?>
-                            </select>
-                        </div>
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-
-                            <select class="form-select formselect" name="annee" style="width: 450px; ">
-                                <option value="annee" disabled="" selected="" hidden="">Année académique
-                                <?php
-                                    foreach($annee as $ann)
-                                    {
-                                ?>
-                                <option value="<?= $ann['id']?>"><?= $ann['annee'];?></option>
-                                <?php };?>
-                            </select>
-
-                        </div>
-                    </div>
-
-
-
-                    <br><br>
-
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code UE" name="codeue" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Acronyme" name="departement" value="">
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé UE" name="libue" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé département" name="lide" value="">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 1" name="codecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 1 " name="codefil[]" value="">
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 1" name="libecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 1" name="libfil[]" value="">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 2" name="codecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 2 " name="codefil[]" value="">
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 2" name="libecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 2" name="libfil[]" value="">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 3" name="codecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 3 " name="codefil[]" value="">
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 3" name="libecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 3" name="libfil[]" value="">
                         </div>
                     </div>
-
 
                     <div class="row">
                         <div class="col-12">
@@ -142,7 +107,7 @@ $annee = $bdd->query('SELECT * FROM annee');
 									Ajouter
 								</button>
 								<div class="enregistrementValide" id="popup">
-									<h3>Enregistrement de l'UE/ECUE effectuée</h3>
+									<h3>Enregistrement du Département/Filiere effectué</h3>
 									<button type="button" onClick="closePopup();location.reload()">
 										OK
 									</button>
@@ -178,7 +143,7 @@ $annee = $bdd->query('SELECT * FROM annee');
 
   // Créer une requête AJAX
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "traitementmat.php");
+  xhr.open("POST", "traitementfil.php");
 
   // Envoyer les données du formulaire
   xhr.send(formData);
