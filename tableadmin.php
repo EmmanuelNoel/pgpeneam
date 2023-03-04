@@ -17,30 +17,21 @@ if (empty($_SESSION)) {
   header('location:index.php');
 }
 
-
-
-
-
-
-
 if (isset($_GET['val'])) {
   $admin = $bdd->prepare('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2 and statut_id = ?');
   $admin->execute(array($_GET['val']));
 } else {
   $admin = $bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
 }
-
-
 ?>
 
 <!DOCTYPE html>
-
 <head>
   <title>Plateforme de gestion du personnel de l'ENEAM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
   <script type="application/x-javascript">
     addEventListener("load", function() {
       setTimeout(hideURLbar, 0);
@@ -146,13 +137,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </a>
             </li>
 
+            <li>
+							<a href="filiere.php">
+								<i class="fa fa-plus"></i>
+								<span>Ajouter département/filière</span>
+							</a>
+						</li>
+
 						<li class="sub-menu dcjq-parent-li">
 							<a href="javascript:;">
 								<i class="fa fa-file-text-o"></i>
 								<span>Editer Contrat</span>
 								<span class="dcjq-icon"></span></a>
 							<ul class="sub" style="display: block;">
-                <li><a href="contratl.php">Contrat License</a></li>
+                <li><a href="contratl.php">Contrat Licence</a></li>
 								<li><a href="contratm.php">Contrat Master</a></li>
 							</ul>
 						</li>
@@ -163,6 +161,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </div>
     </aside>
     <!--sidebar end-->
+
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
@@ -212,7 +211,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   </tr>
                 </thead>
                 <tbody>
-
 
                   <?php
 

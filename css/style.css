@@ -228,6 +228,8 @@ ul.sidebar-menu li a.active i {
 .footer {
     background: wheat;
     padding: 25px;
+    position: relative;
+    top: 58px;
 }
 .footer p {
     color: rgb(0, 0, 0);

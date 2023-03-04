@@ -36,11 +36,11 @@ else
 <!DOCTYPE html>
 
 <head>
-    <title>Plateforme de gestion du personnel de l'ENEAM</title>
+    <title>Edition de contrat licence</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -89,14 +89,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 text-end">
-                    <p>EDITION DE CONTRAT</p>
+                    <p>EDITION DE CONTRAT LICENCE</p>
                 </div>
-                <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
-                    <button class="ajout_prestation ajout_prestation1 btn" onclick="ajouterPrestation()" type="button">
-                        <span class="mdi mdi-plus"></span>
-                        <span class="">Prestation</span>
-                    </button>
-                </div> -->
             </div>
 
             
@@ -206,7 +200,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </section>
 
             <div class="text-center">
-               
+            
                 <button class="ms-3 btn btn-primary btn-md full-width pop-login " data-bs-toggle="collapse" type="submit" name="editer" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Editer
                 </button>
@@ -226,51 +220,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
 
     </section>
-
-    <script>
-        var elt = document.getElementById('categorie');
-        elt.addEventListener('change', function() {
-            console.log('value => ' + this.value);
-            console.log(elt.value);
-            if (elt.value == "ad") {
-                console.log('true')
-                document.getElementById("statutad-d").style.display = 'block';
-                document.getElementById("postad-d").style.display = 'block';
-                document.getElementById("l_matricule").style.display = 'block';
-                document.getElementById("l_img_carte").style.display = 'block';
-            } else {
-                document.getElementById("statutad-d").style.display = 'none';
-                document.getElementById("postad-d").style.display = 'none';
-                document.getElementById("l_matricule").style.display = 'none';
-                document.getElementById("l_img_carte").style.display = 'none';
-            }
-        })
-        elt.addEventListener('change', function() {
-            console.log('value => ' + this.value);
-            console.log(elt.value);
-            if (elt.value == "en") {
-                console.log('true')
-                document.getElementById("statuten-d").style.display = 'block';
-                document.getElementById("posten-d").style.display = 'block';
-            } else {
-                document.getElementById("statuten-d").style.display = 'none';
-                document.getElementById("posten-d").style.display = 'none';
-            }
-        })
-
-        // function afficher_cacher(elem) {
-
-        //     if (elem.checked) {
-
-        //         document.getElementById("inpt").style.display = 'block';
-        //     } else
-        //         document.getElementById("inpt").style.display = 'none';
-        // }
-        // function ajouterPrestation() {
-        //     var text = document.getElementById('third').innerHTML;
-        //     $('.third').append(text);
-        // }
-    </script>
 
 <script>
     var i = 0;

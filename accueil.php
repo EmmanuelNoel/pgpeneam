@@ -1,11 +1,11 @@
 <?php
 
 session_start();
-if (empty($_SESSION)){
+if (empty($_SESSION)) {
 	# code...
 	header('location:index.php');
 }
-include ('connexionDB.php');
+include('connexionDB.php');
 
 $enseignant_permanent = $bdd->query('SELECT count(*) as enseignant_permanent FROM agent where statut_id = 1 AND categorie_id = 1');
 
@@ -29,7 +29,7 @@ $administrateurs_permanents = $bdd->query('SELECT count(*) as administrateurs_pe
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+        Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script type="application/x-javascript">
 		addEventListener("load", function() {
 			setTimeout(hideURLbar, 0);
@@ -73,8 +73,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<section id="container">
+
 		<!--header start-->
 		<header class="header fixed-top clearfix">
+
 			<!--logo start-->
 			<div class="brand">
 				<a href="index.php" class="logo">
@@ -85,16 +87,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<!--logo end-->
+
 			<div class="top-nav clearfix">
+
 				<!--search & user info start-->
 				<ul class="nav pull-right top-menu">
 					<li>
 						<input type="text" class="form-control search" placeholder=" Rechercher">
 					</li>
 					<!-- user login dropdown start-->
+
 					<li class="dropdown">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="username"> <?php echo ''.$_SESSION['prenom'].' '. $_SESSION['nom'] ?></span>
+							<span class="username"> <?php echo '' . $_SESSION['prenom'] . ' ' . $_SESSION['nom'] ?></span>
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu extended logout">
@@ -110,9 +115,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</header>
 		<!--header end-->
+
 		<!--sidebar start-->
 		<aside class="">
 			<div id="sidebar" class="nav-collapse">
+
 				<!-- sidebar menu start-->
 				<div class="leftside-navigation">
 					<ul class="sidebar-menu" id="nav-accordion">
@@ -148,14 +155,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</a>
 						</li>
 
-						
+						<li>
+							<a href="filiere.php">
+								<i class="fa fa-plus"></i>
+								<span>Ajouter département/filière</span>
+							</a>
+						</li>
+
+
 						<li class="sub-menu dcjq-parent-li">
 							<a href="javascript:;">
 								<i class="fa fa-file-text-o"></i>
-								<span>Editer Contrat</span>
+								<span>Editer contrat</span>
 								<span class="dcjq-icon"></span></a>
 							<ul class="sub" style="display: block;">
-								<li><a href="contratl.php">Contrat License</a></li>
+								<li><a href="contratl.php">Contrat Licence</a></li>
 								<li><a href="contratm.php">Contrat Master</a></li>
 							</ul>
 						</li>
@@ -166,9 +180,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</aside>
 		<!--sidebar end-->
+
+
 		<!--main content start-->
 		<section id="main-content">
 			<section class="wrapper">
+
 				<!--Banner start-->
 				<div class="main-content" id="banner">
 					<div class="wrapper">
@@ -186,90 +203,90 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<!--Banner end-->
+
 				<!-- //market-->
 				<div class="clearfix"> </div>
 				<div class="market-updates">
+
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-2">
 							<div class="col-md-3 market-update-right">
 								<i class="fa  fa-info"> </i>
 							</div>
 							<div class="col-md-9 market-update-left">
-								<h4>Personnel administratif</h4>
-								<?php       
-                                    $donnees_administration = $personnel_administratif->fetch();
-
-?>
+								<h4>Personnel <br> administratif</h4>
+								<?php
+								$donnees_administration = $personnel_administratif->fetch();
+								?>
 								<h3><?php echo $donnees_administration['personnel_administratif'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 					</div>
-					
-					
-					
 
-					
-
-					
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-1">
 							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info"></i>
 							</div>
 							<div class="col-md-9 market-update-left">
-								<h4>Personnel enseignant</h4>
-								<?php       
-                                    $donnees_enseignant = $personnel_enseignant->fetch();
-
-?>
+								<h4>Personnel <br> enseignant</h4>
+								<?php
+								$donnees_enseignant = $personnel_enseignant->fetch();
+								?>
 								<h3><?php echo $donnees_enseignant['personnel_enseignant'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 					</div>
+
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-3">
 							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info"></i>
 							</div>
 							<div class="col-md-9 market-update-left">
-								<h4>Enseignants permanents</h4>
+								<h4>Enseignants <br> permanents</h4>
 								<?php
-                                 
-                                    $donnees_ens_permanent = $enseignant_permanent->fetch();
-                                 ?>
+
+								$donnees_ens_permanent = $enseignant_permanent->fetch();
+								?>
 								<h3><?php echo $donnees_ens_permanent['enseignant_permanent'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 					</div>
+
 					<div class="col-md-3 market-update-gd">
 						<div class="market-update-block clr-block-4">
 							<div class="col-md-3 market-update-right">
 								<i class="fa fa-info" aria-hidden="true"></i>
 							</div>
 							<div class="col-md-9 market-update-left">
-								<h4>Enseignants vacataires</h4>
+								<h4>Enseignants <br> vacataires</h4>
 								<?php
-                                 
-                                    $donnees_ens_vacataire = $enseignant_vacataire->fetch();
-                                 ?>
+
+								$donnees_ens_vacataire = $enseignant_vacataire->fetch();
+								?>
 								<h3><?php echo $donnees_ens_vacataire['enseignant_vacataire'];  ?></h3>
 								<p>Membres enregistrés</p>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
 					</div>
+
 					<div class="clearfix"> </div>
 				</div>
 
 			</section>
 			<!-- footer -->
-			<div class="footer">
+			<div class="footer" style="background: wheat;
+    padding: 25px;
+    position: relative;
+    top: 58px;">
 				<div class="wthree-copyright">
 					<p>© Copyright ENEAM 2022</p>
 				</div>

@@ -19,7 +19,7 @@ $enseignant = $bdd->query('SELECT agent.id,agent.matricule as matricule,agent.no
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
   <script type="application/x-javascript">
     addEventListener("load", function() {
       setTimeout(hideURLbar, 0);
@@ -125,6 +125,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </a>
             </li>
 
+            <li>
+							<a href="filiere.php">
+								<i class="fa fa-plus"></i>
+								<span>Ajouter département/filière</span>
+							</a>
+						</li>
+
             
 						<li class="sub-menu dcjq-parent-li">
 							<a href="javascript:;">
@@ -132,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<span>Editer Contrat</span>
 								<span class="dcjq-icon"></span></a>
 							<ul class="sub" style="display: block;">
-								<li><a href="contratl.php">Contrat License</a></li>
+								<li><a href="contratl.php">Contrat Licence</a></li>
 								<li><a href="contratm.php">Contrat Master</a></li>
 							</ul>
 						</li>

@@ -63,20 +63,15 @@ $infos_sup->execute(array($_POST['enseignant']));
 $infos_agent = $infos_sup->fetch();
 
 //infos prestation
-
-
-
-
 ?>
 
 <!DOCTYPE html>
-
 <head>
-    <title>Plateforme de gestion du personnel de l'ENEAM</title>
+    <title>Contrat master</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
- Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -119,18 +114,21 @@ $infos_agent = $infos_sup->fetch();
     <div class=" mt-3">
         <button type="button" class="btn btn-primary telecharger mx-4 mt-3"><i class="bi-download fs-3"></i> &nbsp;<span class="fs-4">Télécharger pdf</span> </button>
     </div>
+
     <br><br><br>
 
     <div class="container fs-5 text-justify" style="font-family: 'Times New Roman', Times, serif;">
 
         <div>
-            <table class="table font-family-times">
+            <table class="table w-75" >
                 <tr>
                     <td class="header fw-bold mt-auto text-black">CONTRAT DE PRESTATION D'ENSEIGNEMENT</td>
                 </tr>
             </table>
         </div>
+
         <br><br>
+
         <div>
             <div class="fw-bolder ms-5">N°....................................../UAC/ENEAM/DA/SGE/SC/SPE/SerP du .................................</div>
         </div>
@@ -178,8 +176,8 @@ $infos_agent = $infos_sup->fetch();
         }
 
         ?>
-
-        <?php
+    <!-- convertir chiffre en lettre -->
+    <?php
         function convertNumberToWords(int $number): string
         {
             // Tableau pour stocker tous les mots à remplacer.
@@ -243,8 +241,7 @@ $infos_agent = $infos_sup->fetch();
             // Erreur dans le cas où le nombre est >= 1000.
             return "Erreur: le nombre doit être inférieur ou égal à 999";
         }
-        ?>
-
+    ?>
 
         <div>
 
@@ -280,7 +277,15 @@ $infos_agent = $infos_sup->fetch();
                         $masseHoraireTotal += $masse_horaire;
 
                     ?>
-                        <li> <?php echo $nom_ecue['nom'];   ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $nom_classe['nom'];   ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $masse_horaire . 'H'   ?> </li>
+                        <div class="row ms-5">
+
+                            <li> 
+                                <div class="col-4 d-inline pe-5 "><?php echo $nom_ecue['nom'];   ?></div>  
+                                <div class="col-4 d-inline pe-5"><?php echo $nom_classe['nom'];   ?></div> 
+                                <div class="col-4 d-inline pe-5"><?php echo $masse_horaire . 'H'   ?></div>  
+                            </li>
+
+                        </div>
                     <?php
                     }
                     ?>
@@ -295,6 +300,7 @@ $infos_agent = $infos_sup->fetch();
                 La durée de la prestation est de <?php echo $_POST['jourouvrable']; ?> jours ouvrables à partir de :
             </div>
 
+            <!-- Tableau -->
             <div>
                 <table class="h-auto w-auto table table-responsive px-2 text-wrap mt-3 ">
                     <tr class="text-center">
@@ -318,8 +324,8 @@ $infos_agent = $infos_sup->fetch();
                         //récupérer les classes associées au ecue
                         $classe_id = $_POST['classe'][$cle];
                         $infos_classe = $bdd->prepare('SELECT classe.nom as nom, filiere.nom as filiere, niveau.libelle as niveau, 
-                           departement.nom as departement from classe,filiere,niveau,departement where classe.id=? and 
-                           classe.filiere_id = filiere.id and classe.niveau = niveau.id and filiere.departement_id = departement.id');
+                        departement.nom as departement from classe,filiere,niveau,departement where classe.id=? and 
+                        classe.filiere_id = filiere.id and classe.niveau = niveau.id and filiere.departement_id = departement.id');
                         $infos_classe->execute(array($classe_id));
                         $nom_classe = $infos_classe->fetch();
 
@@ -358,7 +364,7 @@ $infos_agent = $infos_sup->fetch();
 
             <div class="fw-bolder ms-5">5- Termes de paiement et prélèvements</div>
             <div>
-                Les honoraires pour les prestations d’enseignement sont de <b> 10.000 FCFA brut pour le cycle de Master
+                Les honoraires pour les prestations d’enseignement sont de <b> <?php echo $_POST['taux']; ?> FCFA brut pour le cycle de Master
                     par heure exécutée conformément aux exigences de l'ENEAM.</b>
                 Les paiements sont effectués en Francs CFA à la fin des prestations (dépôt de sujets, corrigés types et copies
                 corrigées) dûment constatées par une attestation de service fait, par virement bancaire après le prélèvement de
@@ -425,7 +431,7 @@ $infos_agent = $infos_sup->fetch();
 
                     <div class="col-6 text-center">
                         <span class="fw-bolder">
-                            Monsieur/Madame <?php echo $info['nom'];   ?>
+                            Monsieur/Madame <?php echo $info['nom'];?>
                         </span>
                     </div>
 
@@ -445,15 +451,17 @@ $infos_agent = $infos_sup->fetch();
                 <div class="text-center fw-bolder mt-5">
                     Monsieur.....................................................
                 </div>
-
+                <br><br><br>
             </div>
 
         </div>
 
     </div>
+
     <!-- Télechargement du contrat -->
     <script src="html2pdf.bundle.js"></script>
     <script src="pdf.js"></script>
+
 </body>
 
 </html>

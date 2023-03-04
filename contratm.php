@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (empty($_SESSION)){
-	# code...
-	header('location:index.php');
+if (empty($_SESSION)) {
+    # code...
+    header('location:index.php');
 }
 
 
@@ -18,15 +18,11 @@ $classe = $bdd->query('SELECT * FROM classe');
 $donnees_contrat = $bdd->query('SELECT * FROM contrat ORDER BY id DESC LIMIT 1');
 $num_contrat = $donnees_contrat->fetch();
 
-if($num_contrat)
-{
+if ($num_contrat) {
     $dernier_num_contrat = $num_contrat['numcontrat'];
 
     $dernier_num_contrat++;
-}
-
-else
-{
+} else {
     $dernier_num_contrat = 1000;
 }
 
@@ -36,11 +32,11 @@ else
 <!DOCTYPE html>
 
 <head>
-    <title>Plateforme de gestion du personnel de l'ENEAM</title>
+    <title>Edition de contrat master</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
         addEventListener("load", function() {
             setTimeout(hideURLbar, 0);
@@ -89,135 +85,130 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 col-xxl-8 text-end">
-                    <p>EDITION DE CONTRAT</p>
+                    <p>EDITION DE CONTRAT MASTER</p>
                 </div>
-                <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 col-xxl-4">
-                    <button class="ajout_prestation ajout_prestation1 btn" onclick="ajouterPrestation()" type="button">
-                        <span class="mdi mdi-plus"></span>
-                        <span class="">Prestation</span>
-                    </button>
-                </div> -->
             </div>
 
-            
-            
+
+
             <form action="contratmaster.php" method="post">
-                <input type="hidden" name="num_contrat" value="<?php echo $dernier_num_contrat;?>">
-            <section class="third">
-                <div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                <input type="hidden" name="num_contrat" value="<?php echo $dernier_num_contrat; ?>">
+                <section class="third">
+                    <div class=" col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
 
-                <select class="form-select formselect" name="enseignant" style="width: 450px;">
-                                <option value="" selected>Enseignant</option>
-                                <?php
-                                while($donneesEnseignant = $enseignant->fetch())
-                                {
-                                    ?>
+                        <select class="form-select formselect" name="enseignant" style="width: 450px;">
+                            <option value="" selected>Enseignant</option>
+                            <?php
+                            while ($donneesEnseignant = $enseignant->fetch()) {
+                            ?>
 
-                                <option value="<?php echo $donneesEnseignant['id'];?>"> <?php echo ''.$donneesEnseignant['nom']?> &nbsp; <?php echo $donneesEnseignant['prenom']; ?>  </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                </div>
+                                <option value="<?php echo $donneesEnseignant['id']; ?>"> <?php echo '' . $donneesEnseignant['nom'] ?> &nbsp; <?php echo $donneesEnseignant['prenom']; ?> </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
 
-                <div class="row pe-3 pb-4">
+                    <div class="row pe-3 pb-4">
                         <div class="col-12 text-end">
                             <button type="button" class="bg-gradient btn btn-secondary text-white" id="button" onclick="duplicate()"><i class="bi-plus"></i> Ajouter une prestation</button>
                         </div>
                     </div>
-             
-                <section id="duplicater">
 
-                    <div class="row pe-3 pb-4">
-                        <div class="col-12 text-end">
+                    <section id="duplicater">
+
+                        <div class="row pe-3 pb-4">
+                            <div class="col-12 text-end">
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row text-start" style="margin-bottom: 20px;">
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        <div class="row text-start" style="margin-bottom: 20px;">
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
 
-                            <select class="form-select formselect" name="classe[]" style="width: 450px;" id="classe" onchange="run(this)">
-                                <option value="" selected>Sélectionner une classe</option>
-                                <?php
-                                    foreach($classe as $cls)
-                                    {
-                                ?>
-                                <option value="<?= $cls['id']?>"><?= $cls['nom'];?></option>
-                                <?php };?>
-                            </select>
+                                <select class="form-select formselect" name="classe[]" style="width: 450px;" id="classe" onchange="run(this)">
+                                    <option value="" selected>Sélectionner une classe</option>
+                                    <?php
+                                    foreach ($classe as $cls) {
+                                    ?>
+                                        <option value="<?= $cls['id'] ?>"><?= $cls['nom']; ?></option>
+                                    <?php }; ?>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+
+                                <select class="form-select formselect  ueFormSelect" oninput="run2(this)" name="ue[]" style="width: 450px; ">
+                                    <option value="ue" disabled="" selected="" hidden="">UE </option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
 
-                            <select class="form-select formselect  ueFormSelect" oninput="run2(this)" name="ue[]" style="width: 450px; ">
-                                <option value="ue" disabled="" selected="" hidden="">UE </option>
-                            </select>
+                        <div class="row" style="margin-bottom: 20px; text-align: left">
+
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+
+                                <select class="form-select formselect ecueFormSelect" name="ecue[]" style="width: 450px; ">
+
+                                    <option value="" disabled="" selected="" hidden=""> </option>
+                                    <option value="ecue" selected>ECUE</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 " style="display:flex ; justify-content: space-around;">
+
+                                <input type="tel" class="form-control formcontrol " placeholder="Massehoraire" name="massehoraire[]" value="" style="width: 450px;">
+
+                            </div>
+
                         </div>
-                    </div>
+
+                        <div class="row" style="margin-bottom: 20px; text-align: left">
+
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+
+                                <input type="text" name="date_debut[]" id="date" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Date début" class="form-control formcontrol" style="width: 450px; ">
+                            </div>
+
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+
+                                <input type="text" name="date_fin[]" id="date" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Date fin" class="form-control formcontrol" style="width: 450px; ">
+                            </div>
+
+                        </div>
+
+                    </section>
 
                     <div class="row" style="margin-bottom: 20px; text-align: left">
 
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 " style="display:flex ; justify-content: space-around;">
 
-                            <select class="form-select formselect ecueFormSelect" name="ecue[]" style="width: 450px; ">
+                            <input type="tel" class="form-control formcontrol " placeholder="Jours ouvrables" name="jourouvrable" value="" style="width: 450px;">
 
-                                <option value="" disabled="" selected="" hidden=""> </option>
-                                <option value="ecue" selected>ECUE</option>
-                            </select>
                         </div>
 
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 " style="display:flex ; justify-content: space-around;">
 
-                        <input type="tel" class="form-control formcontrol "  placeholder="Massehoraire" name="massehoraire[]" value="" style="width: 450px;">
+                            <input type="tel" class="form-control formcontrol " placeholder="Taux horaire" name="taux" value="" style="width: 450px;">
 
                         </div>
 
                     </div>
-
-                    <div class="row" style="margin-bottom: 20px; text-align: left">
-
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-
-                            <input type="text" name="date_debut[]" id="date" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Date début" class="form-control formcontrol" style="width: 450px; ">
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
-
-                            <input type="text" name="date_fin[]" id="date" onfocus="(this.type='date')" onfocusout="(this.type='text')" placeholder="Date fin" class="form-control formcontrol" style="width: 450px; ">
-                        </div>
-
-                    </div>
-
-
-
 
                 </section>
 
-                <div class="row" style="margin-bottom: 20px; text-align: left">
+                <div class="text-center">
 
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6 " style="display:flex ; justify-content: space-around;">
+                    <button class="ms-3 btn btn-primary btn-md full-width pop-login " data-bs-toggle="collapse" type="submit" name="editer" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Editer
+                    </button>
 
-                            <input type="tel" class="form-control formcontrol "  placeholder="Jours ouvrables" name="jourouvrable" value="" style="width: 450px;">
+                </div>
 
-                        </div>
 
-                    </div>
-
-            </section>
-
-            <div class="text-center">
-               
-                <button class="ms-3 btn btn-primary btn-md full-width pop-login " data-bs-toggle="collapse" type="submit" name="editer" target="blank" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Editer
-                </button>
-
-            </div>
-
-            
-            <br><br>
-            </div>
+                <br><br>
+                </div>
 
             </form>
-            
+
         </section>
 
         <div class="bout">
@@ -226,62 +217,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </section>
 
+    
     <script>
-        var elt = document.getElementById('categorie');
-        elt.addEventListener('change', function() {
-            console.log('value => ' + this.value);
-            console.log(elt.value);
-            if (elt.value == "ad") {
-                console.log('true')
-                document.getElementById("statutad-d").style.display = 'block';
-                document.getElementById("postad-d").style.display = 'block';
-                document.getElementById("l_matricule").style.display = 'block';
-                document.getElementById("l_img_carte").style.display = 'block';
-            } else {
-                document.getElementById("statutad-d").style.display = 'none';
-                document.getElementById("postad-d").style.display = 'none';
-                document.getElementById("l_matricule").style.display = 'none';
-                document.getElementById("l_img_carte").style.display = 'none';
-            }
-        })
-        elt.addEventListener('change', function() {
-            console.log('value => ' + this.value);
-            console.log(elt.value);
-            if (elt.value == "en") {
-                console.log('true')
-                document.getElementById("statuten-d").style.display = 'block';
-                document.getElementById("posten-d").style.display = 'block';
-            } else {
-                document.getElementById("statuten-d").style.display = 'none';
-                document.getElementById("posten-d").style.display = 'none';
-            }
-        })
+        var i = 0;
+        var original = document.getElementById('duplicater');
 
-        // function afficher_cacher(elem) {
-
-        //     if (elem.checked) {
-
-        //         document.getElementById("inpt").style.display = 'block';
-        //     } else
-        //         document.getElementById("inpt").style.display = 'none';
-        // }
-        // function ajouterPrestation() {
-        //     var text = document.getElementById('third').innerHTML;
-        //     $('.third').append(text);
-        // }
+        function duplicate() {
+            var clone = original.cloneNode(true); //"deep" clone
+            clone.id = "duplicater" + ++i;
+            //or clone.id = ""; if the divs don't need an ID
+            original.parentNode.appendChild(clone);
+        }
     </script>
-
-<script>
-    var i = 0;
-var original = document.getElementById('duplicater');
-
-function duplicate() {
-    var clone = original.cloneNode(true); //"deep" clone
-    clone.id = "duplicater" + ++i;
-    //or clone.id = ""; if the divs don't need an ID
-    original.parentNode.appendChild(clone);
-}
-</script>
 
 
     <script src="js/bootstrap.js"></script>
