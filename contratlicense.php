@@ -122,10 +122,10 @@ $infos_agent = $infos_sup->fetch();
 
     <br><br><br>
 
-    <div class="container fs-5 text-justify" style="font-family: 'Times New Roman', Times, serif;">
+    <div class="container fs-5 text-justify">
 
         <div>
-            <table class="table w-75" >
+            <table class="table w-75">
                 <tr>
                     <td class="header fw-bold mt-auto text-black">CONTRAT DE PRESTATION D'ENSEIGNEMENT</td>
                 </tr>
@@ -180,8 +180,8 @@ $infos_agent = $infos_sup->fetch();
         }
 
         ?>
-    <!-- convertir les chiffres en lettre -->
-    <?php
+        <!-- convertir les chiffres en lettre -->
+        <?php
         function convertNumberToWords(int $number): string
         {
             // Tableau pour stocker tous les mots à remplacer.
@@ -245,7 +245,7 @@ $infos_agent = $infos_sup->fetch();
             // Erreur dans le cas où le nombre est >= 1000.
             return "Erreur: le nombre doit être inférieur ou égal à 999";
         }
-    ?>
+        ?>
 
 
         <div>
@@ -282,7 +282,17 @@ $infos_agent = $infos_sup->fetch();
                         $masseHoraireTotal += $masse_horaire;
 
                     ?>
-                        <li> <?php echo $nom_ecue['nom'];   ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $nom_classe['nom'];   ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $masse_horaire . 'H'   ?> </li>
+
+                        <div class="row ms-5">
+
+                            <li>
+                                <div class="col-4 d-inline pe-5 "><?php echo $nom_ecue['nom'];   ?></div>
+                                <div class="col-4 d-inline pe-5"><?php echo $nom_classe['nom'];   ?></div>
+                                <div class="col-4 d-inline pe-5"><?php echo $masse_horaire . 'H'   ?></div>
+                            </li>
+
+                        </div>
+
                     <?php
                     }
                     ?>
@@ -444,11 +454,14 @@ $infos_agent = $infos_sup->fetch();
                 <div class="text-center fw-bolder mb-5">
                     VISA DE L'AGENT COMPTABLE
                 </div>
+
                 <br><br><br>
+
                 <div class="text-center fw-bolder mt-5">
                     Monsieur.....................................................
                 </div>
 
+                <br><br><br>
             </div>
 
         </div>

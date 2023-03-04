@@ -117,7 +117,7 @@ $infos_agent = $infos_sup->fetch();
 
     <br><br><br>
 
-    <div class="container fs-5 text-justify" style="font-family: 'Times New Roman', Times, serif;">
+    <div class="container fs-5 text-justify">
 
         <div>
             <table class="table w-75" >
@@ -277,15 +277,17 @@ $infos_agent = $infos_sup->fetch();
                         $masseHoraireTotal += $masse_horaire;
 
                     ?>
-                        <div class="row ms-5">
+                    
+                    <div class="row ms-5">
 
-                            <li> 
-                                <div class="col-4 d-inline pe-5 "><?php echo $nom_ecue['nom'];   ?></div>  
-                                <div class="col-4 d-inline pe-5"><?php echo $nom_classe['nom'];   ?></div> 
-                                <div class="col-4 d-inline pe-5"><?php echo $masse_horaire . 'H'   ?></div>  
-                            </li>
+                        <li> 
+                            <div class="col-4 d-inline pe-5 "><?php echo $nom_ecue['nom'];   ?></div>  
+                            <div class="col-4 d-inline pe-5"><?php echo $nom_classe['nom'];   ?></div> 
+                            <div class="col-4 d-inline pe-5"><?php echo $masse_horaire . 'H'   ?></div>  
+                        </li>
 
-                        </div>
+                    </div>
+
                     <?php
                     }
                     ?>
@@ -447,10 +449,13 @@ $infos_agent = $infos_sup->fetch();
                 <div class="text-center fw-bolder mb-5">
                     VISA DE L'AGENT COMPTABLE
                 </div>
+
                 <br><br><br>
+
                 <div class="text-center fw-bolder mt-5">
                     Monsieur.....................................................
                 </div>
+
                 <br><br><br>
             </div>
 

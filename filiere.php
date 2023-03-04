@@ -57,7 +57,7 @@ $annee = $bdd->query('SELECT * FROM annee');
 
         <section class="second container-sm col-8 mb-5">
             <form action="traitementfil.php" method="post" name="enregistrer" class="" onsubmit="submitForm(event);">
-                <p>AJOUTER Departement/Filiere</p>
+                <p>AJOUTER DEPARTEMENT/FILIERE</p>
 
                 <section class="third">
                     <div class="row mb-4">
@@ -103,14 +103,20 @@ $annee = $bdd->query('SELECT * FROM annee');
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group text-center">
-                            <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login" type="submit" onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
-									Ajouter
-								</button>
-								<div class="enregistrementValide" id="popup">
-									<h3>Enregistrement du Département/Filiere effectué</h3>
-									<button type="button" onClick="closePopup();location.reload()">
-										OK
-									</button>
+
+                                <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login" type="submit" onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
+                                    Ajouter
+                                </button>
+
+                                <div class="enregistrementValide" id="popup">
+
+                                    <h3>Enregistrement du Département/Filière effectué</h3>
+                                    <button type="button" onClick="closePopup();location.reload()">
+                                        OK
+                                    </button>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -126,29 +132,30 @@ $annee = $bdd->query('SELECT * FROM annee');
     </section>
 
     <script>
-		let popup = document.getElementById("popup");
+        let popup = document.getElementById("popup");
 
-		function openPopup(){
-			popup.classList.add("open-popup");
-		}
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
 
-		function closePopup(){
-			popup.classList.add("open-popup");
-		}
-		function submitForm(event) {
-  event.preventDefault();
-  
-  // Récupérer les données du formulaire
-  var formData = new FormData(event.target);
+        function closePopup() {
+            popup.classList.add("open-popup");
+        }
 
-  // Créer une requête AJAX
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "traitementfil.php");
+        function submitForm(event) {
+            event.preventDefault();
 
-  // Envoyer les données du formulaire
-  xhr.send(formData);
-}
-	</script>
+            // Récupérer les données du formulaire
+            var formData = new FormData(event.target);
+
+            // Créer une requête AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "traitementfil.php");
+
+            // Envoyer les données du formulaire
+            xhr.send(formData);
+        }
+    </script>
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.dcjqaccordion.2.7.js"></script>

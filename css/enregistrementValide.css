@@ -1,6 +1,6 @@
 .enregistrementValide {
     width: 400px;
-    background: rgb(4, 35, 55);
+    background: rgb(4 35 55 / 95%);
     border-radius: 40px;
     position: absolute;
     top: 0;
@@ -21,7 +21,7 @@
 
 .enregistrementValide button {
     padding: 10px 60px;
-    background: rgb(19, 133, 161);
+    background: rgb(255, 255, 255);
     border: 0;
     outline: rgba(255, 255, 255, 0.842);
     cursor: pointer;
@@ -32,6 +32,6 @@
 
 .open-popup {
     visibility: visible;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    top: 40%;
+    transform: translate(-50%, -50%) scale(0.8);
 }

@@ -283,10 +283,7 @@ $administrateurs_permanents = $bdd->query('SELECT count(*) as administrateurs_pe
 
 			</section>
 			<!-- footer -->
-			<div class="footer" style="background: wheat;
-    padding: 25px;
-    position: relative;
-    top: 58px;">
+			<div class="footer">
 				<div class="wthree-copyright">
 					<p>© Copyright ENEAM 2022</p>
 				</div>

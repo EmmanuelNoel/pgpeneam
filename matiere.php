@@ -62,29 +62,27 @@ $annee = $bdd->query('SELECT * FROM annee');
                 <section class="third">
 
 
-                <div class="row text-start" style="margin-bottom: 20px;">
+                    <div class="row text-start" style="margin-bottom: 20px;">
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
 
                             <select class="form-select formselect" name="classe" style="width: 450px;" id="classe" onchange="run(this)">
                                 <option value="" selected>Sélectionner une classe</option>
                                 <?php
-                                    foreach($classe as $cls)
-                                    {
+                                foreach ($classe as $cls) {
                                 ?>
-                                <option value="<?= $cls['id']?>"><?= $cls['nom'];?></option>
-                                <?php };?>
+                                    <option value="<?= $cls['id'] ?>"><?= $cls['nom']; ?></option>
+                                <?php }; ?>
                             </select>
                         </div>
                         <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
 
                             <select class="form-select formselect" name="annee" style="width: 450px; ">
                                 <option value="annee" disabled="" selected="" hidden="">Année académique
-                                <?php
-                                    foreach($annee as $ann)
-                                    {
-                                ?>
-                                <option value="<?= $ann['id']?>"><?= $ann['annee'];?></option>
-                                <?php };?>
+                                    <?php
+                                    foreach ($annee as $ann) {
+                                    ?>
+                                <option value="<?= $ann['id'] ?>"><?= $ann['annee']; ?></option>
+                            <?php }; ?>
                             </select>
 
                         </div>
@@ -137,15 +135,21 @@ $annee = $bdd->query('SELECT * FROM annee');
 
                     <div class="row">
                         <div class="col-12">
+
                             <div class="form-group text-center">
-                            <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login" type="submit" onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
-									Ajouter
-								</button>
-								<div class="enregistrementValide" id="popup">
-									<h3>Enregistrement de l'UE/ECUE effectuée</h3>
-									<button type="button" onClick="closePopup();location.reload()">
-										OK
-									</button>
+                                <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login" type="submit" onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
+                                    Ajouter
+                                </button>
+
+                                <div class="enregistrementValide" id="popup">
+
+                                    <h3>Enregistrement de l'UE/ECUE effectué</h3>
+                                    <button type="button" onClick="closePopup();location.reload()">
+                                        OK
+                                    </button>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -161,29 +165,30 @@ $annee = $bdd->query('SELECT * FROM annee');
     </section>
 
     <script>
-		let popup = document.getElementById("popup");
+        let popup = document.getElementById("popup");
 
-		function openPopup(){
-			popup.classList.add("open-popup");
-		}
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
 
-		function closePopup(){
-			popup.classList.add("open-popup");
-		}
-		function submitForm(event) {
-  event.preventDefault();
-  
-  // Récupérer les données du formulaire
-  var formData = new FormData(event.target);
+        function closePopup() {
+            popup.classList.add("open-popup");
+        }
 
-  // Créer une requête AJAX
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "traitementmat.php");
+        function submitForm(event) {
+            event.preventDefault();
 
-  // Envoyer les données du formulaire
-  xhr.send(formData);
-}
-	</script>
+            // Récupérer les données du formulaire
+            var formData = new FormData(event.target);
+
+            // Créer une requête AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "traitementmat.php");
+
+            // Envoyer les données du formulaire
+            xhr.send(formData);
+        }
+    </script>
 
     <script src="js/bootstrap.js"></script>
     <script src="js/jquery.dcjqaccordion.2.7.js"></script>
