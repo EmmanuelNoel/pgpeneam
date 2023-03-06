@@ -22,7 +22,7 @@ $annee = $bdd->query('SELECT * FROM annee');
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
-        addEventListener("load", function() {
+        addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
 
@@ -38,7 +38,9 @@ $annee = $bdd->query('SELECT * FROM annee');
     <link href="css/style-responsive.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- font CSS -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link
+        href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
     <!-- font-awesome icons -->
     <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -62,41 +64,49 @@ $annee = $bdd->query('SELECT * FROM annee');
                 <section class="third">
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Acronyme" name="departement" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Acronyme"
+                                name="departement" value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé département" name="lide" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé département"
+                                name="lide" value=""  required>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 1 " name="codefil[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 1 "
+                                name="codefil[]" value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 1" name="libfil[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 1"
+                                name="libfil[]" value=""  required>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 2 " name="codefil[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 2 "
+                                name="codefil[]" value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 2" name="libfil[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 2"
+                                name="libfil[]" value=""  required>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 3 " name="codefil[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code Filière 3 "
+                                name="codefil[]" value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 3" name="libfil[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé Filière 3"
+                                name="libfil[]" value=""  required>
                         </div>
                     </div>
 
@@ -104,7 +114,9 @@ $annee = $bdd->query('SELECT * FROM annee');
                         <div class="col-12">
                             <div class="form-group text-center">
 
-                                <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login" type="submit" onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
+                                <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login"
+                                    type="submit" onClick="openPopup()" data-bs-toggle="collapse"
+                                    aria-controls="collapseExample">
                                     Ajouter
                                 </button>
 
@@ -126,7 +138,8 @@ $annee = $bdd->query('SELECT * FROM annee');
 
 
     <div class="bout">
-        <a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page d'accueil</span> </a>
+        <a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page
+                d'accueil</span> </a>
     </div>
 
     </section>

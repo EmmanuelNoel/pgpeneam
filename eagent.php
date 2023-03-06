@@ -27,7 +27,7 @@ $statut = $bdd->query('SELECT * FROM statut');
 	<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script type="application/x-javascript">
-		addEventListener("load", function() {
+		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
 
@@ -43,7 +43,9 @@ $statut = $bdd->query('SELECT * FROM statut');
 	<link href="css/style-responsive.css" rel="stylesheet" />
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" rel="stylesheet" />
 	<!-- font CSS -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link
+		href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+		rel='stylesheet' type='text/css'>
 	<!-- font-awesome icons -->
 	<link rel="stylesheet" href="css/font.css" type="text/css" />
 	<link href="css/font-awesome.css" rel="stylesheet">
@@ -70,28 +72,31 @@ $statut = $bdd->query('SELECT * FROM statut');
 					<div class="row mb-4">
 						<div class="col-md-4">
 							<label for=""></label>
-							<input type="text" class="form-control formcontrol formcontrol" placeholder="Matricule" name="matricule" value="">
+							<input type="text" class="form-control formcontrol formcontrol" placeholder="Matricule"
+								name="matricule" value=""  required>
 						</div>
 					</div>
 
 					<div class="row mb-4">
 						<div class="col-md-6">
-							<input type="text" class="form-control formcontrol" placeholder="Nom" name="nom" value="">
+							<input type="text" class="form-control formcontrol" placeholder="Nom" name="nom" value=""  required>
 						</div>
 
 						<div class="col-md-6">
-							<input type="text" class="form-control formcontrol" placeholder="Prénom" name="prenom" value="">
+							<input type="text" class="form-control formcontrol" placeholder="Prénom" name="prenom"
+								value=""  required>
 						</div>
 					</div>
 
 					<div class="row mb-4">
 						<div class="col-md-4">
-							<input type="text" class="form-control formcontrol" placeholder="Nationalité" name="nationalite" value="">
+							<input type="text" class="form-control formcontrol" placeholder="Nationalité"
+								name="nationalite" value=""  required>
 						</div>
 
 						<div class="col-md-4">
 							<select class="form-select formselect " name="sexe">
-								<option value="" disabled="" selected="" hidden=""> </option>
+								<option value="" disabled="" selected="" hidden=""  required> </option>
 								<option value="" selected>Sexe </option>
 								<option value="homme">Homme</option>
 								<option value="femme">Femme</option>
@@ -99,24 +104,26 @@ $statut = $bdd->query('SELECT * FROM statut');
 						</div>
 
 						<div class="col-md-4">
-							<input type="text" class="form-control formcontrol" placeholder="Adresse" name="adresse" value="">
+							<input type="text" class="form-control formcontrol" placeholder="Adresse" name="adresse"
+								value=""  required>
 						</div>
 					</div>
 
 					<div class="row mb-4">
 						<div class="col-md-3">
-							<input type="tel" class="form-control formcontrol" placeholder="Profession" name="profession" value="">
+							<input type="tel" class="form-control formcontrol" placeholder="Profession"
+								name="profession" value=""  required>
 						</div>
 						<div class="col-md-3">
-							<input type="tel" class="form-control formcontrol" placeholder="IFU" name="ifu" value="">
-						</div>
-
-						<div class="col-md-3">
-							<input type="tel" placeholder="RIB" name="rib" id="" class="form-control formcontrol">
+							<input type="tel" class="form-control formcontrol" placeholder="IFU" name="ifu" value=""  required>
 						</div>
 
 						<div class="col-md-3">
-							<select id="categorie" class="form-select formselect" name="banque">
+							<input type="tel" placeholder="RIB" name="rib" id="" class="form-control formcontrol"  required>
+						</div>
+
+						<div class="col-md-3">
+							<select id="categorie" class="form-select formselect" name="banque"  required>
 
 								<option value="" disabled="" selected="" hidden=""> </option>
 								<option value="" selected>Banque </option>
@@ -125,7 +132,8 @@ $statut = $bdd->query('SELECT * FROM statut');
 
 
 								?>
-									<option value="<?php echo  $donneesbanque['id']  ?>"><?php echo  $donneesbanque['nom']  ?></option>
+								<option value="<?php echo  $donneesbanque['id']  ?>">
+									<?php echo  $donneesbanque['nom']  ?></option>
 
 								<?php
 								}
@@ -137,17 +145,19 @@ $statut = $bdd->query('SELECT * FROM statut');
 
 					<div class="row mb-4">
 						<div class="col-md-6">
-							<input type="tel" class="form-control formcontrol" placeholder="Téléphone" name="telephone" value="">
+							<input type="tel" class="form-control formcontrol" placeholder="Téléphone" name="telephone"
+								value=""  required>
 						</div>
 
 						<div class="col-md-6">
-							<input type="email" name="email" id="email" placeholder="Email" class="form-control formcontrol">
+							<input type="email" name="email" id="email" placeholder="Email"
+								class="form-control formcontrol"  required>
 						</div>
 					</div>
 
 					<div class="row mb-4">
 						<div class="col-md-4">
-							<select id="categorie" class="form-select formselect " name="categorie">
+							<select id="categorie" class="form-select formselect " name="categorie"  required>
 								<option value="" disabled="" selected="" hidden=""> </option>
 								<option value="" selected>Catégorie </option>
 								<?php
@@ -155,7 +165,8 @@ $statut = $bdd->query('SELECT * FROM statut');
 
 
 								?>
-									<option value="<?php echo  $donneescategorie['id']  ?>"><?php echo  $donneescategorie['nom']  ?></option>
+								<option value="<?php echo  $donneescategorie['id']  ?>">
+									<?php echo  $donneescategorie['nom']  ?></option>
 
 								<?php
 								}
@@ -163,7 +174,7 @@ $statut = $bdd->query('SELECT * FROM statut');
 							</select>
 						</div>
 						<div class="col-md-4">
-							<select id="statutad" class="form-select formselect " name="statut">
+							<select id="statutad" class="form-select formselect " name="statut"  required>
 								<option value="" disabled="" selected="" hidden=""> </option>
 								<option value="" selected>Statut</option>
 
@@ -172,7 +183,8 @@ $statut = $bdd->query('SELECT * FROM statut');
 
 
 								?>
-									<option value="<?php echo  $donneesstatut['id']  ?>"><?php echo  $donneesstatut['nom']  ?></option>
+								<option value="<?php echo  $donneesstatut['id']  ?>">
+									<?php echo  $donneesstatut['nom']  ?></option>
 
 								<?php
 								}
@@ -180,14 +192,15 @@ $statut = $bdd->query('SELECT * FROM statut');
 							</select>
 						</div>
 						<div class="col-md-4">
-							<select id="cote" class="form-select formselect " name="grade">
+							<select id="cote" class="form-select formselect " name="grade"  required>
 								<option value="" disabled="" selected="" hidden=""> </option>
 								<option value="" selected>Grade </option>
 								<?php
 								while ($donneesgrade = $grade->fetch()) {
 
 								?>
-									<option value="<?php echo  $donneesgrade['id']  ?>"><?php echo  $donneesgrade['nom']  ?></option>
+								<option value="<?php echo  $donneesgrade['id']  ?>"><?php echo  $donneesgrade['nom']  ?>
+								</option>
 
 								<?php
 								}
@@ -199,13 +212,14 @@ $statut = $bdd->query('SELECT * FROM statut');
 
 					<div class="row mb-4">
 						<div class="col-md-9">
-							<select id="poste-ad" class="form-select formselect " name="role">
+							<select id="poste-ad" class="form-select formselect " name="role"  required>
 								<option value="" disabled="" selected="" hidden=""> </option>
 								<option value="" selected>Rôle </option>
 								<?php
 								while ($donneesrole = $roles->fetch()) {
 								?>
-									<option value="<?php echo  $donneesrole['id']  ?>"><?php echo  $donneesrole['nom']  ?></option>
+								<option value="<?php echo  $donneesrole['id']  ?>"><?php echo  $donneesrole['nom']  ?>
+								</option>
 
 								<?php
 								}
@@ -215,7 +229,8 @@ $statut = $bdd->query('SELECT * FROM statut');
 
 						<div class="col-md-3">
 							<div>
-								<input type="date" placeholder="Date de première prise de service" name="date_premier_service" id="date" class="form-control formcontrol">
+								<input type="date" placeholder="Date de première prise de service"
+									name="date_premier_service" id="date" class="form-control formcontrol"  required>
 							</div>
 						</div>
 					</div>
@@ -225,11 +240,13 @@ $statut = $bdd->query('SELECT * FROM statut');
 						<div class="col-md-12 text-start">
 							<span class="en_service">En service</span>
 							<div class="form-check form-check-inline">
-								<input type="radio" name="service" id="service" value="1" class="form-check-input" checked autocomplete="off">
+								<input type="radio" name="service" id="service" value="1" class="form-check-input"
+									checked autocomplete="off"  required>
 								<label class="form-check-label" for="oui">Oui</label> &nbsp;&nbsp;&nbsp;
 							</div>
 							<div class="form-check form-check-inline">
-								<input type="radio" name="service" id="service" value="2" autocomplete="off" class="form-check-input">
+								<input type="radio" name="service" id="service" value="2" autocomplete="off"
+									class="form-check-input"  required>
 								<label class="form-check-label" for="non">Non</label>
 							</div>
 						</div>
@@ -238,7 +255,9 @@ $statut = $bdd->query('SELECT * FROM statut');
 					<div class="row">
 						<div class="col-12">
 							<div class="form-group text-center">
-							<button name="enregistrer" class="btn enregistrer btn-primary btn-md full-width pop-login" type="submit" onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
+								<button name="enregistrer"
+									class="btn enregistrer btn-primary btn-md full-width pop-login" type="submit"
+									onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
 									Enregistrer
 								</button>
 								<div class="enregistrementValide" id="popup">
@@ -246,16 +265,17 @@ $statut = $bdd->query('SELECT * FROM statut');
 									<button type="button" onClick="closePopup();location.reload()">
 										OK
 									</button>
+								</div>
 							</div>
 						</div>
-					</div>
 			</form>
 		</section>
 	</section>
 
 
 	<div class="bout">
-		<a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page d'accueil</span> </a>
+		<a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page
+				d'accueil</span> </a>
 	</div>
 
 	</section>
@@ -263,31 +283,32 @@ $statut = $bdd->query('SELECT * FROM statut');
 	<script>
 		let popup = document.getElementById("popup");
 
-		function openPopup(){
+		function openPopup() {
 			popup.classList.add("open-popup");
 		}
 
-		function closePopup(){
+		function closePopup() {
 			popup.classList.add("open-popup");
 		}
+
 		function submitForm(event) {
-  event.preventDefault();
-  
-  // Récupérer les données du formulaire
-  var formData = new FormData(event.target);
+			event.preventDefault();
 
-  // Créer une requête AJAX
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "traitement.php");
+			// Récupérer les données du formulaire
+			var formData = new FormData(event.target);
 
-  // Envoyer les données du formulaire
-  xhr.send(formData);
-}
+			// Créer une requête AJAX
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "traitement.php");
+
+			// Envoyer les données du formulaire
+			xhr.send(formData);
+		}
 	</script>
 
 	<script>
 		var elt = document.getElementById('categorie');
-		elt.addEventListener('change', function() {
+		elt.addEventListener('change', function () {
 			console.log('value => ' + this.value);
 			console.log(elt.value);
 			if (elt.value == "ad") {
@@ -303,7 +324,7 @@ $statut = $bdd->query('SELECT * FROM statut');
 				document.getElementById("l_img_carte").style.display = 'none';
 			}
 		})
-		elt.addEventListener('change', function() {
+		elt.addEventListener('change', function () {
 			console.log('value => ' + this.value);
 			console.log(elt.value);
 			if (elt.value == "en") {

@@ -1,5 +1,7 @@
 <?php
-session_start();
+
+
+    session_start();
 if (empty($_SESSION)) {
     # code...
     header('location:index.php');
@@ -9,7 +11,16 @@ if (empty($_SESSION)) {
 
 <!--insertion des données dans la table contrat et prestation -->
 <?php
+/* if(!empty($_POST['editer']))
+{ */
+    if(isset($_POST['num_contrat']) AND isset($_POST['enseignant']) AND isset($_POST['classe']) AND isset($_POST['ue'])
+    AND isset($_POST['ecue']) AND isset($_POST['massehoraire']) AND isset($_POST['date_debut'])  AND isset($_POST['date_fin'])
+    AND isset($_POST['jourouvrable']) 
+    
+    )
+    {
 
+ 
 include('connexionDB.php'); //connexion DB
 
 //date actuel
@@ -64,8 +75,8 @@ $infos_agent = $infos_sup->fetch();
 
 //infos prestation
 
-
-
+}
+/* } */
 
 ?>
 
@@ -473,3 +484,5 @@ $infos_agent = $infos_sup->fetch();
 </body>
 
 </html>
+
+

@@ -6,7 +6,7 @@ if (empty($_SESSION)) {
     header('location:index.php');
 }
 
-include('connexionDB.php');
+include 'connexionDB.php';
 $classe = $bdd->query('SELECT * FROM classe');
 
 $annee = $bdd->query('SELECT * FROM annee');
@@ -19,10 +19,10 @@ $annee = $bdd->query('SELECT * FROM annee');
     <title>Plateforme de gestion du personnel de l'ENEAM</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+    <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript">
-        addEventListener("load", function() {
+        addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
 
@@ -38,7 +38,9 @@ $annee = $bdd->query('SELECT * FROM annee');
     <link href="css/style-responsive.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- font CSS -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link
+        href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+        rel='stylesheet' type='text/css'>
     <!-- font-awesome icons -->
     <link rel="stylesheet" href="css/font.css" type="text/css" />
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -63,26 +65,31 @@ $annee = $bdd->query('SELECT * FROM annee');
 
 
                     <div class="row text-start" style="margin-bottom: 20px;">
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6"
+                            style="display:flex ; justify-content: space-around;">
 
-                            <select class="form-select formselect" name="classe" style="width: 450px;" id="classe" onchange="run(this)">
+                            <select class="form-select formselect" name="classe" style="width: 450px;" id="classe"
+                                onchange="run(this)"  required >
                                 <option value="" selected>Sélectionner une classe</option>
                                 <?php
-                                foreach ($classe as $cls) {
-                                ?>
-                                    <option value="<?= $cls['id'] ?>"><?= $cls['nom']; ?></option>
-                                <?php }; ?>
+foreach ($classe as $cls) {
+    ?>
+                                <option value="<?=$cls['id']?>"><?=$cls['nom'];?></option>
+                                <?php }
+;?>
                             </select>
                         </div>
-                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6"
+                            style="display:flex ; justify-content: space-around;">
 
-                            <select class="form-select formselect" name="annee" style="width: 450px; ">
+                            <select class="form-select formselect" name="annee" style="width: 450px; "  required>
                                 <option value="annee" disabled="" selected="" hidden="">Année académique
                                     <?php
-                                    foreach ($annee as $ann) {
-                                    ?>
-                                <option value="<?= $ann['id'] ?>"><?= $ann['annee']; ?></option>
-                            <?php }; ?>
+foreach ($annee as $ann) {
+    ?>
+                                <option value="<?=$ann['id']?>"><?=$ann['annee'];?></option>
+                                <?php }
+;?>
                             </select>
 
                         </div>
@@ -94,41 +101,49 @@ $annee = $bdd->query('SELECT * FROM annee');
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code UE" name="codeue" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code UE" name="codeue"
+                                value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé UE" name="libue" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé UE" name="libue"
+                                value=""  required>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 1" name="codecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 1"
+                                name="codecue[]" value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 1" name="libecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 1"
+                                name="libecue[]" value=""  required>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 2" name="codecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 2"
+                                name="codecue[]" value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 2" name="libecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 2"
+                                name="libecue[]" value=""  required>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-md-3">
-                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 3" name="codecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Code ECUE 3"
+                                name="codecue[]" value=""  required>
                         </div>
 
                         <div class="col-md-9">
-                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 3" name="libecue[]" value="">
+                            <input type="text" class="form-control formcontrol" placeholder="Libellé ECUE 3"
+                                name="libecue[]" value=""  required>
                         </div>
                     </div>
 
@@ -137,7 +152,9 @@ $annee = $bdd->query('SELECT * FROM annee');
                         <div class="col-12">
 
                             <div class="form-group text-center">
-                                <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login" type="submit" onClick="openPopup()" data-bs-toggle="collapse" aria-controls="collapseExample">
+                                <button name="ajouter" class="btn ajouter btn-primary btn-md full-width pop-login"
+                                    type="submit" onClick="openPopup()" data-bs-toggle="collapse"
+                                    aria-controls="collapseExample">
                                     Ajouter
                                 </button>
 
@@ -159,7 +176,8 @@ $annee = $bdd->query('SELECT * FROM annee');
 
 
     <div class="bout">
-        <a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page d'accueil</span> </a>
+        <a href="accueil.php"><span class="mdi mdi-arrow-left arrowleft"></span> <span class="retour">Retour à la page
+                d'accueil</span> </a>
     </div>
 
     </section>
