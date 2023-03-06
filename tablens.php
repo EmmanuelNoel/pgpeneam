@@ -1,3 +1,11 @@
+<script>
+  function run() {
+    var info = document.getElementById("enseignant").value;
+
+    window.location.href = "tablens.php?val=" + info;
+
+  }
+</script>
 <?php
 include('connexionDB.php');
 
@@ -8,7 +16,20 @@ if (empty($_SESSION)) {
   header('location:index.php');
 }
 
-$enseignant = $bdd->query('SELECT agent.id,agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1');
+
+
+if (isset($_GET['val'])) {
+
+  $enseignant = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as 
+  prenom, role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1 and statut_id = ?');
+
+$enseignant->execute(array($_GET['val']));
+
+} 
+else {
+  $enseignant  = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom 
+  as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1');
+}
 
 ?>
 
@@ -161,10 +182,10 @@ $enseignant = $bdd->query('SELECT agent.id,agent.matricule as matricule,agent.no
 
             <div class="row w3-res-tb">
               <div class="col-sm-5 m-b-xs">
-                <select class="input-sm form-control w-sm inline v-middle" onchange="location.href=''+this.options[this.selectedIndex].value+'.php';">
-                  <option value="tablens">Toute la liste</option>
-                  <option value="permanent">Enseignants permanents</option>
-                  <option value="vacataire">Enseignants vacataires</option>
+                <select class="input-sm form-control w-sm inline v-middle" id="enseignant" onchange="run()">
+                  <option value="0">Toute la liste</option>
+                  <option value="1">Enseignants permanents</option>
+                  <option value="2">Enseignants vacataires</option>
                 </select>
               </div>
               <div class="col-sm-4">
@@ -197,10 +218,10 @@ $enseignant = $bdd->query('SELECT agent.id,agent.matricule as matricule,agent.no
                   ?>
 
                     <tr data-expanded="true">
-                      <td> <a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['matricule'];  ?></a> </td>
-                      <td><a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['nom'];  ?></a></td>
-                      <td><a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['prenom'];  ?></a></td>
-                      <td><a href="<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['role'];  ?></a></td>
+                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['matricule'];  ?></a> </td>
+                      <td><a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['nom'];  ?></a></td>
+                      <td><a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['prenom'];  ?></a></td>
+                      <td><a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"><?php echo $donneesenseignant['role'];  ?></a></td>
 
                     </tr>
                   <?php

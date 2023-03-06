@@ -18,10 +18,11 @@ if (empty($_SESSION)) {
 }
 
 if (isset($_GET['val'])) {
-  $admin = $bdd->prepare('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2 and statut_id = ?');
+  $admin = $bdd->prepare('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as 
+  role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2 and statut_id = ?');
   $admin->execute(array($_GET['val']));
 } else {
-  $admin = $bdd->query('SELECT agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
+  $admin = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
 }
 ?>
 
@@ -218,10 +219,10 @@ if (isset($_GET['val'])) {
                   ?>
 
                     <tr data-expanded="true">
-                      <td> <?php echo $donneesenseignant['matricule'];  ?> </td>
-                      <td><?php echo $donneesenseignant['nom'];  ?></td>
-                      <td><?php echo $donneesenseignant['prenom'];  ?></td>
-                      <td><?php echo $donneesenseignant['role'];  ?></td>
+                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['matricule'];  ?></a> </td>
+                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['nom'];  ?> </a></td>
+                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['prenom'];  ?></a></td>
+                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['role'];  ?></a></td>
 
                     </tr>
                   <?php

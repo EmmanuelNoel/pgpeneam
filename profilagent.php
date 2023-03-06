@@ -29,11 +29,20 @@ categorie.nom as categorie,
 banque.nom as banque,
 role.nom as role
 from agent,grade,statut,categorie,banque,role WHERE agent.grade_id=grade.id AND agent.statut_id=statut.id AND agent.banque_id=banque.id AND agent.categorie_id=categorie.id AND agent.role_id=role.id ORDER BY `agent`.`nom` AND agent.id=:id');
-$req->execute(array(
-'id' =>$_SESSION['id'],
-    )
-);
-
+if($_GET['val'])
+{
+    $req->execute(array(
+        'id' =>$_GET['val'],
+            )
+        );
+}
+else
+{
+    $req->execute(array(
+        'id' =>$_SESSION['id'],
+            )
+        );
+}
 $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -80,9 +89,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <span>N° matricule :</span>
     </div>
     <div class="col-6" >
-
-
-    
     <span><?php echo $resultat[0]['matricule'];?></span>
     </div>
 </div>   
@@ -103,7 +109,88 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="col-6" >
     <span><?php echo $resultat[0]['prenom'];?></span>
     </div>
-</div>  
+</div> 
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Nationalité :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['nationalite'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Sexe :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['sexe'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Adresse :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['adresse'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Profession :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['profession'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Ifu :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['ifu'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Rib:</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['rib'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Banque :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['banque'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>telephone :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['telephone'];?></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6" >
+    <span>Email :</span>
+    </div>
+    <div class="col-6" >
+    <span><?php echo $resultat[0]['email'];?></span>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-6" >
@@ -133,18 +220,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div> 
 
-<div class="row">
-    <div class="col-lg-6" >
-    <span>Date de première prise de service :</span>
-    </div>
-    <div class="col-6" >
-    <span><?php echo $resultat[0]['date_premier_service'];?></span>
-    </div>
-</div>        
+       
 
 <div class="row">
     <div class="col-lg-6">
-    <span>Côte</span>
+    <span>Grade</span>
     </div>
     <div class="col-6">
     <span><?php echo $resultat[0]['grade'];?></span>
@@ -153,22 +233,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <div class="row">
     <div class="col-lg-6" >
-    <span>Documments fournis :</span>
+    <span>Date de première prise de service :</span>
     </div>
     <div class="col-6" >
-    <span>Contrat de travail</span>
-    <br><span>Décision d'engagement</span>
-    <br><span>Arrrêté de nomination</span>
-    <br><span>Acte de prise de fonction</span>
-    <br><span>Etat civil</span>
-    <br><span>Diplômes légalisés</span>
-    <br><span>Décision d'admission</span>
-    <br><span>Casier judiciaire</span>
-    <br><span>Certificat d'individualité</span>
-    <br><span>Certificat de première prise de fonction</span>
-    <br><span>Curriculum vitae</span>
+    <span><?php echo $resultat[0]['date_premier_service'];?></span>
     </div>
-</div>    
+</div> 
+
+
        
 <div class="row">
     <div class="col-lg-6" >
@@ -178,7 +250,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
     <div class="col-6" >
     <span>
-    <?php echo $resultat[0]['en_service'];
+    <?php 
+    $enService = $resultat[0]['en_service']==1 ? "Oui" : "Non";
+    echo $enService;
 ?>
     </span>
     </div>
@@ -192,7 +266,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="row">
     <div class="col-lg-6">
     <p>
-    <a class="btn btn-primary btnprimary btn-md btn-sm btn-lg btn-xl btn-xxl full-width pop-login" data-bs-toggle="collapse" href="eagent.php" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <a class="btn btn-primary btnprimary btn-md btn-sm btn-lg btn-xl btn-xxl full-width pop-login" data-bs-toggle="collapse" href="eagent2.php?val=<?php echo $_SESSION['id'];  ?>" role="button" aria-expanded="false" aria-controls="collapseExample">
     Modifier
     </a></p>
     </div>
