@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class=" second w3layouts-main">
 		<h2>CONNEXION</h2>
 		<form action="connexion.php" class="php-email-form" method="post">
-			<input type="tel" class="ggg" name="matricule" placeholder="Matricule" required>
+			<input type="text" class="ggg" name="identifiant" placeholder="Identifiant" required>
 			<input type="password" class="ggg" name="password" placeholder="Mot de passe" required>
 		
 		<div class="my-3">

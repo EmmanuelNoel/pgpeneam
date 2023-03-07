@@ -1,12 +1,12 @@
 <?php
  
 
-if (isset($_POST['password']) AND isset($_POST['matricule'])) {
+if (isset($_POST['password']) AND isset($_POST['identifiant'])) {
     include ('connexionDB.php');
     # code...
-        $req = $bdd->prepare('SELECT *  FROM agent WHERE matricule=:matricule AND passwd=:passwd');
+        $req = $bdd->prepare('SELECT *  FROM user WHERE identifiant=:identifiant AND passwd=:passwd');
         $req->execute(array(
-            'matricule' =>$_POST['matricule'],
+            'identifiant' =>$_POST['identifiant'],
             'passwd' => $_POST['password'])
                     );
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ if (isset($_POST['password']) AND isset($_POST['matricule'])) {
             $_SESSION['id'] = $resultat[0]['id'];
             $_SESSION['nom'] = $resultat[0]['nom'];
             $_SESSION['prenom'] = $resultat[0]['prenom'];
-            $_SESSION['matricule']=$resultat[0]['matricule'];
+            $_SESSION['identifiant']=$resultat[0]['identifiant'];
            
             echo 'OK';
         }

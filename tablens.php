@@ -1,5 +1,5 @@
 <script>
-  function run() {
+  function lancer() {
     var info = document.getElementById("enseignant").value;
 
     window.location.href = "tablens.php?val=" + info;
@@ -17,18 +17,22 @@ if (empty($_SESSION)) {
 }
 
 
-
 if (isset($_GET['val'])) {
 
-  $enseignant = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as 
-  prenom, role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1 and statut_id = ?');
+  $enseignant = $bdd->prepare('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as 
+  prenom, role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1 and statut_id=:statut_id');
 
-$enseignant->execute(array($_GET['val']));
+$enseignant->execute(array('statut_id'=>$_GET['val']));
 
 } 
 else {
-  $enseignant  = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom 
-  as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1');
+  /* $enseignant = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,
+  role.nom 
+as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 1'); */
+
+  $enseignant = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,
+  role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
+
 }
 
 ?>
@@ -96,7 +100,7 @@ else {
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-              <li><a href="profilagent.php"><i class="bi bi-person-circle"></i>Profil</a></li>
+             <!--  <li><a href="profilagent.php"><i class="bi bi-person-circle"></i>Profil</a></li> -->
 
               <li><a href="login.php"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
             </ul>
@@ -182,7 +186,7 @@ else {
 
             <div class="row w3-res-tb">
               <div class="col-sm-5 m-b-xs">
-                <select class="input-sm form-control w-sm inline v-middle" id="enseignant" onchange="run()">
+                <select class="input-sm form-control w-sm inline v-middle" id="enseignant" onchange="lancer()">
                   <option value="0">Toute la liste</option>
                   <option value="1">Enseignants permanents</option>
                   <option value="2">Enseignants vacataires</option>

@@ -18,15 +18,17 @@ if (empty($_SESSION)) {
 }
 
 if (isset($_GET['val'])) {
-  $admin = $bdd->prepare('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as 
-  role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2 and statut_id = ?');
+  $admin = $bdd->prepare('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,
+  role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2 and statut_id = ?');
   $admin->execute(array($_GET['val']));
 } else {
-  $admin = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
+  $admin = $bdd->query('SELECT agent.id as id, agent.matricule as matricule,agent.nom as nom,agent.prenom as prenom,
+  role.nom as role FROM agent,role WHERE role.id = agent.role_id and categorie_id = 2');
 }
 ?>
 
 <!DOCTYPE html>
+
 <head>
   <title>Plateforme de gestion du personnel de l'ENEAM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +36,7 @@ if (isset($_GET['val'])) {
   <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
   Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
   <script type="application/x-javascript">
-    addEventListener("load", function() {
+    addEventListener("load", function () {
       setTimeout(hideURLbar, 0);
     }, false);
 
@@ -49,7 +51,9 @@ if (isset($_GET['val'])) {
   <link href="css/style.css" rel='stylesheet' type='text/css' />
   <link href="css/style-responsive.css" rel="stylesheet" />
   <!-- font CSS -->
-  <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+  <link
+    href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
+    rel='stylesheet' type='text/css'>
   <!-- font-awesome icons -->
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <link href="css/font-awesome.css" rel="stylesheet">
@@ -88,7 +92,7 @@ if (isset($_GET['val'])) {
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-              <li><a href="profilagent.php"><i class="bi bi-person-circle"></i>Profil</a></li>
+              <!-- <li><a href="profilagent.php"><i class="bi bi-person-circle"></i>Profil</a></li> -->
 
               <li><a href="login.php"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
             </ul>
@@ -139,22 +143,22 @@ if (isset($_GET['val'])) {
             </li>
 
             <li>
-							<a href="filiere.php">
-								<i class="fa fa-plus"></i>
-								<span>Ajouter département/filière</span>
-							</a>
-						</li>
+              <a href="filiere.php">
+                <i class="fa fa-plus"></i>
+                <span>Ajouter département/filière</span>
+              </a>
+            </li>
 
-						<li class="sub-menu dcjq-parent-li">
-							<a href="javascript:;">
-								<i class="fa fa-file-text-o"></i>
-								<span>Editer Contrat</span>
-								<span class="dcjq-icon"></span></a>
-							<ul class="sub" style="display: block;">
+            <li class="sub-menu dcjq-parent-li">
+              <a href="javascript:;">
+                <i class="fa fa-file-text-o"></i>
+                <span>Editer Contrat</span>
+                <span class="dcjq-icon"></span></a>
+              <ul class="sub" style="display: block;">
                 <li><a href="contratl.php">Contrat Licence</a></li>
-								<li><a href="contratm.php">Contrat Master</a></li>
-							</ul>
-						</li>
+                <li><a href="contratm.php">Contrat Master</a></li>
+              </ul>
+            </li>
 
           </ul>
         </div>
@@ -218,13 +222,17 @@ if (isset($_GET['val'])) {
                   while ($donneesenseignant = $admin->fetch()) {
                   ?>
 
-                    <tr data-expanded="true">
-                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['matricule'];  ?></a> </td>
-                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['nom'];  ?> </a></td>
-                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['prenom'];  ?></a></td>
-                      <td> <a href="profilagent.php?val=<?php echo $donneesenseignant['id'];  ?>"> <?php echo $donneesenseignant['role'];  ?></a></td>
+                  <tr data-expanded="true">
+                    <td> <a href="profiladmin.php?val=<?php echo $donneesenseignant['id'];  ?>">
+                        <?php echo $donneesenseignant['matricule'];  ?></a> </td>
+                    <td> <a href="profiladmin.php?val=<?php echo $donneesenseignant['id'];  ?>">
+                        <?php echo $donneesenseignant['nom'];  ?> </a></td>
+                    <td> <a href="profiladmin.php?val=<?php echo $donneesenseignant['id'];  ?>">
+                        <?php echo $donneesenseignant['prenom'];  ?></a></td>
+                    <td> <a href="profiladmin.php?val=<?php echo $donneesenseignant['id'];  ?>">
+                        <?php echo $donneesenseignant['role'];  ?></a></td>
 
-                    </tr>
+                  </tr>
                   <?php
                   }
 

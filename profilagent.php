@@ -29,20 +29,24 @@ categorie.nom as categorie,
 banque.nom as banque,
 role.nom as role
 from agent,grade,statut,categorie,banque,role WHERE agent.grade_id=grade.id AND agent.statut_id=statut.id AND agent.banque_id=banque.id AND agent.categorie_id=categorie.id AND agent.role_id=role.id ORDER BY `agent`.`nom` AND agent.id=:id');
-if($_GET['val'])
+
+if(isset($_GET['val']))
 {
     $req->execute(array(
         'id' =>$_GET['val'],
             )
         );
 }
-else
+
+/* else
 {
     $req->execute(array(
         'id' =>$_SESSION['id'],
             )
         );
-}
+} */
+
+
 $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
 ?>

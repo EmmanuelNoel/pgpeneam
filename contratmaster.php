@@ -130,7 +130,7 @@ $infos_agent = $infos_sup->fetch();
         <br><br>
 
         <div>
-            <div class="fw-bolder ms-5">N°....................................../UAC/ENEAM/DA/SGE/SC/SPE/SerP du .................................</div>
+            <div class="fw-bolder ms-5">N°....................................../UAC/ENEAM/DA/SGE/SC/SPE/SerP<?php echo $_POST['dep']  ?> du .................................</div>
         </div>
         <br>
         <div class="">

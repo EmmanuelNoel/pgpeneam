@@ -122,6 +122,18 @@ if ($num_contrat) {
                         </div>
                     </div>
 
+                    <div class="row" style="margin-bottom: 20px; text-align: left">
+
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6" style="display:flex ; justify-content: space-around;">
+
+                            <select class="form-select formselect depFormSelect" name="dep" style="width: 450px; " required>
+                                <option value="" selected>Departement</option>
+                                <option value="/DECOFI" >DECOFI</option>
+                                <option value="/ISE">ISE</option>
+                            </select>
+                        </div>
+
+                    </div>
                     <section id="duplicater">
 
                         <div class="row pe-3 pb-4">

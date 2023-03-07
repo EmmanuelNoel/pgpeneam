@@ -3,7 +3,7 @@ var elToDownload = document.querySelector(".container");
 
 telecharger.onclick = () => {
     opt = {
-        margin: [0.6, 0.6, 0.677, 0.7],
+        margin: [0.6, 0.6, 0.7, 0.7],
         filename: 'contrat.pdf',
         image: { type: 'jpeg', quality: 1 },
         htlm2canvas: { scale: 1 },

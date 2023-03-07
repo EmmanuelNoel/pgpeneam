@@ -103,7 +103,7 @@ $administrateurs_permanents = $bdd->query('SELECT count(*) as administrateurs_pe
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu extended logout">
-							<li><a href="profilagent.php"><i class="bi bi-person-circle"></i>Profil</a></li>
+							<!-- <li><a href="profilagent.php"><i class="bi bi-person-circle"></i>Profil</a></li> -->
 
 							<li><a href="deconnexion.php"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
 						</ul>
